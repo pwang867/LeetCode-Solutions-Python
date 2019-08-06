@@ -25,13 +25,10 @@ class Solution(object):
                 cur += l2.val
                 l2 = l2.next
             
-            carry = cur//10
-            cur = cur%10
+            carry, cur = divmod(cur, 10)
             node = ListNode(cur)
             
             head.next = node
             head = head.next
             
         return dummy.next
-
-        
