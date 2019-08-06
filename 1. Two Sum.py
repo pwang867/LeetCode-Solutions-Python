@@ -1,3 +1,4 @@
+# method 1: use dictionary/hashmap, time O(n), space O(n)
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -5,27 +6,27 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # method 2: dictionary, O(n)
-        d = {}
+        
+        visited = {}  # {num: index}
         
         for i, num in enumerate(nums):
-            if num in d:
-                return [d[num], i]
+            if target - num in visited:
+                return [visited[target-num], i]
             else:
-                d[target-num] = i
+                visited[num] = i
         
-        return []
+        return []  # not found
+
     
-        
-        
-        # method1: brute force, O(n^2)
-#     def twoSum(self, nums, target):
-#         n = len(nums)
-#         if n < 2:
-#             return []
-#         for i in range(n-1):
-#             for j in range(i+1, n):
-#                 if nums[i] + nums[j] == target:
-#                     return [i, j]
-#         return res
+# method 2: brute force, O(n^2)
+class Solution2(object):
+    def twoSum(self, nums, target):
+        n = len(nums)
+        if n < 2:
+            return []
+        for i in range(n-1):
+            for j in range(i+1, n):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return res
     
