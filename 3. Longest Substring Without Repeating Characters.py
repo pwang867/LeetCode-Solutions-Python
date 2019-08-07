@@ -7,7 +7,7 @@ class Solution(object):
         # method2: sliding window
         start, end = 0, 0  # window is [start, end)
         n = len(s)
-        last_appeared = {}
+        last_appeared = {}  # {letter: index}
         longest = 0
         while start < n and end < n:
             if s[end] in last_appeared:
