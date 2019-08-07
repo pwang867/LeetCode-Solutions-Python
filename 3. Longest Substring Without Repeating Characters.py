@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        # method2: sliding window
+        # method2: sliding window, O(n)
         start, end = 0, 0  # window is [start, end)
         n = len(s)
         last_appeared = {}  # {letter: index}
