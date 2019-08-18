@@ -21,7 +21,7 @@ class Solution(object):
             
 
 
-# method 2: divide and conquer, O(n*log(n))
+# method 2: recursion, divide and conquer, O(n*log(n))
 # worst case time O(n^2), space recursion depth O(n)
 # Time limit exceeded on worst case: an increasing sequence
 class Solution2(object):
