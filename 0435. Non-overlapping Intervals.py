@@ -19,7 +19,7 @@ class Solution(object):
                 # when there is an overlap between pre and intervals[i]
                 # one of the two intervals must be erased
                 num_erase += 1
-                if intervals[i][-1] < pre[-1]:  # only need to compare the tail
+                if intervals[i][-1] < pre[-1]:  # greedy!!! only need to compare the tail
                     pre = intervals[i]
         return num_erase
     
