@@ -15,5 +15,5 @@ class Solution(object):
         # return ans
         
         # Method 2:
-        return bin(x^y).count('1')
+        return bin(x^y).count('1')  # or use x=x&(x-1) to remove the last "1" in x
     
