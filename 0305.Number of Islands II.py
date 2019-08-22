@@ -31,4 +31,5 @@ class Solution(object):
         else:
             self.getRoot(roots, roots[x][y][0], roots[x][y][1])
 
-print(Solution().numIslands2(3, 3, [[0,0], [0,1], [1,2], [2,1]]))
+if __name__ == "__main__":
+    print(Solution().numIslands2(3, 3, [[0,0], [0,1], [1,2], [2,1]]))
