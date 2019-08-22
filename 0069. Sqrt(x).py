@@ -1,3 +1,5 @@
+# method 1: binary search O(log(n))
+# other methods: Newton's method
 class Solution(object):
     def mySqrt(self, x):
         """
