@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 22 09:59:39 2019
-
-@author: WEIMIN ZHOU
-"""
-
+# union find, time to add one position is O(m*n) in worst case when the islands gets very big
 class Solution(object):
     def numIslands2(self, m, n, positions):
         roots = [[-1]*n for _ in range(m)]  # works like a linked list
