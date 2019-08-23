@@ -5,19 +5,40 @@
 #         self.left = None
 #         self.right = None
 
+# method 3: iteration, level-wise traversal
+class Solution3(object):
+    def rangeSumBST(self, root, L, R):
+        if not root:
+            return 0
+        
+        stack = [root]
+        total = 0
+        while stack:
+            node = stack.pop()
+            if L <= node.val <= R:
+                total += node.val
+            if node.val > L and node.left:
+                stack.append(node.left)
+            if node.val < R and node.right:
+                stack.append(node.right)
+        return total
 
-# method 2: use BST property, O(k) where k is the length of the result
+    
+# method 2: recursion, use BST property
 class Solution(object):
     def rangeSumBST(self, root, L, R):
         if not root:
             return 0
-        if root.val < L:
-            return self.rangeSumBST(root.right, L, R)
-        elif root.val > R:
-            return self.rangeSumBST(root.left, L, R)
-        else:
-            return root.val + self.rangeSumBST(root.left, L, R) \
-                    + self.rangeSumBST(root.right, L, R)
+        
+        total = 0
+        if L <= root.val <= R:
+            total += root.val
+        if root.val > L:
+            total += self.rangeSumBST(root.left, L, R)
+        if root.val < R:
+            total += self.rangeSumBST(root.right, L, R)
+        
+        return total
 
 
 # method 1: recursion, without using property of BST O(n)
