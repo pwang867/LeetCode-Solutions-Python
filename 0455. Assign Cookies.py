@@ -1,4 +1,5 @@
-# Solution 2, greedy, meet most greedy children first, O(n*log(n) + n)
+# Solution 2, greedy, meet most greedy children first, 
+# though not all children are met, O(n*log(n) + n)
 class Solution(object):
     def findContentChildren(self, g, s):
         g.sort()
@@ -15,7 +16,8 @@ class Solution(object):
         
         return len(s)
 
-# Solution 1, greedy, meet least greedy children first, O(n*log(n) + n)
+# Solution 1, greedy, meet least greedy children first, 
+# all visited children must be meet, O(n*log(n) + n)
 class Solution1(object):
     def findContentChildren(self, g, s):
         """
