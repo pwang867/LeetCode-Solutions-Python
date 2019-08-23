@@ -6,7 +6,7 @@
 #         self.right = None
 
 
-# method 2: use BST property
+# method 2: use BST property, O(k) where k is the length of the result
 class Solution(object):
     def rangeSumBST(self, root, L, R):
         if not root:
