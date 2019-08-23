@@ -1,5 +1,32 @@
-# method 2: do not use padding
+# method 3: recursively search starting from a single "1" point
+# faster than method 2, because it does not have to check the whole grid
+# however, it has large dfs depth
 class Solution(object):
+    def islandPerimeter(self, grid):
+        peri = [0]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    self.islandHelper(grid, i, j, peri)
+                    break
+        return peri[0]
+    
+    def islandHelper(self, grid, i, j, peri):
+        # input requirement: grid[i][j] == 1
+        grid[i][j] = 2
+        dirs = [(0, 1), (0, -1), (-1, 0), (1, 0)]
+        for _dir in dirs:
+            x, y = _dir[0] + i, _dir[1] + j
+            if x < 0 or y < 0 or x >= len(grid) \
+                or y >= len(grid[0]) or grid[x][y] == 0:
+                peri[0] += 1
+            elif grid[x][y] == 1:
+                self.islandHelper(grid, x, y, peri)
+                
+        
+
+# method 2: brute force, do not use padding
+class Solution2(object):
     def islandPerimeter(self, grid):
         if not grid or not grid[0]:
             return 0
@@ -18,7 +45,7 @@ class Solution(object):
         return peri
 
 
-# method 1: use padding
+# method 1: brute force, use padding
 class Solution1(object):
     def islandPerimeter(self, grid):
         """
