@@ -27,9 +27,29 @@ class Solution(object):
                 pre = node.val  # do not forget!!
                 node = node.right
         return res
-    
 
-# recursion, O(n)
+
+# method 2: recursion, in order traversal
+class Solution2(object):
+    def minDiffInBST(self, root):
+        self.res = float('inf')
+        self.pre = -float('inf')
+        self.BSTHelper(root)
+        return self.res
+    
+    def BSTHelper(self, root):
+        if not root:
+            return
+        
+        self.BSTHelper(root.left)
+        
+        self.res = min(self.res, root.val - self.pre)
+        self.pre = root.val
+        
+        self.BSTHelper(root.right)
+
+
+# recursion, post-order, O(n)
 # return the min and max of a root
 class Solution1(object):
     def minDiffInBST(self, root):
