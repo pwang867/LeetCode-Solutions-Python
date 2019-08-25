@@ -7,7 +7,7 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        visited = {}  # {num: index}
+        visited = {}  # {num: index}, visited elements
         
         for i, num in enumerate(nums):
             if target - num in visited:
