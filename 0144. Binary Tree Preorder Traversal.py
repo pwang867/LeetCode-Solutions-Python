@@ -6,7 +6,7 @@
 #         self.right = None
 
 # iteration, stack
-class Solution(object):
+class Solution3(object):
     def preorderTraversal(self, root):
         """
         :type root: TreeNode
@@ -29,7 +29,23 @@ class Solution(object):
         
         return res
 
-# recursion
+# recursion, with helper function
+class Solution2(object):
+    def preorderTraversal(self, root):
+        
+        res = []
+        self.preorderHelper(root, res)
+        return res
+    
+    def preorderHelper(self, root, res):
+        if not root:
+            return
+        res.append(root.val)
+        for child in [root.left, root.right]:
+            self.preorderHelper(child, res)
+        
+    
+# recursion, no helper function
 class Solution1(object):
     def preorderTraversal(self, root):
         if not root:
