@@ -61,7 +61,7 @@ def levelorder(self, root):
     
     res = []
     
-    level = [root]
+    level = [root]  # or use deque()
     while level:
         vals = [node.val for node in level]
         res.append(vals)
