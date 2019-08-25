@@ -6,15 +6,14 @@
 #         self.right = None
 
 # method 4: inorder iteration using Morris method
-# time O(n), space O(1)
 class Solution(object):
     def inorderTraversal(self, root):
         res = []
         cur = root
         while cur:
             if cur.left:
-                pre = cur.left
-                while pre.right and pre.right != cur:
+                pre = cur.left  # step 1: go left
+                while pre.right and pre.right != cur:  # step 2: all the way right
                     pre = pre.right
                 if not pre.right:
                     pre.right = cur
@@ -31,7 +30,6 @@ class Solution(object):
 
 
 # method 3: inorder iteration using stack
-# time O(n), space O(log(n))
 class Solution3(object):
     def inorderTraversal(self, root):
         res = []
