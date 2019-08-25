@@ -54,3 +54,18 @@ def postorder(root):
                 p = None
     
     return res
+
+def levelorder(self, root):
+    if not root:
+        return []
+    
+    res = []
+    
+    level = [root]
+    while level:
+        vals = [node.val for node in level]
+        res.append(vals)
+        level = [child for node in level \
+                 for child in [node.left, node.right] if child]
+
+    return res
