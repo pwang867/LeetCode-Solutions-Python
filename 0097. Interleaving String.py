@@ -2,7 +2,7 @@
 
 
 
-# recursion with memo
+# recursion with memo, O(len(s1)*len(s2))
 class Solution(object):
     def isInterleave(self, s1, s2, s3):
         """
