@@ -11,7 +11,12 @@ class Solution(object):
         :type s3: str
         :rtype: bool
         """
-        self.memo = set()
+        # memo is to save failure matches
+        # when s1[:i], s2[:j] matches with s3[:i+j], 
+        # but s1[i:], s2[j:] don't match with s3[i+j:], then save (i, j)
+        # so that we don't check this pair again
+        self.memo = set()  
+        
         if len(s1) + len(s2) != len(s3):
             return False
         
