@@ -8,6 +8,11 @@ class Solution(object):
         return self.numTreesHelper(n)
     
     def numTreesHelper(self, n):
+        """
+        we don't care about the exact values used to construct the BST
+        as long as the count of numbers are the same, 
+        there will the same count of BST trees
+        """
         if n <= 1:
             return 1
         if n in self.memo:
