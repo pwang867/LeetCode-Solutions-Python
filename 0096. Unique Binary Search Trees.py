@@ -1,4 +1,20 @@
+# method 2: dp
 class Solution(object):
+    def numTrees(self, n):
+        if n < 2:
+            return 1
+        
+        dp = [0]*(n+1)
+        dp[0] = 1
+        dp[1] = 1
+        for i in range(2, n+1):
+            for j in range(i):
+                dp[i] += dp[j]*dp[i-1-j]
+        return dp[n]
+
+
+# method 1: recursion with memo
+class Solution1(object):
     def numTrees(self, n):
         """
         :type n: int
@@ -8,11 +24,6 @@ class Solution(object):
         return self.numTreesHelper(n)
     
     def numTreesHelper(self, n):
-        """
-        we don't care about the exact values used to construct the BST
-        as long as the count of numbers are the same, 
-        there will the same count of BST trees
-        """
         if n <= 1:
             return 1
         if n in self.memo:
