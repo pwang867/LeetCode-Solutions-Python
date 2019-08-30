@@ -1,4 +1,4 @@
-# method 3: O(n), Manacher's method, use symmetry of a Palindrome
+# method 4: O(n), Manacher's method, use symmetry of a Palindrome
 # utilize the information of previous checked Palindromes
 class Solution(object):
     def longestPalindrome(self, s):
@@ -32,9 +32,34 @@ class Solution(object):
             if dp[i] > dp[iLongest]:  # update longest palindrome
                 iLongest = i
         
-        longest_start = (iLongest - dp[iLongest] + 1)//2   # be careful about the index, odd and even palindromes
+        # be careful about the index, odd and even palindromes
+        longest_start = (iLongest - dp[iLongest] + 1)//2   
         longest_len = dp[iLongest] - 1
         return s[longest_start: longest_start + longest_len]
+
+# method 3: simplified from method 2, but use a smarter way 
+# to deal with odd and even length of palindromes
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        start, end = 0, 0
+        
+        for i in range(2*len(s)-1):
+            # initialize (left, right) to (0,0),(0,1), (1,0), (1,1),...
+            left = i // 2
+            right = left + i%2
+            while left >= 0 and right < len(s):
+                if s[left] != s[right]:
+                    break
+                left, right = left-1, right+1
+            left, right = left+1, right-1
+            if right - left > end - start:
+                start, end = left, right
+        
+        return s[start:end+1]
 
 # method 2: Time O(n^2), start search from the center of Palindromes
 class Solution(object):
