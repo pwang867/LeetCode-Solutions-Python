@@ -36,6 +36,36 @@ class Solution(object):
         longest_len = dp[iLongest] - 1
         return s[longest_start: longest_start + longest_len]
 
+# method 2: Time O(n^2), start search from the center of Palindromes
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        start, end = 0, 0  # the position of the longest palindrome
+        
+        for i in range(len(s)):
+            # search palindromes with odd length
+            left, right = self.searchPalindrome(s, i, i)
+            if right-left > end-start:
+                start, end = left, right
+            # search palindromes with even length
+            left, right = self.searchPalindrome(s, i, i+1)
+            if right-left > end-start:
+                start, end = left, right
+        
+        return s[start:end+1]
+    
+    def searchPalindrome(self, s, i, j):
+        while i >= 0 and j < len(s):
+            if s[i] != s[j]:
+                break
+            i -= 1
+            j += 1
+        return (i+1, j-1)
+        
+
 # method 1: brute force, O(n^3), Time limit exceeded (TLE)
 class Solution(object):
     def longestPalindrome(self, s):
