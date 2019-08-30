@@ -33,6 +33,8 @@ class Solution(object):
                 iLongest = i
         
         # be careful about the index, odd and even palindromes
+        # palindrome in s1 must start with "#", followed by a letter "x"
+        # relation of index i of "#" in new string and index j of the letter "x" in s is j = i//2
         longest_start = (iLongest - dp[iLongest] + 1)//2   
         longest_len = dp[iLongest] - 1
         return s[longest_start: longest_start + longest_len]
