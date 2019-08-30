@@ -1,4 +1,5 @@
 # method 1: O(n), Manacher's method, use symmetry of a Palindrome
+# utilize the information of previous checked Palindromes
 class Solution(object):
     def longestPalindrome(self, s):
         """
@@ -34,4 +35,27 @@ class Solution(object):
         longest_start = (iLongest - dp[iLongest] + 1)//2   # be careful about the index, odd and even palindromes
         longest_len = dp[iLongest] - 1
         return s[longest_start: longest_start + longest_len]
+
+# method 1: brute force, O(n^3), Time limit exceeded (TLE)
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        res = (0,0)
+        
+        for i in range(len(s)-1):
+            for j in range(i, len(s)):
+                if (j-i+1) > res[1]-res[0]+1 and self.isPalindrome(s, i, j):
+                    res = (i, j)
+        return s[res[0]:res[1]+1]
+    
+    def isPalindrome(self, s, i, j):
+        while i < j:
+            if s[i] != s[j]:
+                return False
+            i += 1
+            j -= 1
+        return True
     
