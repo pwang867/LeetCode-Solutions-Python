@@ -1,7 +1,22 @@
-# method 2: dp
+# method 3: dp, space O(min(m, n))
+# uniquePaths(m, n) == uniquePaths(n, m)
+class Solution(object):
+    def uniquePaths(self, m, n):
+        if n > m:  # to make n the smaller one
+            m, n = n, m
+            
+        dp = [1]*n
+        for i in range(1, m):
+            for j in range(1, n):
+                dp[j] += dp[j-1]
+        
+        return dp[-1]
+    
+
+# method 2: dp, space O(m*n)
 # dp[i][j] means the number of ways going from (0, 0) to (i, j)
 # dp[i][j] = dp[i-1][j] + dp[i][j-1]
-class Solution(object):
+class Solution2(object):
     def uniquePaths(self, m, n):
         if m <= 0 or n <= 0:
             return 0
