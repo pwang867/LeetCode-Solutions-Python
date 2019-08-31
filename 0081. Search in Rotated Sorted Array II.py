@@ -1,4 +1,5 @@
 # two pointers
+# same as problem 33. Search in Rotated Sorted Array
 # be careful with duplicates on the two edges, remove them first
 class Solution(object):
     def search(self, nums, target):
