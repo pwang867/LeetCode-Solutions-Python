@@ -16,12 +16,12 @@ class Solution(object):
             mid = (left+right)//2
             if nums[mid] == target:
                 return True
-            elif nums[mid] >= nums[left]:  # mid in left half
+            if nums[mid] >= nums[left]:  # mid is in left half
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
-            else:
+            else:  # mid is in right half
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
                 else:
