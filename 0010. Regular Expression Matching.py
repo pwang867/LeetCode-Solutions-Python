@@ -1,3 +1,38 @@
+# method 2: O(m*n)
+"""
+# dp[i][j] means if s[:i] matches with p[:j]
+# two conditions. 
+# 1. p[i-1] is not "*", then:
+# dp[i][j] = (s[i-1]==p[j-1] or p[j-1]==".") and dp[i-1][j-1]
+# 2. p[i-1] is "*", then matches with nothing or several s[i-1]: 
+# dp[i][j] = dp[i][j-2] or (dp[i-1][j] and (s[i-1]==p[j-2] or p[j-2]=="."))
+"""
+class Solution(object):
+    def isMatch(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        m, n = len(s), len(p)
+        dp = [[False]*(n+1) for _ in range(m+1)]
+        dp[0][0] = True
+        
+        for i in range(m+1):
+            for j in range(1, n+1):
+                if j == 1:  # mistake: dp[i][j] == i-1 and...
+                    dp[i][j] = i==1 and (s[i-1]==p[j-1] or p[j-1]==".")
+                elif p[j-1] != "*":  # easy to forget i > 0
+                    dp[i][j] = i>0 and (s[i-1]==p[j-1] or p[j-1]==".") \
+                                and dp[i-1][j-1]
+                else:
+                    dp[i][j] = dp[i][j-2] or (i>0 and dp[i-1][j] \
+                                              and (s[i-1]==p[j-2] or p[j-2]=="."))
+        
+        return dp[m][n]
+    
+
+
 # recursion with memo, time O(m*n)
 # p only has three conditions: 1. a letter, 2. ".", 3. a letter for "." combined with "*"
 # "*" is never used alone, and has to be used with a previous letter
