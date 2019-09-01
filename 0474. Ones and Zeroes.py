@@ -1,8 +1,8 @@
 # Time: (length of strs)*m*n
-        # dynamic programming
-        # dp[i][j] means the max number of traversed strings 
-        # that could be constructed using i '0' and j '1'
-        # for every str, update dp backwards
+# dynamic programming
+# dp[i][j] means the max number of traversed strings 
+# that could be constructed using i '0' and j '1'
+# for every str, update dp backwards so that we don't overwrite values to be used
         
 class Solution(object):
     def findMaxForm(self, strs, m, n):
