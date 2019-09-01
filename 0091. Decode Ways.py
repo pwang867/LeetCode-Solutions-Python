@@ -1,6 +1,8 @@
-# dynamic programming, O(n)
+# dynamic programming, time O(n), space O(n)
 # idea is easy, but be careful about dealing with "0"
 # such as "0", "10", "301", etc
+# dp[i] = dp[i-1] + dp[i-2], be careful about the index
+# similar to Fibonacci array
 class Solution(object):
     def numDecodings(self, s):
         """
