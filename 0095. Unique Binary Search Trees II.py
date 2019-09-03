@@ -5,27 +5,6 @@
 #         self.left = None
 #         self.right = None
 
-# method 2: dp, add integers one by one
-class Solution(object):
-    def generateTrees(self, n):
-        if n == 0:
-            return [None]
-        dp = [TreeNode(1)]
-        for i in range(2, n+1):
-            new_dp = []
-            for node in dp:
-                root1 = TreeNode(i)
-                root1.left = node
-                new_dp.append(root1)
-                root2 = node
-                while node.right:
-                    node = node.right
-                node.right = TreeNode(i)
-                new_dp.append(root2)
-            dp = new_dp
-        return dp
-
-
 # method 1: recursion
 class Solution(object):
     def generateTrees(self, n):
