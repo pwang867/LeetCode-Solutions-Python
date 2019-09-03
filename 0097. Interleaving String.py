@@ -1,4 +1,7 @@
 # method 2: dp
+# dp[i][j] means whether s1[:i] and s2[:j] matches with s3[:i+j]
+# dp[i][j] = (dp[i-1][j] and s1[i-1]==s3[i+j-1]) \
+#            or (dp[i][j-1] and s2[j-1]==s3[i+j-1])
 class Solution(object):
     def isInterleave(self, s1, s2, s3):
         m, n = len(s1), len(s2)
@@ -22,9 +25,8 @@ class Solution(object):
                             or (dp[i][j-1] and s2[j-1]==s3[i+j-1])
         
         return dp[m][n]
-        
 
-
+    
 # recursion with memo
 class Solution1(object):
     def isInterleave(self, s1, s2, s3):
