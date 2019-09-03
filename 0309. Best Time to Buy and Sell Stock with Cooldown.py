@@ -1,4 +1,6 @@
 # dp, time O(n), space O(n)
+# loc[i] means the max profit if a stock is sold on day prices[i]
+# glo[i] means the max profit during prices[:i+1] without restriction
 class Solution(object):
     def maxProfit(self, prices):
         """
