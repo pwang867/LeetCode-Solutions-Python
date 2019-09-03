@@ -1,4 +1,5 @@
 # method 2: dp
+# dp[i] means the number of trees that can be formed by i numbers
 class Solution(object):
     def numTrees(self, n):
         if n < 2:
