@@ -7,7 +7,7 @@ class Solution(object):
         if not nums:
             return 0
         
-        # _max means the max product ending in nums[i]
+        # _max means the max product ending in nums[i] and includes nums[i]
         # _min means the min product ending in nums[i]
         _max, _min = nums[0], nums[0]
         res = _max  # global maximum product
