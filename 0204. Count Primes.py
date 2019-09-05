@@ -1,4 +1,7 @@
-# don't duplicate the work by counting i*j and j*i twice
+# time complexity: n*log(log(n)), space O(n)
+# https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithmic_complexity
+# don't duplicate the work by calculting i*j and j*i
+
 class Solution(object):
     def countPrimes(self, n):
         """
@@ -13,12 +16,12 @@ class Solution(object):
         isPrime[1] = 0
         
         cnt = 0
-        for i in range(2, n):
+        for i in range(2, int(n**0.5)+1):  # we only need to check to sqrt(n)
             if isPrime[i]:
                 cnt += 1
                 for j in range(i*i, n, i):  # much better than range(i*2, n, i)
-                # when i == 5, j == 2, the 5*2 is already taken care of when i == 2, j == 5 (2*5)
                     isPrime[j] = False
         
-        return cnt
+        return cnt + sum(isPrime[int(n**0.5)+1:])
+    
     
