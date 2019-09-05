@@ -1,5 +1,6 @@
 # 2D dp
 # dp[i][j] means if the first layer can win for piles[i:j+1]
+# j - i + 1 is always even
 # equation: dp[i][j] = max( min(dp[i+2][j], dp[i+1][j-1]), 
 #                        min(dp[i][j-2], dp[i+1][j-1]) )
 class Solution(object):
