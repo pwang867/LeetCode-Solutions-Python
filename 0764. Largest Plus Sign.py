@@ -1,7 +1,7 @@
 # method 1, calculate the order in all four directions, 
 # and then find the max
 # time O(N^2), space O(N^2)
-class Solution(object):
+class Solution1(object):
     def orderOfLargestPlusSign(self, N, mines):
         mines = {tuple(mine) for mine in mines}
         order = [[float('inf')]*N for _ in range(N)]
@@ -77,4 +77,27 @@ class Solution2(object):
                     start, end = -1, -1
         
         return max([max(row) for row in order])
+
     
+# method 3, brute force, time O(N^3), space O(1), time limit exceeded
+# for each point, calculate the order for all four directions
+class Solution(object):
+    def orderOfLargestPlusSign(self, N, mines):
+        max_order = 0
+        mines = {tuple(mine) for mine in mines}
+        
+        for i in range(N):
+            for j in range(N):
+                if (i, j) not in mines:
+                    cur_order = 1
+                    while i - cur_order >= 0 and j - cur_order >= 0 \
+                        and i + cur_order < N and j + cur_order < N \
+                        and ((i, j-cur_order) not in mines) \
+                        and ((i, j+cur_order) not in mines) \
+                        and ((i-cur_order, j) not in mines) \
+                        and ((i+cur_order, j) not in mines):
+                        cur_order += 1
+                    max_order = max(max_order, cur_order)
+        return max_order
+    
+        
