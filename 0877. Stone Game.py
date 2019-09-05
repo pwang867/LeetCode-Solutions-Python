@@ -20,11 +20,10 @@ class Solution(object):
                 j = i + length - 1
                 
                 if length == 2:
-                    
                     dp[i][j] = max(piles[i], piles[j]) - min(piles[i], piles[j])
-                else:
+                else:  # Lee also play optimally, so he will minimize Alex's gain
                     dp[i][j] = max( min(dp[i+2][j], dp[i+1][j-1]) + piles[i], 
-                                   min(dp[i][j-2], dp[i+1][j-1]) + piles[j] )
+                                    min(dp[i][j-2], dp[i+1][j-1]) + piles[j] )
         
         return dp[0][n-1] > 0
     
