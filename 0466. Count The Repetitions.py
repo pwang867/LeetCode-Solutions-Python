@@ -14,6 +14,9 @@ class Solution(object):
         :type n2: int
         :rtype: int
         """
+        # delete extra letters in s1 that are not in s2
+        s1 = "".join([c for c in s1 if c in s2])  
+        
         s1_round, s2_round = 0, 0  # number of rounds that has been checked
         i, j = 0, 0  # the iteration index of s1 and s2
         d = {}  # {s2 index j: (s1_round, s2_round}
