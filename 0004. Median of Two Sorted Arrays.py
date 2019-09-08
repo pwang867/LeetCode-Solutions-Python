@@ -33,91 +33,91 @@ class Solution(object):
         
         
 # method 2, find k-th value, throw k/2 values at each time
-# optimize for median of even number
-# class Solution(object):
-#     def findMedianSortedArrays(self, nums1, nums2):
-#         """
-#         :type nums1: List[int]
-#         :type nums2: List[int]
-#         :rtype: float
-#         """
-#         if not nums1 and not nums2:
-#             return None
+# optimize for median of even number, don't have to call subfunction twice
+class Solution2(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        if not nums1 and not nums2:
+            return None
         
-#         m, n = len(nums1), len(nums2)  # m <= n
+        m, n = len(nums1), len(nums2)  # m <= n
         
-#         median = self.findKthValue(nums1, nums2, 0, 0, (m+n+1)//2)
-#         return median
+        median = self.findKthValue(nums1, nums2, 0, 0, (m+n+1)//2)
+        return median
     
-#     def findKthValue(self, nums1, nums2, i, j, k):
-#         # find the k-th value of nums1[i:] + nums2[j:]
-#         # k=1 means the smallest element
-#         # nums1 and nums2 can not be both empty
+    def findKthValue(self, nums1, nums2, i, j, k):
+        # find the k-th value of nums1[i:] + nums2[j:]
+        # k=1 means the smallest element
+        # nums1 and nums2 can not be both empty
         
-#         if k == 1:  # stop condition
-#             val1 = nums1[i] if i < len(nums1) else float('inf')
-#             val2 = nums2[j] if j < len(nums2) else float('inf')
-#             if (len(nums1) + len(nums2))%2 == 1:  # odd
-#                 return min(val1, val2)
-#             else:  # even
-#                 val3 = nums1[i+1] if i+1 < len(nums1) else float('inf')
-#                 val4 = nums2[j+1] if j+1 < len(nums2) else float('inf')
-#                 fourNums = [val1, val2, val3, val4]
-#                 fourNums.sort()
-#                 return (fourNums[0] + fourNums[1])/2.0
+        if k == 1:  # stop condition
+            val1 = nums1[i] if i < len(nums1) else float('inf')
+            val2 = nums2[j] if j < len(nums2) else float('inf')
+            if (len(nums1) + len(nums2))%2 == 1:  # odd
+                return min(val1, val2)
+            else:  # even
+                val3 = nums1[i+1] if i+1 < len(nums1) else float('inf')
+                val4 = nums2[j+1] if j+1 < len(nums2) else float('inf')
+                fourNums = [val1, val2, val3, val4]
+                fourNums.sort()
+                return (fourNums[0] + fourNums[1])/2.0
         
-#         block = k//2
-#         val1 = nums1[i+block-1] if i+block-1 < len(nums1) else float('inf')
-#         val2 = nums2[j+block-1] if j+block-1 < len(nums2) else float('inf')
+        block = k//2
+        val1 = nums1[i+block-1] if i+block-1 < len(nums1) else float('inf')
+        val2 = nums2[j+block-1] if j+block-1 < len(nums2) else float('inf')
         
-#         if val1 <= val2:  # not val1 < val2, to make sure len(nums1) < len(nums2)
-#             return self.findKthValue(nums1, nums2, i + block, j, k - block)
-#         else:
-#             return self.findKthValue(nums1, nums2, i, j + block, k - block)
+        if val1 <= val2:  # not val1 < val2, to make sure len(nums1) < len(nums2)
+            return self.findKthValue(nums1, nums2, i + block, j, k - block)
+        else:
+            return self.findKthValue(nums1, nums2, i, j + block, k - block)
 
         
-# method 1, find k-th value, throw k/2 values at each time
-# class Solution(object):
-#     def findMedianSortedArrays(self, nums1, nums2):
-#         """
-#         :type nums1: List[int]
-#         :type nums2: List[int]
-#         :rtype: float
-#         """
-#         if not nums1 and not nums2:
-#             return None
+# method 1, find k-th value, drop about k/2 values at each round
+class Solution1(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        if not nums1 and not nums2:
+            return None
         
-#         m, n = len(nums1), len(nums2)  # m <= n
+        m, n = len(nums1), len(nums2)  # m <= n
         
-#         median = self.findKthValue(nums1, nums2, 0, 0, (m+n+1)//2)
-#         if (m+n)%2 == 0:
-#             median =(median + 
-#                      self.findKthValue(nums1, nums2, 0, 0, (m+n+2)//2))/2.0
-#         return median
+        median = self.findKthValue(nums1, nums2, 0, 0, (m+n+1)//2)
+        if (m+n)%2 == 0:
+            median =(median + 
+                     self.findKthValue(nums1, nums2, 0, 0, (m+n+2)//2))/2.0
+        return median
     
-#     def findKthValue(self, nums1, nums2, i, j, k):
-#         # find the k-th value of nums1[i:] + nums2[j:]
-#         # k=1 means the smallest element
-#         # nums1 and nums2 can not be both empty
+    def findKthValue(self, nums1, nums2, i, j, k):
+        # find the k-th value of nums1[i:] + nums2[j:]
+        # k=1 means the smallest element
+        # nums1 and nums2 can not be both empty
         
-#         # early termination
-#         if i > len(nums1):
-#             return nums2[j+k-1]
-#         if j > len(nums2):
-#             return nums2[i+k-1]
+        # early termination
+        if i > len(nums1):
+            return nums2[j+k-1]
+        if j > len(nums2):
+            return nums2[i+k-1]
         
-#         # stop condition
-#         if k == 1: 
-#             return min(nums1[i], nums2[j])
+        # stop condition
+        if k == 1: 
+            return min(nums1[i], nums2[j])
         
-#         block = k//2
-#         val1 = nums1[i+block-1] if i+block-1 < len(nums1) else float('inf')
-#         val2 = nums2[j+block-1] if j+block-1 < len(nums2) else float('inf')
+        block = k//2
+        val1 = nums1[i+block-1] if i+block-1 < len(nums1) else float('inf')
+        val2 = nums2[j+block-1] if j+block-1 < len(nums2) else float('inf')
         
-#         if val1 <= val2:  # not val1 < val2, to make sure len(nums1) < len(nums2)
-#             return self.findKthValue(nums1, nums2, i + block, j, k - block)
-#         else:
-#             return self.findKthValue(nums1, nums2, i, j + block, k - block)
+        if val1 <= val2:  # not val1 < val2, to make sure len(nums1) < len(nums2)
+            return self.findKthValue(nums1, nums2, i + block, j, k - block)
+        else:
+            return self.findKthValue(nums1, nums2, i, j + block, k - block)
         
 
 
