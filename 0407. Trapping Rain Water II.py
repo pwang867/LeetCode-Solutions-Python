@@ -2,7 +2,8 @@
 # pop out the boundary elements one by one 
 # and then push its neighbors into the heap
 # each element goes in and out of the heap once, so 
-# time O(m*n), space O(m*n)
+# time worst case O(m*n*log(m*n)), space O(m*n), 
+# where (m,n) is the dimension of heightMap
 
 import heapq
 class Solution(object):
