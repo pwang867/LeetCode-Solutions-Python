@@ -1,4 +1,5 @@
-# method 1: use dictionary/hashmap, time O(n), space O(n)
+# method 1: use a dictionary/hashmap to save visited numbers, 
+# time O(n), space O(n)
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -18,15 +19,13 @@ class Solution(object):
         return []  # not found
 
     
-# method 2: brute force, O(n^2)
+# method 2: brute force, time O(n^2), space O(1)
+# iterate every possible two nums
 class Solution2(object):
     def twoSum(self, nums, target):
         n = len(nums)
-        if n < 2:
-            return []
         for i in range(n-1):
             for j in range(i+1, n):
                 if nums[i] + nums[j] == target:
                     return [i, j]
-        return res
-    
+        return []
