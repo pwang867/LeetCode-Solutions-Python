@@ -15,7 +15,7 @@ class Solution(object):
         
         dp = {-1: 0}  # {ending value: minimum number of operations}
         for cur in arr1:
-            temp = defaultdict(lambda:float('inf'))
+            temp = defaultdict(lambda: float('inf'))
             for pre in dp:
                 # when no replacement
                 if cur > pre:
