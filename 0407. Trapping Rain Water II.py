@@ -1,6 +1,8 @@
 # use a heap to record the boundary of the pool
 # pop out the boundary elements one by one 
 # and then push its neighbors into the heap
+# each element goes in and out of the heap once, so 
+# time O(m*n), space O(m*n)
 
 import heapq
 class Solution(object):
