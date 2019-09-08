@@ -4,6 +4,8 @@
 #         self.val = x
 #         self.next = None
 
+
+# create a brand new ListNode for the answer, space/time O(m + n)
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """
@@ -11,7 +13,7 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        # create brand new ListNode, space/time O(m + n)
+
         dummy = ListNode(0)
         head = dummy
         carry = 0  # don't forget
