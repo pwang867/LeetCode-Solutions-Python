@@ -1,4 +1,5 @@
 # method 3, do a binary search for i only, j is defined by (m+n)//2 - i
+# time O(log(min(m,n))
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
         """
@@ -77,6 +78,7 @@ class Solution2(object):
 
         
 # method 1, find k-th value, drop about k/2 values at each round
+# time O(log(m+n))
 class Solution1(object):
     def findMedianSortedArrays(self, nums1, nums2):
         """
