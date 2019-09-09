@@ -18,6 +18,8 @@ class Solution(object):
             else:
                 right = mid
         
+        # at least one of left and right must be the boundary
+        # edge case [1,2]
         if nums[left] < nums[right]:
             return right
         else:
