@@ -14,6 +14,14 @@
 #        :rtype int
 #        """
 
+""" 
+method 1: binary search
+Based on whether A[i-1] < A[i] < A[i+1], A[i-1] < A[i] > A[i+1], 
+or A[i-1] > A[i] > A[i+1], we are either at the left side, peak, 
+or right side of the mountain. We can binary search to find the peak. 
+After finding the peak, we can binary search two more times 
+to find whether the value occurs on either side of the peak.
+"""
 class Solution(object):
     def findInMountainArray(self, target, mountain_arr):
         """
