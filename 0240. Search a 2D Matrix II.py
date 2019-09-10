@@ -16,7 +16,8 @@ class Solution(object):
         
         return False
 
-# method 2, binary search, time O(log(m*n))
+# method 2, quasi-binary search, time ~O(m*n), not log(m*n) 
+# because it has two branches in each recursion depth
 # don't search on the diagonal, only check the matrix center
 # and then drop 1/4 of the matrix
 # the rest of the matrix will form an "L" shape, and can be sliced into
