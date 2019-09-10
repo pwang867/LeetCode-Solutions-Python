@@ -1,4 +1,4 @@
-# method 1: binary search O(log(n))
+# method 2: binary search O(log(n))
 # other methods: Newton's method
 class Solution(object):
     def mySqrt(self, x):
@@ -25,3 +25,21 @@ class Solution(object):
         else:
             return left
         
+# method1, Newton's method, O(log(n))
+class Solution1(object):
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x < 0:
+            return None
+        if x < 2:
+            return x
+        
+        i = x
+        while i*i > x:
+            i = (i + x//i)//2
+        
+        return i
+    
