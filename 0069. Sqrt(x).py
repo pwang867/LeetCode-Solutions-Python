@@ -3,24 +3,25 @@
 class Solution(object):
     def mySqrt(self, x):
         """
-        :type x: int, x >= 0
+        :type x: int
         :rtype: int
         """
-        # sqrt(x) = x has: x = 0, 1
-        if x == 0:
-            return 0
-        if x == 1:
-            return 1
+        if x < 0:
+            return None
         
         left, right = 0, x
         while left + 1 < right:
-            mid = (left + right)/2
-            square = mid*mid
-            if square == x:
+            mid = left + (right - left) // 2
+            t = mid*mid
+            if t == x:
                 return mid
-            elif square > x:
+            elif t > x:
                 right = mid
             else:
                 left = mid
-        return left
-    
+        
+        if right*right <= x:
+            return right
+        else:
+            return left
+        
