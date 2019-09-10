@@ -4,6 +4,7 @@ class Solution(object):
     def searchMatrix(self, matrix, target):
         if not matrix or not matrix[0]:
             return False
+        
         row, col = 0, len(matrix[0])-1
         while row < len(matrix) and col >= 0:
             if matrix[row][col] == target:
@@ -18,6 +19,8 @@ class Solution(object):
 # method2, binary search, time O(log(m*n))
 # don't search on the diagonal, only check the matrix center
 # and then drop 1/4 of the matrix
+# the rest of the matrix will form an "L" shape, and can be sliced into
+# two sub-matrix for recurison
 class Solution2(object):
     def searchMatrix(self, matrix, target):
         if not matrix or not matrix[0]:
@@ -41,7 +44,9 @@ class Solution2(object):
                    self.binarySearch(matrix, target, i, y+1, p, q)
         
 
-# binary search, time O(log(m+n)*long(m*n))
+# method3, binary search along diagonal direction, 
+# and then the topleft and bottomright part can be dropped
+# time O(log(m+n)*long(m*n))
 class Solution1(object):
     def searchMatrix(self, matrix, target):
         """
