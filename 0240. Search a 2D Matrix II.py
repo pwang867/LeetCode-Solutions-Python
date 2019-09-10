@@ -1,6 +1,48 @@
-# method1, binary search 
-# time O(log(m+n)*long(m*n))
+# method 3, reduce row and col one by one
+# time O(m+n)
 class Solution(object):
+    def searchMatrix(self, matrix, target):
+        if not matrix or not matrix[0]:
+            return False
+        row, col = 0, len(matrix[0])-1
+        while row < len(matrix) and col >= 0:
+            if matrix[row][col] == target:
+                return True
+            elif matrix[row][col] > target:
+                col -= 1
+            else:
+                row += 1
+        
+        return False
+
+# method2, binary search, time O(log(m*n))
+# don't search on the diagonal, only check the matrix center
+# and then drop 1/4 of the matrix
+class Solution2(object):
+    def searchMatrix(self, matrix, target):
+        if not matrix or not matrix[0]:
+            return False
+        return self.binarySearch(matrix, target, 
+                                 0, 0, len(matrix), len(matrix[0]))
+    
+    def binarySearch(self, matrix, target, i, j, p, q):
+        if i > p or j > q or i >=len(matrix) \
+            or j >= len(matrix[0]) or p < 0 or q < 0:
+            return False
+        
+        x, y = (i+p)//2, (j+q)//2  # middle point of the matrix
+        if matrix[x][y] == target:
+            return True
+        elif matrix[x][y] > target:
+            return self.binarySearch(matrix, target, i, j, p, y-1) or \
+                   self.binarySearch(matrix, target, i, y, x-1, q)
+        else:
+            return self.binarySearch(matrix, target, x+1, j, p, y) or \
+                   self.binarySearch(matrix, target, i, y+1, p, q)
+        
+
+# binary search, time O(log(m+n)*long(m*n))
+class Solution1(object):
     def searchMatrix(self, matrix, target):
         """
         :type matrix: List[List[int]]
@@ -14,8 +56,10 @@ class Solution(object):
         return self.helper(matrix, 0, 0, m - 1, n - 1, target)
     
     def helper(self, matrix, i, j, p, q, target):
-        # search in the diagonal of matrix 
-        # topleft (i, j), bottomright (p, q)
+        # search in the diagonal of matrix
+        # defined by topleft (i, j), bottomright (p, q)
+        # then cut half of the matrix and recur in the 
+        # bottom left and topright sub-matrix
         
         # find the size of diagonal
         m = p - i + 1
