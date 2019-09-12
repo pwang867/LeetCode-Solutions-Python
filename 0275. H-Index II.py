@@ -6,7 +6,8 @@ class Solution(object):
         :type citations: List[int]
         :rtype: int
         """
-        if not citations:
+        # don't forget, otherwise index our of bound
+        if not citations: 
             return 0
         
         n = len(citations)
