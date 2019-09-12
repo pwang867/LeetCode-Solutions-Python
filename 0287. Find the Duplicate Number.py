@@ -29,7 +29,7 @@ class Solution2(object):
                 return num
         
 
-# method 1, binary search, O(n*log(n))
+# method 1, binary search of the result, O(n*log(n))
 class Solution(object):
     def findDuplicate(self, nums):
         """
