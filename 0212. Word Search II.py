@@ -1,6 +1,7 @@
 # use Trie to solve this problem
 # time < O(m*n*len(words)*word_length)
 # space < O(len(words)*word_length) for Trie
+# edge case: board = [["a"]], words=["a"]
 
 class Solution(object):
     def findWords(self, board, words):
@@ -32,8 +33,10 @@ class Solution(object):
             res.append(path)
             node.is_word = False  # important !! delete the found word from dictionary
         
+        # this if clause can not be moved inside the for loop below
+        # otherwise fails in the case board = [["a"]], words=["a"]
         if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) \
-            or board[i][j] not in node.children:
+            or board[i][j] not in node.children:  
             return
         
         cur = board[i][j]
