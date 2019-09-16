@@ -1,5 +1,6 @@
 # scan from left to right, find the first i that s[i] < s[i-1]
 # reduce s[i-1] by 1 and then change all the numbers after to 9
+# watch out for N containing consective duplicates, such as N=14423 (res = 13999)
 class Solution(object):
     def monotoneIncreasingDigits(self, N):
         """
