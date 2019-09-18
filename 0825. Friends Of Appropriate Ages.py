@@ -2,6 +2,27 @@
 # then we can simply build a collections.Counter(ages), and then iterate all of them
 # time will be O(120*120), space is O(120)
 
+import collections
+class Solution(object):
+    def numFriendRequests(self, ages):
+        """
+        :type ages: List[int]
+        :rtype: int
+        """
+        d = collections.Counter(ages)
+        
+        cnt = 0
+        for a, counta in d.items():
+            for b, countb in d.items():
+                if 0.5*a+7 < b <= a:  # we can acutally get a > 14
+                    if b == a:  # even if b==a, b > 0.5*a + 7 might still fail
+                        cnt += counta*(counta-1)
+                    else:
+                        cnt += counta*countb
+        return cnt
+    
+    
+    
 
 # method 1, general method if age could be floating point, 
 # time n*log(n), space O(n)
