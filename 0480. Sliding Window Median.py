@@ -17,9 +17,9 @@ class Solution(object):
         
         res = [self.getMedian(small, large, k)]
         for i, num in enumerate(nums[k:]):
-            if num < large[0][0]:
+            if num < large[0][0]:  # the equal sign here is not import
                 heapq.heappush(small, (-num, i+k))
-                if nums[i] >= large[0][0]:
+                if nums[i] >= large[0][0]:  # but we must have equal sign for this if
                     self.move(small, large)
             else:
                 heapq.heappush(large, (num, i+k))
