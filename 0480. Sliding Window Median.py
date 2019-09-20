@@ -1,4 +1,4 @@
-# use two heaps: O(n*log(n)) in worst case
+# use two heaps: time O(n*log(k)), space O(k)
 # ref: https://leetcode.com/problems/sliding-window-median/
 # discuss/262689/Python-Small-and-Large-Heaps
 import heapq
@@ -33,11 +33,22 @@ class Solution(object):
                 heapq.heappop(small)
             while large and large[0][1] <= i:
                 heapq.heappop(large)
+            if len(small) > 3*k:
+                self.clean(small, i)  # amortized time for each i is O(1)
+            if len(large) > 3*k:
+                self.clean(large, i)
             res.append(self.getMedian(small, large, k))
         
         return res
-      
-            
+    
+    def clean(self, heap, i):
+        # remove all data in the heap that are older than i
+        # prevent the heap to become too big
+        heap = [(num, j) for num, j in heap if j > i]
+        heapq.heapify(heap)
+        return heap
+    
+    
     def move(self, heap1, heap2):
         # pop one element out from heap1, and push it into heap2
         num, i = heapq.heappop(heap1)
