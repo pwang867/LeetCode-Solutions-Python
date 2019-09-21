@@ -1,3 +1,5 @@
+# due to symmetry, we will only allow the knight to move in the first quarant to greatly reduce time
+# time complexity O(x*y)
 class Solution(object):
     def minKnightMoves(self, x, y):
         """
@@ -5,7 +7,7 @@ class Solution(object):
         :type y: int
         :rtype: int
         """
-        x, y = abs(x), abs(y)
+        x, y = abs(x), abs(y)   # use symmetry
         
         level = [(0,0)]
         depth = 0
