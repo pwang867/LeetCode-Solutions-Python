@@ -11,7 +11,7 @@ class Solution(object):
         
         level = [(0,0)]
         depth = 0
-        visited = set((0, 0))
+        visited = {(0, 0)}
         while True:
             n = len(level)
             new_level = []
