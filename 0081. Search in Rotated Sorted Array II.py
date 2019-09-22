@@ -1,6 +1,8 @@
 # two pointers
 # same as problem 33. Search in Rotated Sorted Array
 # be careful with duplicates on the two edges, remove them first
+# time complexity worst case is O(n) due to duplicates, space is O(1)
+
 class Solution(object):
     def search(self, nums, target):
         """
