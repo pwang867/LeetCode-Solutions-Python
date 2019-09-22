@@ -1,7 +1,36 @@
-# many of the states is method 1 are useless, because the number of "1" in states 
+# method 3, Dijkstra's algorithm
+# this problem is actually to find the minimum 
+import heapq
+class Solution(object):
+    def assignBikes(self, workers, bikes):
+        # heap saves (total_distance, index of worker to assign bike, used bikes mask)
+        heap = [(0, 0, 0)]  
+        M, N = len(bikes), len(workers)
+        visited = set()
+        
+        while heap:
+            dist, i, state = heapq.heappop(heap)  
+            # i is actually also the counts of "1" in state
+            if (i, state) in visited:  
+                # this means same (i, state) with smaller dist has been seen
+                continue
+            visited.add((i, state))
+            if i == len(workers):
+                return dist
+            for j in range(M):
+                if (1<<j)&state == 0:
+                    new_state = state|(1<<j)
+                    heapq.heappush(heap, 
+                        (dist+self.dist(workers[i],bikes[j]), i+1, new_state))
+    
+    def dist(self, pos1, pos2):
+        return abs(pos1[0]-pos2[0]) + abs(pos1[1]-pos2[1])
+
+
+# method 2, many of the states is method 1 are useless, because the number of "1" in states 
 # should be equal to the number of workers, we can reduce time from O(M*N*2^M) to O(M*2^M)
 # and reduce space complexity to O(2^M)
-class Solution(object):
+class Solution2(object):
     def assignBikes(self, workers, bikes):
         M, N = len(bikes), len(workers)
         pre = {}
