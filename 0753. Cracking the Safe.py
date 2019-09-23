@@ -1,3 +1,9 @@
+# we can regard this problem as a graph problem, and every node has k neighbors. we can prove two truth:
+# 1. if the tail has no more unused neighbors, it means the head must be the children and we have a loop
+# we can prove this: if node xA has no neighbors, then there must be k times of Ay used before, 
+# since A shows up by k+1 times, the head must be A
+# 2. if there is some node no used, there must be a path from the visited node to the unused node, 
+
 class Solution(object):
     def crackSafe(self, n, k):
         """
