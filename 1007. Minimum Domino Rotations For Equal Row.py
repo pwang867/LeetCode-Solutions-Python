@@ -17,7 +17,7 @@ class Solution(object):
         # check if the common number could be A[0]
         num_rotation = self.getNumOfRotation(A, B, A[0])
         if num_rotation != -1:  # -1 means rotation is not possible
-            return num_rotation  # don't have to check B[0] any more
+            return num_rotation  # don't have to check B[0] any more if A[0] is OK because the result will be the same
         
         # check if the common number could be B[0]
         return self.getNumOfRotation(B, A, B[0])
