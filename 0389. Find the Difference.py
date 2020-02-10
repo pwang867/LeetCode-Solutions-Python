@@ -1,4 +1,4 @@
-# method 3
+# method 3, bit manipulation, time O(n), space O(1)
 # same method as single number I, use bit operation to find the single char, ord(char)
 class Solution(object):
     def findTheDifference(self, s, t):
@@ -15,7 +15,7 @@ class Solution(object):
         return chr(res)
     
 
-# method 2
+# method 2, use Counter, time/space O(n)
 from collections import Counter
 class Solution2(object):
     def findTheDifference(self, s, t):
@@ -28,7 +28,7 @@ class Solution2(object):
         return d.keys()[0]
 
 
-# method 1
+# method 1, hashmap, time/space O(n)
 class Solution1(object):
     def findTheDifference(self, s, t):
         """

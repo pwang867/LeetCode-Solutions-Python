@@ -1,5 +1,5 @@
 # solution2: divide and conquer
-# time complexity: O(Catalan_number(n)*n) where n is number of operators
+# time complexity: O(Catalan_number(n)) where n is number of operators
 
 class Solution(object):
     def __init__(self):
@@ -32,7 +32,6 @@ class Solution(object):
         return ans
 
 
-
 # method 2, dynamic programming, time O(Catalan(n)), space: O(n^2*Catalan(n))
 # ref: https://www.cnblogs.com/grandyang/p/4682458.html
 
@@ -48,7 +47,7 @@ class Solution(object):
 [i, j] 和 [j, i+len]，然后分别取出各自的数组 dp[i][j] 和 dp[j][i+len]，
 把对应的运算符也取出来，现在又变成了两个数组中任取两个数字进行运算，又整两个 for 循环，
 所以总共整了5个 for 循环嵌套，啊呀妈呀，看这整的，看不晕你算我输，参见代码如下：
-"""
+
 
 class Solution {
 public:
@@ -84,7 +83,7 @@ public:
         return dp[0][cnt - 1];
     }
 };
-
+"""
 
 
 """

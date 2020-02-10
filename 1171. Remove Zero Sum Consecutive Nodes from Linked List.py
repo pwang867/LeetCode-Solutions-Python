@@ -25,7 +25,7 @@ class Solution(object):
             else:
                 last = d[cur]    # backup
                 while cur in d:
-                    d.popitem()
+                    d.popitem()    # most important line
                 d[cur] = last   # re-connect
                 last.next = head.next
             head = head.next

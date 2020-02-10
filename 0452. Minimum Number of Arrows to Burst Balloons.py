@@ -1,5 +1,6 @@
-# greedy, sort the points using start point, and then process backwards
+# greedy, sort the points using start point, and then process backwards  (or sort by ending point)
 # time O(n*log(n)), space O(n)
+
 class Solution(object):
     def findMinArrowShots(self, points):
         """

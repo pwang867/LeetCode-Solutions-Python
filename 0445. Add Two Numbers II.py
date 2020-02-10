@@ -4,7 +4,7 @@
 #         self.val = x
 #         self.next = None
 
-# method 2: backtracking
+# method 2: backtracking, recursion
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         len1, len2 = self.getLen(l1), self.getLen(l2)
@@ -50,8 +50,7 @@ class Solution(object):
     
 
 
-
-# method 1: 
+# method 1:  iteration
 # for example, [4, 9, 9, 9, 12], one pointer stays at 4, 
 # which is followed by consecutive 9's, once we see 12, 
 # we change 4 to 5, and all 9's to 0's, and 12 to 2
@@ -88,7 +87,6 @@ class Solution1(object):
                 p2 = p2.next
             if cnt == 2:
                 break
-        print "test1", p1.val, p2.val
         
         # Up to now, p1 points to p2 and p2 points to p1
         # make p2 points to the longer linked list
@@ -122,5 +120,19 @@ class Solution1(object):
             return copy.next
         else:
             return copy
-        
+
+"""
+You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Follow up:
+What if you cannot modify the input lists? In other words, reversing the lists is not allowed.
+
+Example:
+
+Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 8 -> 0 -> 7
+"""
+
             

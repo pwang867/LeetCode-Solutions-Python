@@ -1,3 +1,4 @@
+# time O(n), convert o "231" pattern
 class Solution(object):
     def find132pattern(self, nums):
         """
@@ -7,7 +8,7 @@ class Solution(object):
         middle = -float('inf')  # the "2" in "132"
         stack = []  # maintain a decreasing sequence
         
-        for i in range(len(nums)-1, -1, -1):
+        for i in range(len(nums)-1, -1, -1):   # search "231"
             if nums[i] < middle:
                 return True
             while stack and stack[-1] < nums[i]:

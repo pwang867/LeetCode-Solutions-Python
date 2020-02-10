@@ -1,6 +1,36 @@
-# method 2: plot nums vs index, then this problem is actually 
-# just counting the nums of peaks (local max and min), O(n)
+# method 3, combine method 1 and 2, greedy dp, O(n)
 class Solution(object):
+    def wiggleMaxLength(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        n = len(nums)
+        # up[i] is the length of the longest wiggle subsequence 
+        # within nums[:i+1] whose last two elements are increasing
+        up = [0]*n    
+        down = [0]*n 
+        up[0] = 1
+        down [0] = 1
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                down[i] = down[i-1]
+                up[i] = up[i-1]
+            elif nums[i] > nums[i-1]:
+                down[i] = down[i-1]
+                up[i] = down[i-1] + 1   # greedy
+            else:
+                down[i] = up[i-1] + 1
+                up[i] = up[i-1]
+        return max(up[-1], down[-1])
+
+
+# method 2: greedy, time O(n)
+# plot nums vs index, then this problem is actually 
+# just counting the nums of peaks (local max and min)
+class Solution2(object):
     def wiggleMaxLength(self, nums):
         """
         :type nums: List[int]

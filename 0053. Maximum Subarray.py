@@ -1,4 +1,4 @@
-# method 3: divide and conquer, time O(n*log(n))
+# method 3: divide and conquer, time O(n*log(n)), not optimal solution
 # compare left part, right part, and middle part
 # for middle max, we need to search in two directions
 class Solution(object):
@@ -27,7 +27,6 @@ class Solution(object):
         
         return max([left_max, right_max, mid_max])
         
-
 
 # method 2: simplified from method 1
 class Solution2(object):

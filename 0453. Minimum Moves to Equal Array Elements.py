@@ -1,4 +1,4 @@
-# (increase n-1 elements by 1) == (increase n-1 elements by 1) - (decrease all elements by 1) 
+# (increase n-1 elements by 1) == (increase n elements by 1) + (decrease all elements by 1) 
 # == (decrease one element by 1)
 class Solution(object):
     def minMoves(self, nums):

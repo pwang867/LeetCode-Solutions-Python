@@ -1,4 +1,18 @@
 from collections import deque
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+    
+    def printNode(self):
+        print(self.val)
+        if self.left:
+            self.left.printNode()
+        if self.right:
+            self.right.printNode()
+
 def buildTreeLevelOrder(arr):
     if not arr or not arr[0]:
         return None
@@ -27,6 +41,7 @@ def buildTreeLevelOrder(arr):
                 queue.append(right)
             i += 1
     return root
+
 
 def printTree(root):
     res = []

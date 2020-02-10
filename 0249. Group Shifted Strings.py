@@ -1,4 +1,5 @@
-# method 1
+# method 1, shift the first letter to 'a'
+
 # "xyz" and "yza" are in the same group
 # shift the string so that the first letter is "a" and use it as the key
 from collections import defaultdict
@@ -23,7 +24,6 @@ class Solution1(object):
                 num += 26
             res.append(chr(num))
         return ''.join(res)
-
 
 
 """

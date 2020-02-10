@@ -10,41 +10,71 @@
 import heapq
 class Solution(object):
     def trapRainWater(self, heightMap):
-        """
-        :type heightMap: List[List[int]]
-        :rtype: int
-        """
-        if not heightMap or not heightMap[0]:
+        if not heightMap or not heightMap[0] \
+        or len(heightMap)==1 or len(heightMap[0])==1:
             return 0
         
-        # push pool boundaries into a heap
-        heap = []
-        visited = set()
+        # initialize the boundary
         m, n = len(heightMap), len(heightMap[0])
-        if m < 3 or n < 3:
-            return 0
+        visited = [[False]*n for _ in range(m)]
+        heap = []
+        for i in range(m):
+            heap.append((heightMap[i][0], i, 0))
+            heap.append((heightMap[i][n-1], i, n-1))
+            visited[i][0] = True
+            visited[i][n-1] = True
         for j in range(n):
-            heapq.heappush(heap, (heightMap[0][j], 0, j))
-            heapq.heappush(heap, (heightMap[m-1][j], m-1, j))
-            visited.add((0, j))
-            visited.add((m-1, j))
-        for i in range(1, m-1):
-            heapq.heappush(heap, (heightMap[i][0], i, 0))
-            heapq.heappush(heap, (heightMap[i][n-1], i, n-1))
-            visited.add((i, 0))
-            visited.add((i, n-1))
+            heap.append((heightMap[0][j], 0, j))
+            heap.append((heightMap[m-1][j], m-1, j))
+            visited[0][j] = True
+            visited[m-1][j] = True
+        heapq.heapify(heap)
         
+        # process elments from shortest to highest
         vol = 0
         while heap:
             h, i, j = heapq.heappop(heap)
-            for v in [(0,1),(0,-1),(-1,0),(1,0)]:
-                p, q = i+v[0], j+v[1]
-                # do not forget  0 <= p < m and 0 <= q < n
-                if (p, q) not in visited and 0 <= p < m and 0 <= q < n:
+            for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                p, q = i + dx, j + dy
+                if 0 <= p < m and 0 <= q < n and not visited[p][q]:
+                    visited[p][q] = True    # don't forget
                     h_max = max(h, heightMap[p][q])
-                    heapq.heappush(heap, (h_max, p, q))  # tricky point: use h_max, not h
                     vol += h_max - heightMap[p][q]
-                    visited.add((p, q))
-        
+                    heapq.heappush(heap, (h_max, p, q))
         return vol
-    
+
+
+"""
+Given an m x n matrix of positive integers representing the height of each unit cell in a 2D elevation map, compute the volume of water it is able to trap after raining.
+
+ 
+
+Note:
+
+Both m and n are less than 110. The height of each unit cell is greater than 0 and is less than 20,000.
+
+ 
+
+Example:
+
+Given the following 3x6 height map:
+[
+  [1,4,3,1,3,2],
+  [3,2,1,3,2,4],
+  [2,3,3,2,3,1]
+]
+
+Return 4.
+
+
+The above image represents the elevation map [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]] before the rain.
+
+ 
+
+
+
+After the rain, water is trapped between the blocks. The total volume of water trapped is 4.
+
+Accepted
+"""
+
