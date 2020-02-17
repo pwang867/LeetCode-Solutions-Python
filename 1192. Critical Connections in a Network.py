@@ -14,7 +14,6 @@ class Solution(object):
         self.dfs(0, disc, low, graph, visited, parent, res)
         return res
     
-    
     def dfs(self, u, disc, low, graph, visited, parent, res):
         # u is not processed yet before entering dfs()
         visited[u] = True
@@ -33,7 +32,6 @@ class Solution(object):
                     low[u] = min(low[u], disc[v])  
                     # also OK for this problem: low[u] = min(low[u], low[v])
     
-    
     def buildGraph(self, edges):
         graph = defaultdict(list)
         for u, v in edges:
@@ -44,8 +42,8 @@ class Solution(object):
 
 
 
-# method 1: trival method, remove edges sequentially 
-# and then check if the graph is still connected
+# method 1: brute force, remove edges one by one
+# and then check if the graph is still a single component
 # time O(E*(V+E)), space O(V+E)
 # Time Limit Exceeded
 
@@ -78,6 +76,7 @@ class Solution1(object):
         return d
     
     def checkPath(self, d, start, end, n):
+        # check if start and end are connected
         used = [False]*n
         used[start] = True
         stack = deque([start])
@@ -93,3 +92,32 @@ class Solution1(object):
         return False
     
     
+"""
+There are n servers numbered from 0 to n-1 connected by 
+undirected server-to-server connections forming a network where 
+connections[i] = [a, b] represents a connection between servers a and b. 
+Any server can reach any other server directly or indirectly through the network.
+
+A critical connection is a connection that, if removed, will make some server 
+unable to reach some other server.
+
+Return all critical connections in the network in any order.
+
+ 
+
+Example 1:
+
+
+
+Input: n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
+Output: [[1,3]]
+Explanation: [[3,1]] is also accepted.
+ 
+
+Constraints:
+
+1 <= n <= 10^5
+n-1 <= connections.length <= 10^5
+connections[i][0] != connections[i][1]
+There are no repeated connections.
+"""

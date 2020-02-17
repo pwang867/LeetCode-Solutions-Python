@@ -1,7 +1,7 @@
 # method 3, do a binary search for index i in the shorter array only, 
 # index j in the other array will be determined by (m+n)//2 - i
 # the smaller half will be nums1[:i] + nums2[:j]
-# time O(log(min(m,n))
+# time O(log(min(m, n))
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
         """
@@ -130,7 +130,8 @@ class Solution1(object):
 # https://leetcode.com/problems/median-of-two-sorted-arrays/
 
 There are two sorted arrays nums1 and nums2 of size m and n respectively.
-Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+Find the median of the two sorted arrays. The overall run time complexity 
+should be O(log (m+n)).
 You may assume nums1 and nums2 cannot be both empty.
 
 Example 1:

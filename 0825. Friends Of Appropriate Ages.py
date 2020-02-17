@@ -1,7 +1,6 @@
 # method 2, if ages[i] can only be interger [0,120], 
 # then we can simply build a collections.Counter(ages), and then iterate all of them
 # time will be O(120*120), space is O(120)
-
 import collections
 class Solution(object):
     def numFriendRequests(self, ages):
@@ -21,12 +20,10 @@ class Solution(object):
                         cnt += counta*countb
         return cnt
     
-    
-    
 
 # method 1, general method if age could be floating point, 
 # time n*log(n), space O(n)
-class Solution(object):
+class Solution1(object):
     def numFriendRequests(self, ages):
         """
         :type ages: List[int]
@@ -57,19 +54,21 @@ class Solution(object):
         else:
             return -1
 
+
 """
-825. Friends Of Appropriate Ages
+Some people will make friend requests. 
+The list of their ages is given and ages[i] is the age of the ith person. 
 
-Some people will make friend requests. The list of their ages is given and ages[i] is the age of the ith person. 
-
-Person A will NOT friend request person B (B != A) if any of the following conditions are true:
+Person A will NOT friend request person B (B != A) 
+if any of the following conditions are true:
 
 age[B] <= 0.5 * age[A] + 7
 age[B] > age[A]
 age[B] > 100 && age[A] < 100
 Otherwise, A will friend request B.
 
-Note that if A requests B, B does not necessarily request A.  Also, people will not friend request themselves.
+Note that if A requests B, B does not necessarily request A.  
+Also, people will not friend request themselves.
 
 How many total friend requests are made?
 

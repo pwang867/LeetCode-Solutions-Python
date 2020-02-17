@@ -1,8 +1,8 @@
-# 2D dp
-# dp[i][j] means if the first layer can win for piles[i:j+1]
+# 2D dp, time/space O(n^2)
+# dp[i][j] means how much more can player 1 have than player 2 for piles[i:j+1]
 # j - i + 1 is always even
-# equation: dp[i][j] = max( min(dp[i+2][j], dp[i+1][j-1]), 
-#                        min(dp[i][j-2], dp[i+1][j-1]) )
+# equation: dp[i][j] = max( min(dp[i+2][j]-piles[i+1], dp[i+1][j-1]-piles[j]) + piles[i], 
+#                           min(dp[i][j-2]-piles[j-1], dp[i+1][j-1]-piles[i]) + piles[j] )
 class Solution(object):
     def stoneGame(self, piles):
         """
@@ -18,15 +18,13 @@ class Solution(object):
         for length in range(2, n+1, 2):
             for i in range(n-length+1):
                 j = i + length - 1
-                
                 if length == 2:
                     dp[i][j] = max(piles[i], piles[j]) - min(piles[i], piles[j])
-                else:  # Lee also play optimally, so he will minimize Alex's gain
-                    dp[i][j] = max( min(dp[i+2][j], dp[i+1][j-1]) + piles[i], 
-                                    min(dp[i][j-2], dp[i+1][j-1]) + piles[j] )
+                else:
+                    dp[i][j] = max( min(dp[i+2][j]-piles[i+1], dp[i+1][j-1]-piles[j]) + piles[i], 
+                                   min(dp[i][j-2]-piles[j-1], dp[i+1][j-1]-piles[i]) + piles[j] )
         
         return dp[0][n-1] > 0
-    
 
     
 """

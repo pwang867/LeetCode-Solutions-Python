@@ -1,0 +1,24 @@
+# Meeting/Meeting room/Events
+1229. Meeting Scheduler (no overlapping, two persons, two pointers)
+252. Meeting Rooms (simple sort)
+253. Meeting Rooms II (1. sort start and end together, 2. use heap)
+1353. Maximum Number of Events That Can Be Attended  (store end time in a heap)
+
+
+# My calendar
+
+
+
+
+# intervals
+
+
+
+
+# video clips
+1024. Video Stitching  (method 1: sort by start, greedy, method 2: sort by end, dp)
+
+
+# tasks
+1235. Maximum Profit in Job Scheduling (sort by end time, then dp)
+

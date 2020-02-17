@@ -1,6 +1,11 @@
 # ref: https://leetcode.com/problems/reverse-pairs/discuss/97268
 # /general-principles-behind-problems-similar-to-reverse-pairs
 
+# method 2: Binary Indexed Tree
+# dynamically search in the tree and 
+# then insert elements into the tree
+# the values in the tree needs to be sorted from large to small
+
 class BITree(object):
     def __init__(self, nums):
         self.nums = nums  # sort from large to small
@@ -19,10 +24,6 @@ class BITree(object):
             self.nums[i] += 1
             i += i&(-i)
 
-# method 2: Binary Indexed Tree
-# dynamically search in the tree and 
-# then insert elements into the tree
-# the values in the tree needs to be sorted from large to small
 class Solution(object):
     def reversePairs(self, nums):
         if not nums:
@@ -103,3 +104,21 @@ class Solution1(object):
             
         return nums
     
+
+"""
+Given an array nums, we call (i, j) an important reverse pair if i < j and nums[i] > 2*nums[j].
+
+You need to return the number of important reverse pairs in the given array.
+
+Example1:
+
+Input: [1,3,2,3,1]
+Output: 2
+Example2:
+
+Input: [2,4,3,5,1]
+Output: 3
+Note:
+The length of the given array will not exceed 50,000.
+All the numbers in the input array are in the range of 32-bit integer.
+"""

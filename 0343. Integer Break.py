@@ -1,6 +1,6 @@
-# n will only have factor 2 and 3
+# n will be broken into only 2 and 3
 # if factor >= 4, then we can split factor to 2 and (factor-2) and have 2*(factor-2) > factor
-# 2*2*2 > 3*3, so we will have no more than three 2's
+# 2*2*2 < 3*3, so we will have no more than three 2's
 class Solution(object):
     def integerBreak(self, n):
         """
@@ -21,10 +21,11 @@ class Solution(object):
         if n % 3 == 2:
             return 3**(n//3)*2
 
-
         
 """
-Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
+Given a positive integer n, break it into the sum of at least two positive 
+integers and maximize the product of those integers. 
+Return the maximum product you can get.
 
 Example 1:
 

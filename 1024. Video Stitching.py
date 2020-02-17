@@ -1,6 +1,6 @@
 # time O(nlog(n)), space O(1)
-# greedy
-class Solution(object):
+# sort by start, then  greedy, similar to frog jump
+class Solution2(object):
     def videoStitching(self, clips, T):
         """
         :type clips: List[List[int]]
@@ -15,7 +15,8 @@ class Solution(object):
         i = 0
         while i < len(clips):
             ends = []
-            while i < len(clips) and clips[i][0] <= covered:
+            # get all clip that are intersecting with covered
+            while i < len(clips) and clips[i][0] <= covered:  # greedy, BFS
                 ends.append(clips[i][1])
                 i += 1
             if not ends:
@@ -28,12 +29,43 @@ class Solution(object):
             return -1
         return cnt
 
+
+# sort by end, then dp
+# dp[i][j] means the minimum number of clips needed to cover [0, j] using clips[:i]
+# time O(n*T), not optimal time complexity
+class Solution1(object):
+    def videoStitching(self, clips, T):
+        """
+        :type clips: List[List[int]]
+        :type T: int
+        :rtype: int
+        """
+        clips.sort(key=lambda x: [x[1], x[0]])
+        n = len(clips)
+        dp = [[float('inf')]*(T+1) for _ in range(n+1)]
+        dp[0][0] = 0
+        for i in range(1, n+1):
+            for j in range(T+1):
+                start, end = clips[i-1]
+                if j <= start:
+                    dp[i][j] = dp[i-1][j]
+                elif j <= end:
+                    dp[i][j] = min(dp[i-1][j], dp[i-1][start] + 1)
+        return dp[n][T] if dp[n][T] != float('inf') else -1
+    
+
 """
-You are given a series of video clips from a sporting event that lasted T seconds.  These video clips can be overlapping with each other and have varied lengths.
+You are given a series of video clips from a sporting event that lasted 
+T seconds.  These video clips can be overlapping with each other and 
+have varied lengths.
 
-Each video clip clips[i] is an interval: it starts at time clips[i][0] and ends at time clips[i][1].  We can cut these clips into segments freely: for example, a clip [0, 7] can be cut into segments [0, 1] + [1, 3] + [3, 7].
+Each video clip clips[i] is an interval: it starts at time clips[i][0] 
+and ends at time clips[i][1].  We can cut these clips into segments freely: 
+for example, a clip [0, 7] can be cut into segments [0, 1] + [1, 3] + [3, 7].
 
-Return the minimum number of clips needed so that we can cut the clips into segments that cover the entire sporting event ([0, T]).  If the task is impossible, return -1.
+Return the minimum number of clips needed so that we can cut the clips into 
+segments that cover the entire sporting event ([0, T]).  If the task is 
+impossible, return -1.
 
  
 

@@ -12,7 +12,7 @@ class Solution2(object):
                 return False
         return True
 
-# method 1, brute force O(n*n), TLE
+# method 1, brute force O(n^2), TLE
 class Solution(object):
     def canAttendMeetings(self, intervals):
         for i in range(len(intervals)-1):

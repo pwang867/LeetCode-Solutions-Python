@@ -1,17 +1,17 @@
+# time O(n*m), n = len(strs), m= len(strs[i])
 class Solution(object):
     def longestCommonPrefix(self, strs):
         """
         :type strs: List[str]
         :rtype: str
         """
-        # check input
         if not strs or not strs[0]:
             return ""
         
         for i, c in enumerate(strs[0]):
             for j in range(1, len(strs)):
                 word = strs[j]
-                if i > len(word) - 1 or c != word[i]:
+                if i > len(word) - 1 or c != word[i]:   # easy to forget i > len(word) - 1
                     return strs[0][:i]   
         
         return strs[0] # don't have to use an extra variable to save res

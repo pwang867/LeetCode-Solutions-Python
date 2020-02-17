@@ -1,3 +1,4 @@
+# subtract if s[i] < s[i+1]， add for others
 class Solution(object):
     def romanToInt(self, s):
         """
@@ -22,7 +23,6 @@ class Solution(object):
 
 
 """
-
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value

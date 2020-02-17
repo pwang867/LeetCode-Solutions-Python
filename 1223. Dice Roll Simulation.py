@@ -23,14 +23,14 @@ class Solution(object):
         for time in range(2, n+1):
             dp2 = [[0 for j in range(N+1)] for i in range(7)]
             for i in range(1, 7):
-                total = sum(dp1[i])  # next time different dice
-                for temp in range(1, 7):
+                total = sum(dp1[i])  
+                for temp in range(1, 7):  # next time different dice
                     if temp != i and rollMax[temp-1] >= 1:
                         dp2[temp][1] += total
-                for j in range(1, N+1):
+                for j in range(1, N+1):   # next time is still self
                     if dp1[i][j] == 0:
                         continue
-                    if j + 1 <= rollMax[i-1]:  # next time is still self                     
+                    if j + 1 <= rollMax[i-1]:                       
                         dp2[i][j+1] += dp1[i][j]
                         dp2[i][j+1] %= LIMIT
             dp1 = dp2
@@ -40,13 +40,17 @@ class Solution(object):
 
 
 """
-A die simulator generates a random number from 1 to 6 for each roll. You introduced a constraint to the generator such that it cannot roll the number i more than rollMax[i] (1-indexed) consecutive times. 
+A die simulator generates a random number from 1 to 6 for each roll. 
+You introduced a constraint to the generator such that it cannot roll the 
+number i more than rollMax[i] (1-indexed) consecutive times. 
 
-Given an array of integers rollMax and an integer n, return the number of distinct sequences that can be obtained with exact n rolls.
+Given an array of integers rollMax and an integer n, 
+return the number of distinct sequences that 
+can be obtained with exact n rolls.
 
-Two sequences are considered different if at least one element differs from each other. Since the answer may be too large, return it modulo 10^9 + 7.
+Two sequences are considered different if at least one element differs 
+from each other. Since the answer may be too large, return it modulo 10^9 + 7.
 
- 
 
 Example 1:
 

@@ -5,38 +5,35 @@ class Solution(object):
             return 0
         
         n = len(nums)
-        parent = {i: i for i in range(n)}  # union find for index (not for nums[i])
-        size = {i: 1 for i in range(n)}
+        self.parent = {i: i for i in range(n)}  # union find for index (not for nums[i])
+        self.size = {i: 1 for i in range(n)}
         visited = {}
         for i, num in enumerate(nums):
             if num in visited:  # skip duplicates
                 continue
             if num-1 in visited:
-                self.union(i, visited[num-1], parent, size)
+                self.union(i, visited[num-1])
             if num+1 in visited:
-                self.union(i, visited[num+1], parent, size)
+                self.union(i, visited[num+1])
             visited[num] = i
-        return max(size.values())
+        return max(self.size.values())
     
-    def union(self, i, j, parent, size):
-        p = self.find(i, parent)
-        q = self.find(j, parent)
-        if p == q:
-            return
-        if size[p] > size[q]:
-            p, q = q, p
-        parent[p] = q
-        size[q] += size[p]
+    def union(self, i, j):
+        p = self.find(i)
+        q = self.find(j)
+        if p != q:
+            if self.size[p] > self.size[q]:
+                p, q = q, p
+            self.parent[p] = q
+            self.size[q] += self.size[p]
     
-    def find(self, i, parent):
-        p = parent[i]
-        if i == p:
-            return i
-        parent[i] = self.find(p, parent)
-        return parent[i]
+    def find(self, i):
+        if i != self.parent[i]:
+            self.parent[i] = self.find(self.parent[i])
+        return self.parent[i]
 
 
-# method 1: hash set
+# method 1: hash set， time/space O(n)
 class Solution1(object):
     def longestConsecutive(self, nums):
         """

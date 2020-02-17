@@ -1,4 +1,4 @@
-# only need to watch out interger overflow, 
+# edge case: interger overflow, negative numbers
 # terminate while loop one digit earlier when reaching (2**31-1)//10
 # 2**31 = 2147483648
 # corner case: -1111111114, 9463847412

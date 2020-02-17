@@ -1,12 +1,12 @@
-# method 2: dp, 3D, time O(m*n*N), space O(m*n*N)
-# dp[k][i][j] means the number of ways going out of bound 
-# using  no more than k steps starting from position (i, j)
+# method 2: dp, 3D
+# dp[k][i][j] means the number of ways going from out of bound 
+# using  <= k steps towards position (i, j)
 class Solution(object):
     def findPaths(self, m, n, N, i, j):
         
         istart, jstart = i, j
         limit = 10**9 + 7
-        dp = [[[0]*n for i in range(m)] for k in range(N+1)]
+        dp = [[[0]*n for i in range(m)] for k in range(N+1)]  # space can be optimized
         
         for k in range(1, N+1):  # number of steps
             for i in range(m):  # positions
@@ -22,7 +22,8 @@ class Solution(object):
 
 # method 1, DFS, time O(m*n*N), space O(m*n*N)
 # dfs with memo, memorize (i, j, k) where k is the number of steps left
-# and (i, j) is the current position
+# and (i, j) is the current position, memo records the counts moving from out of bound
+# to position (i, j) using k steps
 class Solution1(object):
     def findPaths(self, m, n, N, i, j):
         """
@@ -54,4 +55,35 @@ class Solution1(object):
         cnt %= (10**9+7)
         self.memo[(i, j, N)] = cnt
         return cnt
+
     
+"""
+There is an m by n grid with a ball. Given the start coordinate (i,j) 
+of the ball, you can move the ball to adjacent cell or cross 
+the grid boundary in four directions (up, down, left, right). 
+However, you can at most move N times. Find out the number of paths 
+to move the ball out of grid boundary. The answer may be very large, 
+return it after mod 109 + 7.
+
+ 
+
+Example 1:
+
+Input: m = 2, n = 2, N = 2, i = 0, j = 0
+Output: 6
+Explanation:
+
+Example 2:
+
+Input: m = 1, n = 3, N = 3, i = 0, j = 1
+Output: 12
+Explanation:
+
+ 
+
+Note:
+
+Once you move the ball out of boundary, you cannot move it back.
+The length and height of the grid is in range [1,50].
+N is in range [0,50].
+"""

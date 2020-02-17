@@ -1,3 +1,9 @@
+# straightforward, but has many corner cases
+# case 1: [6,6,6,6,6]               d = {n:1}   {freq: num_of_times}
+# case 2: [1,2,3,4,5]               d = {1:n}
+# case 3: [6,6,6,7,7,7,8]           d = {n:k, 1:1}
+# case 4: [6,6,6,7,7,7,8,8,8,8]     d = {n:k, (n+1):1}
+
 from collections import Counter
 class Solution(object):
     def maxEqualFreq(self, nums):
@@ -35,7 +41,6 @@ class Solution(object):
             return arr[2] == 1 or arr[0] == 1 or abs(arr[0]-arr[2])==1
 
 
-
 """
 Given an array nums of positive integers, 
 return the longest possible length of an array prefix of nums, 
@@ -44,7 +49,8 @@ from this prefix so that every number that has appeared in it
 will have the same number of occurrences.
 
 If after removing one element there are no remaining elements, 
-it's still considered that every appeared number has the same number of ocurrences (0).
+it's still considered that every appeared number 
+has the same number of ocurrences (0).
 
  
 

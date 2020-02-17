@@ -1,4 +1,5 @@
-# method 2, using stack, time O(n), space O(1)
+# method 2, using stack, time O(n), space O(n)
+# greedy
 from collections import Counter
 class Solution(object):
     def removeDuplicateLetters(self, s):
@@ -9,7 +10,7 @@ class Solution(object):
         if not s:
             return ""
         counts = Counter(s)
-        stack = []
+        stack = []    # letters in stack are unique, stack is result finally
         _set = set()  # letters in stack
         for i in range(len(s)):
             c = s[i]
@@ -25,7 +26,6 @@ class Solution(object):
 
 # method 1, O(26*n), greedy, choose a smallest index i such that s[i:] 
 # contains all the unique letters and s[i] is the smallest
-
 class Solution1(object):
     def removeDuplicateLetters(self, s):
         """

@@ -18,11 +18,10 @@ class Solution(object):
         dp = [[False]*(n+1) for _ in range(m+1)]
         
         # initialization
-        dp[0][0] = True  # first column
+        dp[0][0] = True  # first column, all other values are False except (0, 0)
         for j in range(1, n+1):  # first row
             if p[j-1] == "*":
                 dp[0][j] = dp[0][j-2]
-        
         
         for i in range(1, m+1):
             for j in range(1, n+1):
@@ -53,13 +52,13 @@ class Solution2(object):
     def isMatchHelper(self, s, p, i, j):
         # compare s[i:] and p[j:]
         if (i,j) in self.memo:
-            return self.memo[(i,j)]  # or return False
+            return self.memo[(i, j)]  # or return False
         
         # to make sure s[i] and p[j] are valid
         if j >= len(p):
             # mistake: return self.memo[(i,j)] = (i >= len(s))
             # Python assignment doesn't return a value, unlike in C++
-            self.memo[(i,j)] = i >= len(s)
+            self.memo[(i, j)] = i >= len(s)
             return self.memo[(i,j)]
         if i >= len(s):
             self.memo[(i,j)] = len(p)-j > 1 and p[j+1] == "*" \
@@ -90,9 +89,11 @@ class Solution2(object):
         return False
     
 
+
 """
 
-Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
+Given an input string (s) and a pattern (p), implement regular 
+expression matching with support for '.' and '*'.
 
 '.' Matches any single character.
 '*' Matches zero or more of the preceding element.
@@ -101,7 +102,8 @@ The matching should cover the entire input string (not partial).
 Note:
 
 s could be empty and contains only lowercase letters a-z.
-p could be empty and contains only lowercase letters a-z, and characters like . or *.
+p could be empty and contains only lowercase letters a-z, 
+and characters like . or *.
 Example 1:
 
 Input:

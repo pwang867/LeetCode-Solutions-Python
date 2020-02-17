@@ -1,6 +1,6 @@
 # method 1: dp
-# dp[i][j] means the number of sequences of length >=2 (not >=3) 
-# ending with A[i] and with an increment of j
+# dp[i] is a dict, and dp[i][j] means the number of arithmetic subsequences 
+# of length >= 2 (not >= 3) ending with A[i] and with an increment of j
 # dp[i] is a dictionary, because the range of increment is unknown 
 # and the increment might be negative
 

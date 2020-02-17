@@ -57,3 +57,9 @@ class Solution1(object):
         val = root.val if root.val >= L and root.val <= R else 0
         return left + right + val
     
+
+"""
+Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
+
+The binary search tree is guaranteed to have unique values.
+"""

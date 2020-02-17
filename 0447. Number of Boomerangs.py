@@ -1,3 +1,5 @@
+# build a dictionary {dist^2: set of points}, O(n^2)
+
 from collections import defaultdict
 class Solution(object):
     def numberOfBoomerangs(self, points):

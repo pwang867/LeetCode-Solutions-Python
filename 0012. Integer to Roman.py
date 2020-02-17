@@ -30,6 +30,7 @@ class Solution1(object):
         
         return "".join(res)
 
+
 # method 2
 class Solution(object):
     def intToRoman(self, num):
@@ -57,7 +58,6 @@ class Solution(object):
 
 
 """
-
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value

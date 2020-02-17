@@ -1,5 +1,9 @@
+# method 1 has best space O(result)
+# all solutions has time O(n*log(n))
+
+
 # https://leetcode.com/problems/meeting-rooms-ii/discuss/67860/My-Python-Solution-With-Explanation
-# method 2: sort start and end time separately
+# method 3: sort start and end time separately
 class Solution(object):
     def minMeetingRooms(self, intervals):
         """
@@ -24,23 +28,44 @@ class Solution(object):
         return max_room
     
 
-# method 1: soret start and end time together
+# method 2: soret start and end time together
+# space O(n), time O(n*log(n))
+class Solution2(object):
+    def minMeetingRooms(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: int
+        """
+        times = [ele for start, end in intervals for ele in [(start, 1), (end, -1)]]
+        times.sort()
+        max_room = 0
+        cur_room = 0
+        for time, change in times:
+            cur_room += change
+            max_room = max(max_room, cur_room)
+        return max_room
+    
+
+# method 1, use heap to store end times, 
+# whenever we need a room, we first go to heap to 
+# check if there is any meeting room finished
+# time O(n*log(n)), space O(result)
+import heapq
 class Solution1(object):
     def minMeetingRooms(self, intervals):
         """
         :type intervals: List[List[int]]
         :rtype: int
         """
-        times = [time for interval in intervals for time in [(interval[1], -1), (interval[0], 1)]]
-        times.sort()
-        
-        cnt = 0
-        max_rooms = 0
-        for time, change in times:
-            cnt += change
-            max_rooms = max(max_rooms, cnt)  # don't forget this step
-        return max_rooms
-
+        intervals.sort()
+        heap = []
+        for start, end in intervals:
+            if heap and heap[0] <= start:  # reuse a meeting room
+                heapq.heappushpop(heap, end)
+            else:
+                heapq.heappush(heap, end)
+        return len(heap)
+    
 
 """
 Given an array of meeting time intervals consisting of 

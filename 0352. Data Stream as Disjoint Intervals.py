@@ -6,7 +6,7 @@ class SummaryRanges(object):
         """
         self.intervals = []
     
-    def addNum(self, val):
+    def addNum(self, val):    # O(n)
         """
         :type val: int
         :rtype: None
@@ -32,7 +32,7 @@ class SummaryRanges(object):
             elif self.intervals[i-1][-1] < val < self.intervals[i][0]:
                 self.intervals.insert(i, [val, val])
     
-    def binarySearch(self, val):
+    def binarySearch(self, val):    # O(log(n))
         left, right = 0, len(self.intervals)-1
         while left + 1 < right:
             mid = left + (right-left)//2
@@ -42,8 +42,8 @@ class SummaryRanges(object):
                 left = mid
         return right
 
-    def getIntervals(self):
-        """
+    def getIntervals(self):    # O(1)
+        """ 
         :rtype: List[List[int]]
         """
         return self.intervals
@@ -56,9 +56,11 @@ class SummaryRanges(object):
 
 
 """
-Given a data stream input of non-negative integers a1, a2, ..., an, ..., summarize the numbers seen so far as a list of disjoint intervals.
+Given a data stream input of non-negative integers a1, a2, ..., an, ..., 
+summarize the numbers seen so far as a list of disjoint intervals.
 
-For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., then the summary will be:
+For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., 
+then the summary will be:
 
 [1, 1]
 [1, 1], [3, 3]
