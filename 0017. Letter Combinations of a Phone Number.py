@@ -5,7 +5,7 @@ class Solution2(object):
         :type digits: str
         :rtype: List[str]
         """
-        if not digits:
+        if not digits:  # return [] instead of [""] when digits==""
             return []
         
         d = {"2":"abc", "3":"def", "4":"ghi", "5":"jkl", 

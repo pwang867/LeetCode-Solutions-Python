@@ -7,7 +7,6 @@ class Solution(object):
         :rtype: int
         """
         A.sort()
-        
         maxSum = -float('inf')
         
         left, right = 0, len(A)-1

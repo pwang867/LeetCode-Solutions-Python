@@ -1,4 +1,7 @@
 # There must be a cycle, so use a while loop to find the cycle
+# time/space O(period*len(cells))
+
+
 class Solution(object):
     def prisonAfterNDays(self, cells, N):
         """
@@ -6,39 +9,27 @@ class Solution(object):
         :type N: int
         :rtype: List[int]
         """
-        day = 0
-        period = 0
-        start = 0  # cycle start day, cycle doesn't always start from day 0
-        appeared_states = {}
-        
-        while True:
-            if N == day:  # early termination
-                return cells
-            key = tuple(cells)  # list can not be used as dictionary keys, but tuple can
-            if key in appeared_states:
-                start = appeared_states[key]  
-                period = day - start
+        d = {tuple(cells): 0}  # {cell state: day}
+        for day in xrange(1, N + 1):
+            cells = self.get_next_day(cells)
+            key = tuple(cells)
+            if key in d:
+                period = day - d[key]
+                N = d[key] + (N - d[key]) % period
                 break
-            appeared_states[key] = day
-            cells = self.states_next_day(cells)
-            day += 1
-            
-        if (N-(start-1))%period != 0:
-            N = start - 1 + (N-(start-1))%period 
-        else:
-            N = start - 1 + period  # easy for mistake
-        
-        for key, value in appeared_states.items():
-            if value == N:
-                return list(key)
-    
-    def states_next_day(self, cells):
-        new_cells = [0]*len(cells)
-        for i in range(1, len(cells)-1):
-            new_cells[i] = int(not (cells[i-1] ^ cells[i+1]))  # use XOR
-        return new_cells
-    
-    
+            else:
+                d[key] = day
+        for state, day in d.items():
+            if day == N:
+                return list(state)
+
+    def get_next_day(self, cells):
+        res = [0] * len(cells)
+        for i in range(1, len(cells) - 1):
+            res[i] = int(cells[i - 1] == cells[i + 1])
+        return res
+
+
 """
 There are 8 prison cells in a row, and each cell is either occupied or vacant.
 

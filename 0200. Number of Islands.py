@@ -24,7 +24,35 @@ class Solution(object):
             and grid[p][q] == "1":
                 self.markGrid(grid, p, q)
 
-        
+
+# BFS, O(n)
+from collections import deque
+class Solution2(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        cnt = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    cnt += 1
+                    self.bfs(grid, i, j)
+        return cnt
+
+    def bfs(self, grid, i, j):
+        grid[i][j] = "0"
+        queue = deque([(i, j)])
+        while queue:
+            i, j = queue.popleft()
+            for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                p, q = i + dx, j + dy
+                if 0 <= p < len(grid) and 0 <= q < len(grid[0]) and \
+                        grid[p][q] == "1":
+                    queue.append((p, q))
+                    grid[p][q] = "0"
+
 
 """
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 

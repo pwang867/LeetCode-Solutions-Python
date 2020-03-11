@@ -1,5 +1,5 @@
 # n will be broken into only 2 and 3
-# if factor >= 4, then we can split factor to 2 and (factor-2) and have 2*(factor-2) > factor
+# if factor >= 4, then we can split factor to 2 and (factor-2) and always have 2*(factor-2) > factor
 # 2*2*2 < 3*3, so we will have no more than three 2's
 class Solution(object):
     def integerBreak(self, n):

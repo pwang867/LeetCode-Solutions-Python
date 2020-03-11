@@ -1,6 +1,37 @@
+
+
+# dfs, skip duplicates
+class Solution(object):
+    def numSquarefulPerms(self, A):
+        """
+        :type A: List[int]
+        :rtype: int
+        """
+        if not A or len(A) <= 1:
+            return 0
+        A.sort()
+        res = 0
+        for i in range(len(A)):
+            if i > 0 and A[i] == A[i - 1]:
+                continue
+            res += self.dfs(A[i], A[:i] + A[i + 1:])
+        return res
+
+    def dfs(self, pre, nums):
+        if not nums:
+            return 1
+        res = 0
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            if int((nums[i] + pre) ** 0.5) ** 2 == nums[i] + pre:
+                res += self.dfs(nums[i], nums[:i] + nums[i + 1:])
+        return res
+
+
 # dfs with memo, O(N*2^N)
 from collections import defaultdict
-class Solution(object):
+class Solution2(object):
     def numSquarefulPerms(self, A):
         if not A or len(A) < 2:
             return 0
@@ -68,4 +99,29 @@ class Solution1(object):
                 continue
             if prev is None or (int((num + prev)**0.5))**2 == num + prev:
                 self.permute(nums[:i]+nums[i+1:], num)
-        
+
+
+"""
+Given an array A of non-negative integers, the array is squareful if for every pair of adjacent elements, their sum is a perfect square.
+
+Return the number of permutations of A that are squareful.  Two permutations A1 and A2 differ if and only if there is some index i such that A1[i] != A2[i].
+
+ 
+
+Example 1:
+
+Input: [1,17,8]
+Output: 2
+Explanation: 
+[1,8,17] and [17,8,1] are the valid permutations.
+Example 2:
+
+Input: [2,2,2]
+Output: 1
+ 
+
+Note:
+
+1 <= A.length <= 12
+0 <= A[i] <= 1e9
+"""

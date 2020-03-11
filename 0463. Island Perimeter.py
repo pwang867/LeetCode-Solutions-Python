@@ -1,11 +1,41 @@
-# method 3: math, count_of_island*4 - count_of_nei_edges*2
+# method 5: math, count_of_island*4 - count_of_nei_edges*2, similar to method 1
 
+
+# method 4, same as method 3, but use iteration for DFS
+class Solution4(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    return self.count(grid, i, j)
+        return 0
+
+    def count(self, grid, i, j):
+        grid[i][j] = 2  # mark visited as 2
+        stack = [(i, j)]
+        m, n = len(grid), len(grid[0])
+        cnt = 0
+        while stack:
+            i, j = stack.pop()
+            for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                p, q = i + dx, j + dy
+                if p < 0 or p >= m or q < 0 or q >= n or grid[p][q] == 0:
+                    cnt += 1
+                elif grid[p][q] == 1:
+                    grid[p][q] = 2
+                    stack.append((p, q))
+        return cnt
 
 
 # method 3: recursively search starting from a single "1" point
 # faster than method 2, because it does not have to check the whole grid
 # however, it has large dfs depth
-class Solution(object):
+# time O(m*n)
+class Solution3(object):
     def islandPerimeter(self, grid):
         peri = [0]
         for i in range(len(grid)):
@@ -27,7 +57,6 @@ class Solution(object):
             elif grid[x][y] == 1:
                 self.islandHelper(grid, x, y, peri)
                 
-        
 
 # method 2: brute force, do not use padding
 class Solution2(object):

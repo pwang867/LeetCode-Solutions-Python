@@ -1,4 +1,5 @@
 # Use two pointers, similar to merge two linked list
+# time O(m+n)
 class Solution(object):
     def merge(self, nums1, m, nums2, n):
         """

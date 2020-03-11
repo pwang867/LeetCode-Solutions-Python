@@ -1,51 +1,42 @@
 # BFS
 # index is easy to be wrong
 from collections import deque
+from collections import deque
+
+
 class Solution(object):
     def findShortestWay(self, maze, ball, hole):
-        """
-        :type maze: List[List[int]]
-        :type ball: List[int]
-        :type hole: List[int]
-        :rtype: str
-        """
-        if ball == hole or not maze or not maze[0] or maze[ball[0]][ball[1]] == 1:
+        if not maze or not maze[0]:
             return ""
+        queue = deque([])  # store (i, j, path, idir)
+        dirs = [(1, 0, 'd'), (0, -1, 'l'), (0, 1, 'r'), (-1, 0, 'u')]
         m, n = len(maze), len(maze[0])
-        directions = {"d":(1, 0, 0), "l":(0, -1, 1), "r":(0, 1, 2), "u":(-1, 0, 3)}
-        queue = deque([])
-        visited = [[[False]*n for i in range(m)] for j in range(4)]   # most important part
-        for key in "dlru":   # find possible start conditions
-            dx, dy, idir = directions[key]
+        visited = [[0] * n for _ in range(m)]
+        for i in range(len(dirs)):
+            dx, dy, c = dirs[i]
             p, q = ball[0] + dx, ball[1] + dy
-            if 0 <= p < len(maze) and 0 <= q < len(maze[0]) and maze[p][q] == 0:
-                queue.append((ball[0], ball[1], key))
-                visited[idir][ball[0]][ball[1]] = True
-        # standard BFS
+            if 0 <= p < m and 0 <= q < n and maze[p][q] == 0:  # this is easy to forget
+                queue.append([ball[0], ball[1], c, i])
+                visited[ball[0]][ball[1]] |= 1 << i
         while queue:
-            for _ in range(len(queue)):
-                i, j, path = queue.popleft()
-                if [i, j] == hole:
-                    return path
-                dx, dy, idir = directions[path[-1]]
-                p, q = i + dx, j + dy
-                if 0 <= p < len(maze) and 0 <= q < len(maze[0]) \
-                and maze[p][q] == 0 and not visited[idir][p][q]:
-                    # when direction does not change
-                    queue.append((p, q, path))
-                    visited[idir][p][q] = True
-                elif p < 0 or p >= len(maze) or q < 0 or q >= len(maze[0]) \
-                or maze[p][q] == 1:
-                    # change direction
-                    for key in "dlru":
-                        dx, dy, idir = directions[key]
-                        x, y = i + dx, j + dy
-                        if 0 <= x < len(maze) and 0 <= y < len(maze[0]) \
-                        and maze[x][y] == 0 and not visited[idir][x][y]:
-                            queue.append((x, y, path+key))
-                            visited[idir][x][y] = True
+            i, j, path, idir = queue.popleft()
+            if [i, j] == hole:
+                return path
+            p, q = i + dirs[idir][0], j + dirs[idir][1]
+            if p < 0 or p >= m or q < 0 or q >= n or maze[p][q] == 1:  # change direction
+                for k in range(4):
+                    # if visited[i][j]&(1<<k) == 0: continue   # adding this sentence is a mistake !!!  nodes in same level might be affecting each other
+                    visited[i][j] |= 1 << k
+                    p, q = i + dirs[k][0], j + dirs[k][1]
+                    if 0 <= p < m and 0 <= q < n and maze[p][q] == 0 and visited[p][q] & (1 << k) == 0:
+                        visited[p][q] |= 1 << k
+                        queue.append((p, q, path + dirs[k][2], k))
+            else:  # continue walk
+                if (visited[p][q] & (1 << idir)) == 0:  # this condition is easy to be wrong
+                    visited[p][q] |= 1 << idir
+                    queue.append((p, q, path, idir))
         return "impossible"
-        
+
 
 """
 There is a ball in a maze with empty spaces and walls. The ball can go through empty spaces by rolling up (u), down (d), left (l) or right (r), but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls on to the hole.

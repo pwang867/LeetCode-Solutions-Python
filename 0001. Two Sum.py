@@ -1,5 +1,7 @@
 # method 1: use a dictionary/hashmap to save visited numbers, 
 # time O(n), space O(n)
+
+
 class Solution(object):
     def twoSum(self, nums, target):
         """

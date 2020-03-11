@@ -1,11 +1,13 @@
 # method 2: use Tarjan's Algorithm, time O(V+E), space O(V+E)
 # ref: edges in graph, https://www.geeksforgeeks.org/bridge-in-a-graph/
 # ref: strongly connected components, https://www.youtube.com/watch?v=TyWtx7q2D7Y
+
+
 from collections import defaultdict
 class Solution(object):
     def criticalConnections(self, n, connections):
         graph = self.buildGraph(connections)
-        visited = [False]*n
+        visited = [False]*n    # can be deleted, can use disc as visited
         self.time = 0
         disc = [-1]*n  # the discovered time when a node is first visited
         low = [-1]*n
@@ -38,9 +40,31 @@ class Solution(object):
             graph[u].append(v)
             graph[v].append(u)
         return graph
-        
 
 
+    def articulation_point(self, u, disc, low, graph, visited, parent, res):
+        # res: a set
+        # u is not processed yet before entering dfs()
+        visited[u] = True
+        disc[u] = self.time
+        low[u] = self.time
+        self.time += 1
+        children = 0   # number of child component connected to u
+        for v in graph[u]:
+            if v == parent[u]:
+                continue
+            if not visited[v]:
+                children += 1
+                parent[v] = u
+                self.articulation_point(v, disc, low, graph, visited, parent, res)
+                low[u] = min(low[u], low[v])
+                if parent[u] == -1 and children == 2:
+                    res.add(u)
+                if parent[u] != -1 and low[v] >= disc[u]:
+                    res.add(u)
+            else:
+                low[u] = min(low[u], disc[v])
+                # also OK for this problem: low[u] = min(low[u], low[v])
 
 # method 1: brute force, remove edges one by one
 # and then check if the graph is still a single component

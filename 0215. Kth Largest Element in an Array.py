@@ -1,6 +1,10 @@
 # https://leetcode.com/problems/kth-largest-element-in-an-array/submissions/
 # method 3: quick selection, time O(n)
-# quick selection, O(n) time, O(1) space
+# quick selection, O(n) time, O(recusion depth) space
+
+
+# Standard quick selection
+# time: average O(n) with random shuffle, space O(depth)=average O(log(n))
 import random
 class Solution(object):
     def findKthLargest(self, nums, k):
@@ -9,33 +13,29 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        if k > len(nums) or k <= 0:
-            return float('inf')
+        random.shuffle(nums)   # to make time complexity of O(n) more possible
         return self.findKthSmallest(nums, 0, len(nums)-1, len(nums)-k+1)
     
     def findKthSmallest(self, nums, left, right, k):
         mid = self.partition(nums, left, right)
         if mid-left+1 == k:
             return nums[mid]
-        if mid-left+1 > k:
+        elif mid-left+1 > k:
             return self.findKthSmallest(nums, left, mid-1, k)
         else:
             return self.findKthSmallest(nums, mid+1, right, k-(mid-left+1))
     
     def partition(self, nums, left, right):
-        
-        guess = random.randint(left, right)  # randomly choose a pivot
-        nums[guess], nums[right] = nums[right], nums[guess]
-        
         pivot = nums[right]
-        end = left  # nums[end] >= pivot
-        for i in range(left, right):
-            if nums[i] < pivot:
-                nums[end], nums[i] = nums[i], nums[end]
-                end += 1
-        nums[end], nums[right] = nums[right], nums[end]
-        return end
-    
+        mid = left
+        for j in range(left, right):
+            if nums[j] < pivot:
+                nums[mid], nums[j] = nums[j], nums[mid]
+                mid += 1
+        nums[mid], nums[right] = nums[right], nums[mid]
+        return mid
+
+
 
 # method 2: time: O(k+(n-k)*log(k)), space: O(k) of the min heap
 import heapq

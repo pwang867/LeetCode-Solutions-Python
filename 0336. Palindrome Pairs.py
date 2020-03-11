@@ -4,6 +4,8 @@
 # check all the candidates that are no longer than word
 # note: the pair can either be on the left or on the right
 # time O(n*k*k), where k is the length of the word, and n is number of words
+
+
 class Solution(object):
     def palindromePairs(self, words):
         # input requirement: words are all unique

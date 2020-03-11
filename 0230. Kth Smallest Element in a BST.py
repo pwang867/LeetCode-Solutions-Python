@@ -5,8 +5,12 @@
 #         self.left = None
 #         self.right = None
 
+
 # follow up, when the BST tree changes and the BST tree is changed often
 # we will store counts in the tree node
+# method 3, best time complexity for kthSmallest(), time O(height)
+
+
 class MyTreeNode(object):
     def __init__(self, x):
         self.val = x

@@ -1,4 +1,4 @@
-# method 2: binary search, O((m+n)*log(max_num))
+# method 2: binary search, O((m+n)*log(max_num)), space O(1)
 # edge case: [[1,2],[1,3]], k=1, self.count(matrix, 1) == 2
 # easy to have bugs
 
@@ -24,6 +24,7 @@ class Solution(object):
         return right
     
     def count(self, matrix, target):
+        # count the number of elements in matrix <= target
         cnt = 0
         i, j = 0, len(matrix[0])-1
         while i < len(matrix) and j >= 0:
@@ -33,13 +34,12 @@ class Solution(object):
             else:
                 j -= 1
         return cnt
-    
 
 
 # method 1, use heap, and always pop out the smallest element
 # time O(k*log(n))
 import heapq
-class Solution(object):
+class Solution1(object):
     def kthSmallest(self, matrix, k):
         """
         :type matrix: List[List[int]]
@@ -57,6 +57,7 @@ class Solution(object):
             k -= 1
         
         return res
+
 
 """        
 Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.

@@ -1,4 +1,4 @@
-# time O(n^2), space modify in place
+# time O(n^2), space: modify in place
 
 class Solution(object):
     def rotate(self, matrix):
@@ -6,9 +6,6 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: void Do not return anything, modify matrix in-place instead.
         """
-        if len(matrix) < 2:
-            return
-        
         n = len(matrix)
         for i in range(n//2):
             for j in range(i, n-1-i):

@@ -1,24 +1,32 @@
-# 787. Cheapest Flights Within K Stops
-# Dikstra
-from collections import defaultdict
+# Dijkstra, time K*(V+E)*log(E), space O(n*K)
 import heapq
+
+
 class Solution(object):
     def findCheapestPrice(self, n, flights, src, dst, K):
-        if not flights:
-            return -1
-        graph = defaultdict(list)
-        for start, end, price in flights:
-            graph[start].append((end, price))
-        heap = [(0, src, K+1)]
-        visited = {src}
+        """
+        :type n: int
+        :type flights: List[List[int]]
+        :type src: int
+        :type dst: int
+        :type K: int
+        :rtype: int
+        """
+        graph = {i: [] for i in range(n)}
+        for flight in flights:
+            u, v, price = flight
+            graph[u].append([v, price])
+        heap = [(0, src, K + 1)]            # input K doesn't include the src and dst
+        costs = [[float('inf')] * (K + 2) for _ in range(n)]  # 2D cost matrix
+        costs[src] = [0] * (K + 2)
         while heap:
-            price, node, k = heapq.heappop(heap)
-            if node == dst:
-                return price
-            visited.add(node)
-            for nei, add_price in graph[node]:
-                if k-1 >= 0:
-                    heapq.heappush( heap, (price + add_price, nei, k-1))
+            cost, node, k = heapq.heappop(heap)
+            if dst == node:
+                return cost
+            for v, price in graph[node]:
+                if k - 1 >= 0 and cost + price < costs[v][k - 1]:
+                    costs[v][k - 1] = cost + price
+                    heapq.heappush(heap, (cost + price, v, k - 1))
         return -1
 
 

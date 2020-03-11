@@ -1,3 +1,8 @@
+# use hashmap to save row, col, diag and adiag
+# only the major diag needs to be saved because we need n marks to win
+# time O(1) for move(), space O(n)
+
+
 class TicTacToe(object):
 
     def __init__(self, n):
@@ -5,14 +10,14 @@ class TicTacToe(object):
         Initialize your data structure here.
         :type n: int
         """
-        self.count = n*n
+        self.num_players = 2
         self.n = n
-        self.rows  = {1:[0]*n, 2:[0]*n}   # to do: one row will be enough actually, player 1: +1, player 2: -1
-        self.cols  = {1:[0]*n, 2:[0]*n}
-        self.diag  = {1:0, 2:0}
-        self.cdiag = {1:0, 2:0}  # off diagonal
+        self.rows = {player_id: [0] * n for player_id in range(1, self.num_players + 1)}
+        self.cols = {player_id: [0] * n for player_id in range(1, self.num_players + 1)}
+        self.diag = {player_id: 0 for player_id in range(1, self.num_players + 1)}
+        self.adiag = {player_id: 0 for player_id in range(1, self.num_players + 1)}
 
-    def move(self, row, col, player):
+    def move(self, row, col, player):    # O(1)
         """
         Player {player} makes a move at ({row}, {col}).
         @param row The row of the board.
@@ -27,30 +32,30 @@ class TicTacToe(object):
         :type player: int
         :rtype: int
         """
-        self.count -= 1
-        self.rows[player][row] += 1
-        if self.rows[player][row] == self.n:
+        if row < 0 or row >= self.n or col < 0 or col >= self.n:
+            return 0
+        rows = self.rows[player]
+        rows[row] += 1
+        if rows[row] == self.n:
             return player
-        self.cols[player][col] += 1
-        if self.cols[player][col] == self.n:
+        cols = self.cols[player]
+        cols[col] += 1
+        if cols[col] == self.n:
             return player
-        if row - col == 0:
+        if row == col:
             self.diag[player] += 1
             if self.diag[player] == self.n:
                 return player
         if row + col == self.n - 1:
-            self.cdiag[player] += 1
-            if self.cdiag[player] == self.n:
+            self.adiag[player] += 1
+            if self.adiag[player] == self.n:
                 return player
         return 0
-        
-        
 
 
 # Your TicTacToe object will be instantiated and called as such:
 # obj = TicTacToe(n)
 # param_1 = obj.move(row,col,player)
-
 
 
 """

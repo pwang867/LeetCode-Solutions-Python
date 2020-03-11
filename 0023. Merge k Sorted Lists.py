@@ -1,22 +1,27 @@
 # method 2, heap, time O(n*k*log(k)), space O(n*k)
 import heapq
+
+
 class Solution(object):
     def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        heap = [(node.val, node) for node in lists if node]
+        heapq.heapify(heap)
         dummy = ListNode(0)
         cur = dummy
-        h = [(node.val, node) for node in lists if node]
-        heapq.heapify(h)
-        
-        while h:
-            val, node = heapq.heappop(h)
+        while heap:
+            val, node = heapq.heappop(heap)
             cur.next = node
             cur = cur.next
-            if node.next:
-                heapq.heappush(h, (node.next.val, node.next))
-        
+            node = node.next
+            if node:
+                heapq.heappush(heap, (node.val, node))
         return dummy.next
-        
-        
+
+
 # method 1, divide and conquer
 # time: O(n*k*logk), space O(n*k)
 class Solution1(object):
