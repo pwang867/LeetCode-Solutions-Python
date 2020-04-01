@@ -1,5 +1,6 @@
 # dp, time O(n*log(n)) mainly due to sorting, space O(1)
-# similar to longest increasing stack
+# similar to longest increasing stack, or similar to merge intervals
+
 class Solution(object):
     def findLongestChain(self, pairs):
         """
@@ -9,7 +10,7 @@ class Solution(object):
         if not pairs:
             return 0
         
-        pairs.sort(key=lambda x:x[1])
+        pairs.sort(key=lambda x: x[1])
         
         last = [-float('inf'), -float('inf')]
         max_len = 0
@@ -19,6 +20,7 @@ class Solution(object):
                 last = pair
         
         return max_len
+
 
 """
 You are given n pairs of numbers. In every pair, 

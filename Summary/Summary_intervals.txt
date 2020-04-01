@@ -1,7 +1,7 @@
 # Meeting/Meeting room/Events
-1229. Meeting Scheduler (no overlapping, two persons, two pointers)
 252. Meeting Rooms (simple sort)
 253. Meeting Rooms II (1. sort start and end together, 2. use heap)
+1229. Meeting Scheduler (no overlapping, two persons, two pointers)
 1353. Maximum Number of Events That Can Be Attended  (store end time in a heap)
 
 

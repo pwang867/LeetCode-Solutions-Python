@@ -1,5 +1,7 @@
 # union find
 # two requirement to be a tree: 1. no loop, 2. only a single component
+
+
 class Solution(object):
     def validTree(self, n, edges):
         """

@@ -1,6 +1,21 @@
+# method 4
+# use math, selecting (m-1) right steps from m-1+n-1 total steps
+import math
+class Solution(object):
+    def uniquePaths(self, m, n):
+        """
+        :type m: int
+        :type n: int
+        :rtype: int
+        """
+        if m <= 0 or n <= 0:
+            return 0
+        return math.factorial(m-1+n-1)/math.factorial(m-1)/math.factorial(n-1)
+
+
 # method 3: dp, time O(m*n), space O(min(m, n))
 # uniquePaths(m, n) == uniquePaths(n, m)
-class Solution(object):
+class Solution3(object):
     def uniquePaths(self, m, n):
         if n > m:  # to make n the smaller one
             m, n = n, m

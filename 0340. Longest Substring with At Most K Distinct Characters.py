@@ -1,5 +1,7 @@
 # sliding window, time O(n), space O(k)
 from collections import defaultdict
+
+
 class Solution(object):
     def lengthOfLongestSubstringKDistinct(self, s, k):
         """
@@ -19,6 +21,7 @@ class Solution(object):
                 left += 1
             res = max(res, right - left + 1)
         return res
+
 
 """
 Given a string, find the length of the longest substring T that contains at most k distinct characters.

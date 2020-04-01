@@ -6,10 +6,13 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
+        if not grid or not grid[0]:
+            return 0
+        m, n = len(grid), len(grid[0])
         # all_pos will be already sorted, no need to sort again
-        all_pos = [i for i in range(len(grid)) for j in range(len(grid[0])) if grid[i][j]==1]  
+        all_pos = [i for i in range(m) for j in range(n) if grid[i][j]==1]  
         res = self.getDistance1D(all_pos)
-        all_pos = [j for j in range(len(grid[0])) for i in range(len(grid)) if grid[i][j]==1]
+        all_pos = [j for j in range(n) for i in range(m) if grid[i][j]==1]
         return res + self.getDistance1D(all_pos)
     
     def getDistance1D(self, nums):

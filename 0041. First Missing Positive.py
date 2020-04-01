@@ -13,7 +13,7 @@ class Solution(object):
         i = 0
         while i < n:
             j = nums[i] - 1
-            if 1 <= nums[i] <= n and nums[i] != nums[j]:  # redundant: i != j
+            if 0 <= j < n and nums[i] != nums[j]:  # redundant: i != j, easy to miss: 0 <= j < n 
                 nums[i], nums[j] = nums[j], nums[i]
             else:
                 i += 1

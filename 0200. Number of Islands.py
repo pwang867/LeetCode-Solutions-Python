@@ -1,4 +1,6 @@
 # method 1: DFS, time O(n)
+
+
 class Solution(object):
     def numIslands(self, grid):
         """

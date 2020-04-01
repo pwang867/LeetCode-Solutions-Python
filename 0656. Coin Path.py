@@ -8,6 +8,9 @@
 
 
 
+
+
+
 # if arr1 < arr2, then this might not be true: arr1 + [n] < arr2 + [n]
 # for example, [1] < [1, 2], but [1, 3] > [1, 2, 3]
 
@@ -43,10 +46,11 @@ class Solution1(object):
                 (cost[j] == cost[i] and paths[j] + [i+1] < paths[i]):
                     cost[i] = cost[j]
                     paths[i] = paths[j] + [i+1]
-            if paths[i] == []:
+            if paths[i] == []:   # if we cannot arrive at i, then we can not arrive any position after i
                 return []
             cost[i] += a
         return paths[-1]
+
 
 
 """

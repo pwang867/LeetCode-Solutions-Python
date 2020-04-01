@@ -1,6 +1,7 @@
 # method 2, bit manipulation, O(n)
 # use those rules: x^x = 0, 0^x = x
 # note: the method for this solution works because nums are distinct
+
 class Solution(object):
     def missingNumber(self, nums):
         res = len(nums)

@@ -1,3 +1,7 @@
+# time O(n), space O(1)
+# two pointers
+
+
 class Solution(object):
     def validPalindrome(self, s):
         """
@@ -22,7 +26,8 @@ class Solution(object):
 
 
 """
-Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
+Given a non-empty string s, you may delete at most one character. 
+Judge whether you can make it a palindrome.
 
 Example 1:
 Input: "aba"

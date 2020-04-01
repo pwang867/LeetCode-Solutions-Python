@@ -1,5 +1,7 @@
 # collections.OrderedDict() is implemented by double linked-list
 # it can search, delete in O(1) time, and will keep added items in order
+
+
 import collections
 class LRUCache(object):
 
@@ -16,17 +18,13 @@ class LRUCache(object):
             return val      
 
     def put(self, key, value):
-        
         if key in self.cache:
             self.cache.pop(key)
         else:
             if len(self.cache) >= self.capacity:
-                for x in self.cache:
-                    self.cache.pop(x)
-                    break  # only remove the oldest key
+                self.cache.popitem(last=False)     # dict.popitem(last=False)
         
         self.cache[key] = value
-
         
 
 # Your LRUCache object will be instantiated and called as such:

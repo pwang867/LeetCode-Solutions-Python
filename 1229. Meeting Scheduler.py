@@ -1,4 +1,6 @@
 # time O(m+n), space O(1), two pointers
+
+
 class Solution(object):
     def minAvailableDuration(self, slots1, slots2, duration):
         """
@@ -11,20 +13,23 @@ class Solution(object):
         slots2.sort()
         i, j = 0, 0
         while i < len(slots1) and j < len(slots2):
-            if slots1[i][1] < slots2[j][0]:
+            start1, end1 = slots1[i]
+            start2, end2 = slots2[j]
+            if end1 <= start2:
                 i += 1
-            elif slots1[i][0] > slots2[j][1]:
+            elif end2 <= start1:
                 j += 1
             else:
-                end = min(slots1[i][1], slots2[j][1])
-                start = max(slots1[i][0], slots2[j][0])
+                start = max(start1, start2)
+                end = min(end1, end2)
                 if end - start >= duration:
                     return [start, start+duration]
-                if slots1[i][1] < slots2[j][1]:  # easy to forget !!! dead loop !!!
+                if start1 < start2:
                     i += 1
                 else:
                     j += 1
         return []
+    
 
 if __name__ == "__main__":
     slots1 = [[10,50],[60,120],[140,210]]

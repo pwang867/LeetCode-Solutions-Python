@@ -1,4 +1,6 @@
 # the same as # 207 Course Schedule I, except that we need to get the schedule
+
+
 class Solution(object):
     def findOrder(self, numCourses, prerequisites):
         """

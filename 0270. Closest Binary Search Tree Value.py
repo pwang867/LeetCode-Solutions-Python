@@ -25,7 +25,7 @@ class Solution(object):
                 ans = curr.val
             if diff == 0:  # do not return target, return an integer, or do int(target)
                 return curr.val
-            if target < curr.val:
+            elif target < curr.val:
                 curr = curr.left
             else:
                 curr = curr.right

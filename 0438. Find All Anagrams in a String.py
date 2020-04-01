@@ -1,6 +1,8 @@
 # sliding window + hashmap
 # time O(len(s)+len(p)), space O(len(p))
-from collections import Counter, defaultdict
+
+import collections
+
 class Solution(object):
     def findAnagrams(self, s, p):
         """
@@ -8,32 +10,25 @@ class Solution(object):
         :type p: str
         :rtype: List[int]
         """
-        target = Counter(p)
-        
-        cnt = 0
-        left = 0
-        window = defaultdict(int)
+        if not p or not s:
+            return []
+        window = collections.Counter(p)
+        cnt = len(window)
         res = []
-        for i, c in enumerate(s):
-            if c not in target:
-                window.clear()
-                left = i + 1
-                cnt = 0
-            else:
-                window[c] += 1
-                if window[c] <= target[c]:
+        for right, c in enumerate(s):
+            if c in window:
+                window[c] -= 1
+                if window[c] == 0:
+                    cnt -= 1
+            left = right - len(p)
+            if left >= 0 and s[left] in window:
+                window[s[left]] += 1
+                if window[s[left]] == 1:
                     cnt += 1
-                else:
-                    while window[c] > target[c]:
-                        window[s[left]] -= 1
-                        if window[s[left]] < target[s[left]]:
-                            cnt -= 1
-                        left += 1
-                if cnt == len(p):  # mistake: if cnt == 0
-                    res.append(i-len(p)+1)
-        
+            if cnt == 0:
+                res.append(left+1)
         return res
-
+    
 
 
 """

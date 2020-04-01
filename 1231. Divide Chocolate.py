@@ -4,12 +4,14 @@ Here are some similar binary search problems.
 Also find more explanations.
 Good luck and have fun.
 
-1231. Divide Chocolate
-1011. Capacity To Ship Packages In N Days
 875. Koko Eating Bananas
 774. Minimize Max Distance to Gas Station
+
+1011. Capacity To Ship Packages In N Days
 410. Split Array Largest Sum
+1231. Divide Chocolate
 """
+
 
 # this is a max-min problem, min-max and max-min happens at the same time
 # time O(log(sum(sweetness)))
@@ -81,18 +83,6 @@ class Solution1(object):
     
 
 
-
-sweetness = [87002,22650,61737,4432,87341,67643,13454,83823,87836,2978,99313,82797,77350,55994,31403,73836,54451,54807,60146,72381,7271,37633,32603,33752,78004,76288,94608,3516,98287,16577,36186,40401,70733,35764,76303,74279,18351,74113,26480,64253,49402,47512,37185,42488,43068,3542,55773,91365,86770,52915]
-K = 3  # 641293
-    
-#sweetness = [7,1,6,9]
-#K = 2
-    
-#sweetness = [90670,55382,95298,95795,73204,41464,18675,30104,47442,55307]
-#K = 6    # answer 55382
-
-print(Solution().maximizeSweetness(sweetness, K))
-
 """
 You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array sweetness.
 
@@ -115,3 +105,17 @@ Input: sweetness = [5,6,7,8,9,1,2,3,4], K = 8
 Output: 1
 Explanation: There is only one way to cut the bar into 9 pieces.
 """
+
+
+if __name__ == "__main__":
+    sweetness = [87002,22650,61737,4432,87341,67643,13454,83823,87836,2978,99313,82797,77350,55994,31403,73836,54451,54807,60146,72381,7271,37633,32603,33752,78004,76288,94608,3516,98287,16577,36186,40401,70733,35764,76303,74279,18351,74113,26480,64253,49402,47512,37185,42488,43068,3542,55773,91365,86770,52915]
+    K = 3  # 641293
+        
+    #sweetness = [7,1,6,9]
+    #K = 2
+        
+    #sweetness = [90670,55382,95298,95795,73204,41464,18675,30104,47442,55307]
+    #K = 6    # answer 55382
+    
+    print(Solution().maximizeSweetness(sweetness, K))
+    

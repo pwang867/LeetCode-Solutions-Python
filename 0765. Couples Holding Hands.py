@@ -1,12 +1,48 @@
 # method 2: union find
 
+class Solution(object):
+    def minSwapsCouples(self, row):
+        """
+        :type row: List[int]
+        :rtype: int
+        """
+        if not row:
+            return 0
+        N = len(row)//2
+        parent = {i:i for i in range(2*N)}
+        size = {i:1 for i in range(2*N)}
+        
+        def find(u):
+            if parent[u] != u:
+                parent[u] = find(parent[u])
+            return parent[u]
+        def union(u, v):
+            p, q = find(u), find(v)
+            if p != q:
+                if size[p] < size[q]:
+                    p, q = q, p
+                parent[q] = p
+                size[p] += size[q]
+                return True
+            return False
+        
+        for i in range(0, 2*N, 2):
+            union(i, i+1)   # union couples
+            union(row[i], row[i+1])  # union neighbors
+        map(find, parent)
+        roots = set(parent.values())
+        swap = 0
+        for root in roots:
+            swap += size[root]//2 - 1
+        return swap
+    
 
-
+# method 1
 # the seats of the couple don't matter, 
 # as long as the couple is sitting together
 # paired seats can be saved into a dictionary
 
-class Solution(object):
+class Solution1(object):
     def minSwapsCouples(self, row):
         """
         :type row: List[int]

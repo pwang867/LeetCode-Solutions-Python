@@ -1,5 +1,8 @@
 # similar to method 1, but use a dp matrix instead of a hashmap
 # time/space O(m*n)
+# dp[i][j] means max length of the path starting from matrix[i][j]
+
+
 class Solution(object):
     def longestIncreasingPath(self, matrix):
         """
@@ -20,7 +23,8 @@ class Solution(object):
         dp[i][j] = 1
         for v in [(1,0),(-1,0),(0,1),(0,-1)]:
             p, q = i+v[0], j+v[1]
-            if 0 <= p < len(matrix) and 0 <= q < len(matrix[0]) and matrix[p][q] > matrix[i][j]:
+            if 0 <= p < len(matrix) and 0 <= q < len(matrix[0]) \
+            and matrix[p][q] > matrix[i][j]:
                 self.dfs(matrix, p, q, dp)
                 dp[i][j] = max(dp[i][j], dp[p][q]+1)
         

@@ -1,4 +1,6 @@
 # standard BFS, start from all gates, time/space O(n)
+
+
 from collections import deque
 class Solution(object):
     def wallsAndGates(self, rooms):

@@ -28,22 +28,22 @@ class Solution(object):
     def intToWord(self, num):
         # 0 <= num < 1000
         # return a string
+        # edge case 120 == "One Hundred Twenty"
         res = []
         special = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
                    "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", 
                    "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
         tens = ["Twenty", "Thirty", "Forty", "Fifty", 
-                "Sixty", "Seventy", "Eighty", "Ninety"]
-        if num//100 > 0:
+                "Sixty", "Seventy", "Eighty", "Ninety"]   # easy to spell error: Ninety, Nineteen
+        if num >= 100:
             res.append(special[num//100])
             res.append("Hundred")
             num = num%100
-        if 0 < num < 20:
-            res.append(special[num])
-        elif num >= 20:
+        if num >= 20:
             res.append(tens[num//10-2])
-            if num%10 != 0:
-                res.append(special[num%10])
+            num = num%10
+        if num > 0:   # avoid num == 0, edge case 120 == "One Hundred Twenty"
+            res.append(special[num])
         
         return " ".join(res)
     

@@ -26,15 +26,14 @@ class Solution(object):
     def countGroups(self, nums, maxSum):
         # split nums into groups with sum no larger to maxSum
         # return the number of groups
-        cnt = 0
+        cnt = 1   # mistake: cnt = 0
         total = 0
         for i, num in enumerate(nums):
             total += num
             if total > maxSum:
                 cnt += 1
                 total = num
-        
-        return cnt + 1  # mistake: return cnt
+        return cnt  
 
 
 # method 2: based on method 1, but use binary search to search k
@@ -146,7 +145,9 @@ class Solution0(object):  # wrong solution
         return res
     
 """
-Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
+Given an array which consists of non-negative integers and an integer m, 
+you can split the array into m non-empty continuous subarrays. 
+Write an algorithm to minimize the largest sum among these m subarrays.
 
 Note:
 If n is the length of array, assume the following constraints are satisfied:

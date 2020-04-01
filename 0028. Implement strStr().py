@@ -1,4 +1,6 @@
 # KMP algorithm, worst time O(n+m), space O(m), m=len(needle)
+# used in python: haystack.index(needle)
+
 class Solution(object):
     def strStr(self, haystack, needle):
         if not needle:
@@ -21,7 +23,7 @@ class Solution(object):
         # create a KMP lookup table for the str pattern of needle
         # table[i] means the max length of same prefix and suffix in needle[:i+1]
         table = [0]*len(needle)
-        j = 0
+        j = 0   # the length of common prefix-suffix
         for i in range(1, len(needle)):
             while j > 0 and needle[j] != needle[i]:
                 j = table[j-1]
@@ -52,6 +54,22 @@ class Solution1(object):
                 return i
         
         return -1
+
+
+
+# built-in function
+
+class Solution0(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        if needle in haystack:
+            return haystack.index(needle)
+        return -1
+    
 
 """
 Implement strStr().

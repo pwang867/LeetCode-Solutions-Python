@@ -62,8 +62,8 @@ class Solution1(object):
         for start, end in intervals:
             if heap and heap[0] <= start:  # reuse a meeting room
                 heapq.heappushpop(heap, end)
-            else:
-                heapq.heappush(heap, end)
+            else:      # open a new meeting room
+                heapq.heappush(heap, end)   
         return len(heap)
     
 

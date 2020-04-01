@@ -31,7 +31,7 @@ class Solution(object):
                     res.append([u, v])
             else:
                 if v != parent[u]:
-                    low[u] = min(low[u], disc[v])  
+                    low[u] = min(low[u], disc[v])     # egge case: [[0,1], [1,2],[2,0],[2,3],[3,0]]
                     # also OK for this problem: low[u] = min(low[u], low[v])
     
     def buildGraph(self, edges):
@@ -42,7 +42,26 @@ class Solution(object):
         return graph
 
 
-    def articulation_point(self, u, disc, low, graph, visited, parent, res):
+class SolutionX(object):
+    def criticalRouters(self, n, connections):
+        graph = self.buildGraph(connections)
+        visited = [False]*n    # can be deleted, can use disc as visited
+        self.time = 0
+        disc = [-1]*n  # the discovered time when a node is first visited
+        low = [-1]*n
+        parent = [-1]*n
+        res = set()
+        self.dfs(1, disc, low, graph, visited, parent, res)
+        return res
+
+    def buildGraph(self, edges):
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+        return graph
+
+    def dfs(self, u, disc, low, graph, visited, parent, res):
         # res: a set
         # u is not processed yet before entering dfs()
         visited[u] = True
@@ -56,7 +75,7 @@ class Solution(object):
             if not visited[v]:
                 children += 1
                 parent[v] = u
-                self.articulation_point(v, disc, low, graph, visited, parent, res)
+                self.dfs(v, disc, low, graph, visited, parent, res)
                 low[u] = min(low[u], low[v])
                 if parent[u] == -1 and children == 2:
                     res.add(u)
@@ -145,3 +164,11 @@ n-1 <= connections.length <= 10^5
 connections[i][0] != connections[i][1]
 There are no repeated connections.
 """
+
+
+if __name__ == "__main__":
+    n = 6
+    connections = [[1,2],[1,3],[3,4],[1,4],[4,5]]
+    print(SolutionX().criticalRouters(n, connections))
+    
+    

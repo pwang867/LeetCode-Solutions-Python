@@ -1,8 +1,36 @@
+# method 3, same as method 2, but simplified
+import collections
+
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        graph = collections.defaultdict(list)
+        indegrees = {i: 0 for i in range(numCourses)}
+        for u, v in prerequisites:
+            graph[u].append(v)
+            indegrees[v] += 1
+        queue = collections.deque([key for key, val in indegrees.items() if val == 0])
+        cnt = len(queue)   # count of selected courses
+        while queue:
+            u = queue.popleft()
+            for v in graph[u]:
+                indegrees[v] -= 1
+                if indegrees[v] == 0:
+                    queue.append(v)
+                    cnt += 1
+        return cnt == numCourses
+
+
+
 # method 2, Kahn's algorithm, BFS
 # this is more commonly used
 # time/space O(E+V)
 from collections import defaultdict, deque
-class Solution(object):
+class Solution2(object):
     def canFinish(self, numCourses, prerequisites):
         """
         :type numCourses: int
@@ -90,7 +118,8 @@ class Solution1(object):
 """
 There are a total of n courses you have to take, labeled from 0 to n-1.
 
-Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+Some courses may have prerequisites, for example to take course 0 
+you have to first take course 1, which is expressed as a pair: [0,1]
 
 Given the total number of courses and a list of prerequisite pairs, 
 is it possible for you to finish all courses?

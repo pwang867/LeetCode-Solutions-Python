@@ -1,5 +1,5 @@
 # method 4, use DFS to save space, otherwise memory out of limit
-from collections import defaultdict
+
 class Solution(object):
     def wordBreak(self, s, wordDict):
         """
@@ -7,29 +7,26 @@ class Solution(object):
         :type wordDict: List[str]
         :rtype: List[str]
         """
-        wordDict = set(wordDict)
-        self.memo = defaultdict(list)
-        self.memo[len(s)] = [""]  # {i:[sentences of s[i:]]}
-        
-        self.dfs(s, 0, wordDict)
-        return self.memo[0]
+        wordset = set(wordDict)
+        self.memo = {len(s): [""]}  # {i: [sentences for s[i:]]}
+        return self.dfs(s, 0, wordset)
     
-    def dfs(self, s, start, wordDict):
+    def dfs(self, s, start, wordset):
         if start in self.memo:
             return self.memo[start]
-        
+        sentences = []
         for i in range(start, len(s)):
-            candidate = s[start:i+1]
-            if candidate in wordDict:
-                temp = self.dfs(s, i+1, wordDict)
-                for sentence in temp:
-                    if sentence:
-                        self.memo[start].append(candidate + " " + sentence)
+            word = s[start:i+1]
+            if word in wordset:
+                subsentences = self.dfs(s, i+1, wordset)
+                for subsentence in subsentences:
+                    if subsentence:
+                        sentences.append(word + " " + subsentence)
                     else:
-                        self.memo[start].append(candidate)
-        
-        return self.memo[start]
-
+                        sentences.append(word)
+        self.memo[start] = sentences
+        return sentences
+    
 
 # method 3: based on method 2
 # Time limit exceeded (TLE)

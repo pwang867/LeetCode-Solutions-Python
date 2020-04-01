@@ -16,7 +16,7 @@ class Solution(object):
         while l1 or l2 or carry:
             if l1:
                 carry += l1.val
-                l1 = l1.next
+                l1 = l1.next    # easy to forget
             if l2: 
                 carry += l2.val
                 l2 = l2.next
@@ -24,6 +24,8 @@ class Solution(object):
             cur = cur.next
             carry //= 10
         return dummy.next
+    
+    
     
 """
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.

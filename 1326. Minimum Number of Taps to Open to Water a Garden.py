@@ -1,5 +1,7 @@
 # time O(n*log(n)), space O(n)
-# sort, greedy
+# sort, greedy (similar to BFS)
+# edge case:  n = 3, ranges = [0,0,0,0], return -1
+
 class Solution(object):
     def minTaps(self, n, ranges):
         """

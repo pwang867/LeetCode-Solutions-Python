@@ -1,4 +1,5 @@
 # time O(n) due to insertion, otherwise binary search should be considered
+
 class Solution(object):
     def insert(self, intervals, newInterval):
         """

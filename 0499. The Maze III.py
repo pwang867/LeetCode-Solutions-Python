@@ -1,7 +1,6 @@
 # BFS
 # index is easy to be wrong
 from collections import deque
-from collections import deque
 
 
 class Solution(object):
@@ -11,7 +10,7 @@ class Solution(object):
         queue = deque([])  # store (i, j, path, idir)
         dirs = [(1, 0, 'd'), (0, -1, 'l'), (0, 1, 'r'), (-1, 0, 'u')]
         m, n = len(maze), len(maze[0])
-        visited = [[0] * n for _ in range(m)]
+        visited = [[0] * n for _ in range(m)]    # 4-bit integer
         for i in range(len(dirs)):
             dx, dy, c = dirs[i]
             p, q = ball[0] + dx, ball[1] + dy

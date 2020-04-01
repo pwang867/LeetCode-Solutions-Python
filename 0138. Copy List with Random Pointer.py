@@ -6,7 +6,8 @@ class Node(object):
 
 
 # clone nodes first, then clone the connections between them
-# many random pointers may point to None, not only the last node
+# note: many random pointers may point to None, not only the last node
+
 class Solution(object):
     def copyRandomList(self, head):
         """

@@ -10,7 +10,6 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        # method 2, 05/02/2019
         if len(height) <= 2:
             return 0
         
