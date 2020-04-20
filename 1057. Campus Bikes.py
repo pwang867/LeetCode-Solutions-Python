@@ -3,6 +3,8 @@
 # time O(M*N + N*M*(logN+logM)), space O(M*N)
 # worst case: bikes and workers are both a single line and perpendicular
 import heapq
+
+
 class Solution(object):
     def assignBikes(self, workers, bikes):
         pairs = []  # list of list, pairs[i] means the pairs for workers[i]

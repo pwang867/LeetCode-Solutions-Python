@@ -1,16 +1,63 @@
-# this problem is basicly to find a route from (0,0) to (m-1, n-1) 
+# this problem is basically to find a route from (0,0) to (m-1, n-1)
 # that minimize the maximum elevation in the path
+# method 3, Dijkstra, based on method 2, but print out the best route
+# time O(n*log(n))
+
+import heapq
+
+
+class Solution(object):
+    def swimInWater(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        if not grid or not grid[0]:
+            return 0
+        m, n = len(grid), len(grid[0])
+        heap = [(grid[0][0], 0, 0)]
+        visited = [[False] * n for _ in range(m)]
+        visited[0][0] = True
+        prev = {}
+        time = grid[0][0]
+        while heap:
+            ele, i, j = heapq.heappop(heap)
+            time = max(time, ele)
+            if i == m - 1 and j == n - 1:
+                self.get_path(prev, m - 1, n - 1)
+                return time
+            for di, dj in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                r, c = i + di, j + dj
+                if 0 <= r < len(grid) and 0 <= c < len(grid[0]) \
+                        and not visited[r][c]:
+                    prev[(r, c)] = (i, j)
+                    visited[r][c] = True
+                    heapq.heappush(heap, (grid[r][c], r, c))
+        return time
+
+    def get_path(self, prev, i, j):
+        res = [(i, j)]
+        cur = (i, j)
+        while cur != (0, 0):
+            cur = prev[cur]
+            res.append(cur)
+        print(res[::-1])
+        return res
+
+
 
 # method 2: Dijkstra, heap
 import heapq
-class Solution:
+
+
+class Solution2:
     def swimInWater(self, grid):
         if not grid or not grid[0]:
             return 0
         
         heap = [(grid[0][0], 0, 0)]
         visited = set()
-        dirs = [(0,1),(0,-1),(1,0),(-1,0)]
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         res = 0
         while heap:
             elev, i, j = heapq.heappop(heap)
@@ -18,7 +65,7 @@ class Solution:
                 continue
             visited.add((i, j))
             res = max(res, elev)
-            if i==len(grid)-1 and j == len(grid[0])-1:
+            if i == len(grid)-1 and j == len(grid[0])-1:
                 return res
             for v in dirs:
                 p, q = i + v[0], j + v[1]
@@ -60,7 +107,9 @@ On an N x N grid, each square grid[i][j] represents the ground elevation
 at that point (i,j).
 
 Now rain starts to fall. At time t, the depth of the water everywhere 
-that has a ground elevation <= t is t. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares individually are at most t. You can swim infinite distance in zero time. Of course, you must stay within the boundaries of the grid during your swim.
+that has a ground elevation <= t is t. You can swim from a square to another 4-directionally adjacent square if and 
+only if the elevation of both squares individually are at most t. You can swim infinite distance in zero time. 
+Of course, you must stay within the boundaries of the grid during your swim.
 
 You start at the top left square (0, 0). What is the least time until you can reach the bottom right square (N-1, N-1)?
 

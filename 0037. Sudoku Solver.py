@@ -1,8 +1,69 @@
-# possible improvement: 
+# use backtrack
+
+class Solution(object):
+    def solveSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: None Do not return anything, modify board in-place instead.
+        """
+        N = 9
+        rows = [set() for _ in range(N)]
+        cols = [set() for _ in range(N)]
+        boxes = [set() for _ in range(N)]
+        for i in range(N):
+            for j in range(N):
+                if board[i][j] != ".":
+                    self.update(board, i, j, rows, cols, boxes, board[i][j])
+        self.dfs(board, 0, 0, rows, cols, boxes)
+
+    def dfs(self, board, i, j, rows, cols, boxes):
+        if i == len(board):
+            return True
+        if j == len(board[0]):
+            return self.dfs(board, i + 1, 0, rows, cols, boxes)
+        if board[i][j] != ".":
+            return self.dfs(board, i, j + 1, rows, cols, boxes)
+        else:
+            for num in range(1, 10):
+                num = str(num)
+                if self.is_valid(i, j, rows, cols, boxes, num):
+                    self.update(board, i, j, rows, cols, boxes, num)
+                    if self.dfs(board, i, j + 1, rows, cols, boxes):
+                        return True
+                    else:
+                        self.remove(board, i, j, rows, cols, boxes, num, ".")
+            return False
+
+    def is_valid(self, i, j, rows, cols, boxes, num):
+        if num in rows[i]:
+            return False
+        if num in cols[j]:
+            return False
+        k = (i // 3) * 3 + (j // 3)
+        if num in boxes[k]:
+            return False
+        return True
+
+    def update(self, board, i, j, rows, cols, boxes, num):
+        rows[i].add(num)
+        cols[j].add(num)
+        k = (i // 3) * 3 + (j // 3)
+        boxes[k].add(num)
+        board[i][j] = num
+
+    def remove(self, board, i, j, rows, cols, boxes, num, copy):
+        rows[i].remove(num)
+        cols[j].remove(num)
+        k = (i // 3) * 3 + (j // 3)
+        boxes[k].remove(num)
+        board[i][j] = copy
+
+
+# possible improvement:
 # 1. fill the empty cells with least candidates first
 # 2. use extra hashmap to make validation faster. 
 # rows = {row: set(nums)}, cols = {col: set(nums)}, boxes = {i:set(nums)}
-# use set union to get candidates for (row, col)
+# use set union() function to get candidates for (row, col)
 
 
 # dfs, space O(n^2), time O(n*9^n)

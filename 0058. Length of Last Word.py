@@ -3,26 +3,23 @@
 
 
 # time O(len(last_word)), space O(1)
+
+
 class Solution(object):
     def lengthOfLastWord(self, s):
         """
         :type s: str
         :rtype: int
         """
-        if not s:
-            return 0
-        end = len(s)-1
-        see_letter = False
-        for start in range(len(s)-1, -1, -1):
-            if s[start] == " ":
-                if not see_letter:
-                    end -= 1
-                else:
-                    return end - start
-            else:
-                see_letter = True
-        
-        return end + 1 if see_letter else 0
+        end = len(s) - 1
+        while end >= 0 and not s[end].isalpha():
+            end -= 1
+        cnt = 0
+        while end >= 0 and s[end].isalpha():
+            end -= 1
+            cnt += 1
+        return cnt
+
 
 """
 Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.

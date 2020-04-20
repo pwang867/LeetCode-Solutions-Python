@@ -1,6 +1,62 @@
 # bit manipulation, find each bit for the result
 # edge case: divisor == 0, integer overflow
+# edge case: dividend == -1<<31 and divisor == -1
+
+
 class Solution(object):
+    def divide(self, dividend, divisor):
+        """
+        :type dividend: int
+        :type divisor: int
+        :rtype: int
+        """
+        if divisor == 0:
+            raise ValueError("ZeroDivision")
+
+        sign = 1
+        if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
+            sign = -1
+
+        MIN = -2 ** 31
+        MAX = 2 ** 31 - 1
+        if divisor == MIN:
+            if dividend == MIN:
+                return 1
+            else:
+                return 0
+
+        res = 0
+        if dividend == MIN:
+            if divisor == -1:
+                return MAX
+            elif divisor == 1:
+                return MIN
+            else:
+                res = 1
+                dividend += abs(divisor)
+
+        dividend = abs(dividend)
+        divisor = abs(divisor)
+
+        while dividend >= divisor:
+            digit = 1
+            copy = divisor
+            # while divisor <= (MAX >> 1) and (divisor << 1) <= dividend:
+            while dividend - divisor >= divisor:
+                divisor <<= 1
+                digit <<= 1
+            res += digit
+            dividend -= divisor
+            divisor = copy
+
+        return sign * res
+
+
+# method 1 still has some problem, divisor = abs(divisor) might overflow
+# method 2 solved this problem
+
+
+class Solution1(object):
     def divide(self, dividend, divisor):  # return dividend//divisor
         """
         :type dividend: int
@@ -15,7 +71,7 @@ class Solution(object):
         else:
             sign = 1
         
-        divisor = abs(divisor)
+        divisor = abs(divisor)   # might overflow
         dividend = abs(dividend)
         ans = 0
         
@@ -33,7 +89,6 @@ class Solution(object):
         ans = ans if sign == 1 else - ans
         
         return ans
-    
 
 """
 Given two integers dividend and divisor, 

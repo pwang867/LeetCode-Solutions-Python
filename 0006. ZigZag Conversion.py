@@ -9,7 +9,7 @@ class Solution(object):
         if numRows == 1:
             return s
         
-        period = 2*numRows - 2
+        period = 2*numRows - 2   # mistake: 2*numRows - 2
         res = []
         n = len(s)
         for i in range(numRows): # for each row

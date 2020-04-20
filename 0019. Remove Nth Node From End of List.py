@@ -1,6 +1,8 @@
 # Two pointers, one pass, O(n)
 # first pointer moved n-step ahead of second pointer
 # move n-1 steps first, then move the n-th step separately
+
+
 class Solution(object):
     def removeNthFromEnd(self, head, n):
         """
@@ -8,36 +10,20 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        if not head:
-            return None
-        if n < 0:
-            return head
-        
-        # let the first pointer move n steps first
-        first = head
-        for _ in range(n - 1):
-            first = first.next
-            if first is None:
-                # length of the list is smaller than n
-                return head
-        first = first.next  # move the n-th step
-        
-        dummy = ListNode(0) # head might be the n-th last node to remove
+        dummy = ListNode(0)
         dummy.next = head
-        second = dummy  # second is n+1 steps behind first
-        
-        while first:  # move to the end
-            first = first.next
-            second = second.next
-        
-        # delete the n-th node from the back, which is the second pointer
-        to_delete = second.next
-        copy = second.next.next
-        second.next = copy  
-        to_delete.next = None  # for safety
-        
+        fast = dummy
+        for _ in range(n + 1):
+            if not fast:
+                return dummy.next
+            fast = fast.next
+        slow = dummy
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        if slow and slow.next:
+            slow.next = slow.next.next
         return dummy.next
-    
 
 
 # Definition for singly-linked list.

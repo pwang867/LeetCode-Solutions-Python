@@ -2,7 +2,9 @@
 # time/space O(n^(N-1))
 # must sort first
 
+
 class Solution(object):
+
     def fourSum(self, nums, target):
         """
         :type nums: List[int]
@@ -50,6 +52,37 @@ class Solution(object):
                 right -= 1
             else:
                 left += 1
+
+
+# method 2, worst case O(n^4), practically around O(n^2)
+
+import collections
+
+
+class Solution2(object):
+    def fourSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        pairs = collections.defaultdict(list)
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                pairs[nums[i] + nums[j]].append((i, j))
+        res = set()
+        for x in pairs:
+            if target - x in pairs:
+                idx1 = pairs[x]
+                idx2 = pairs[target - x]
+                for i, j in idx1:
+                    for p, q in idx2:
+                        if i < p and len(set([i, j, p, q])) == 4:
+                            tmp = [nums[i], nums[j], nums[p], nums[q]]
+                            tmp.sort()
+                            res.add(tuple(tmp))
+        return map(list, res)
+
 
 """
 Given an array nums of n integers and an integer target, 

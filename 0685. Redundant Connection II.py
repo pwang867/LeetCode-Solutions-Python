@@ -16,7 +16,7 @@ class Solution(object):
             return []
         N = len(edges)
         # build graph and search nodes with indegree 2
-        parent = {i:i for i in range(1,N+1)}
+        parent = {i: i for i in range(1,N+1)}
         first, second = [], []
         for u, v in edges:
             if parent[v] == v:

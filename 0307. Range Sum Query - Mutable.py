@@ -2,6 +2,7 @@
 # update: time O(log(n)), sumRange: time O(log(n))
 # space: O(n)
 # i=0 is a dummy for BIT array (self.sums)
+
 class NumArray(object):
 
     def __init__(self, nums):
@@ -173,7 +174,7 @@ class NumArray1:
 
 
 """
-Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
+Given an integer array nums, find the sum of the elements between indices i and j (i <= j), inclusive.
 
 The update(i, val) function modifies nums by updating the element at index i to val.
 

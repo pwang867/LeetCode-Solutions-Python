@@ -1,6 +1,8 @@
 # pancake, time O(n), in place
 # similar to #186. Reverse Words in a String II
-class Solution(object):
+
+
+class Solution2(object):
     def rotate(self, nums, k):
         """
         :type nums: List[int]
@@ -21,6 +23,37 @@ class Solution(object):
             left += 1
             right -= 1
         return nums
+
+
+# method 1
+# use hint 4, cyclic-dependencies
+# when n = 4, k = 2, index 0 and 2 will be a dead loop,
+# so we need to remember our starting index for each cycle
+
+class Solution1(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        if len(nums) < 2:
+            return
+        k %= len(nums)
+        istart = 0
+        icur = istart
+        copy = nums[icur]
+        for _ in range(len(nums)):
+            j = (icur + k) % len(nums)  # next position to go
+            copy, nums[j] = nums[j], copy
+            icur = j
+            if icur == istart:  # this cycle is done, go to next cycle
+                istart += 1
+                icur = istart
+                if icur < len(nums):
+                    copy = nums[icur]
+                else:
+                    break
 
 
 """

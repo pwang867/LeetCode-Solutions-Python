@@ -33,6 +33,7 @@ class Solution(object):
         return max(sizeM, n+1)*M + max(sizeN, n+1)*N + num_max_cnt*1   # mistake: n+1
 
 
+
 """
 Given a char array representing tasks CPU need to do. It contains capital letters A to Z where different letters represent different tasks. Tasks could be done without original order. Each task could be done in one interval. For each interval, CPU could finish one task or just be idle.
 

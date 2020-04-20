@@ -1,43 +1,45 @@
 # sign, and integer overflow
+
+
+"""
+1. only those are allowed: " " in the beginning, "+-" in front of numbers, numbers
+2. consider integer overflow
+3. return 0 if no conversion happens
+"""
+
+
 class Solution(object):
     def myAtoi(self, str):
         """
         :type str: str
         :rtype: int
         """
-        # check input
-        if not str:
-            return 0
-        
-        # strip " "
-        for i in range(len(str)):
-            if str[i] != ' ':
-                start = i
-                break  # easy to forget !!!
-        else: # only has space
-            return 0
-        
-        # check the sign, and update start
-        sign = 1
-        if "+" == str[start]:
-            start += 1
-        elif "-" == str[start]:
-            sign = -1
-            start += 1
-        
-        # get the number and check overflow
-        res = 0
-        i = start
-        INT_MAX = 2**31 - 1
-        INT_MIN = -2**31
-        while (i < len(str)) and str[i].isdigit():
-            if res > INT_MAX//10 or (res == INT_MAX//10 and str[i] > '7'):
-                return INT_MAX if sign > 0 else INT_MIN  # typo: sign>1
-            else:
-                res = res*10 + int(str[i])
+        # deal with prevailing whilte space
+        i = 0
+        while i < len(str) and str[i] == " ":
             i += 1
-        
-        return res*sign
+        # deal with sign
+        sign = 1
+        if i < len(str) and str[i] == "+":
+            i += 1
+        elif i < len(str) and str[i] == "-":
+            sign = -1
+            i += 1
+        # main body
+        res = 0
+        LIMIT = (2 ** 31 - 1) // 10
+        INT_MAX = 2 ** 31 - 1
+        INT_MIN = -2 ** 31
+        while i < len(str):
+            c = str[i]
+            if not c.isdigit():
+                return res * sign
+            else:
+                if res > LIMIT or (res == LIMIT and c > '7'):
+                    return INT_MAX if sign == 1 else INT_MIN
+                res = res * 10 + int(c)
+            i += 1
+        return res * sign
 
 
 """

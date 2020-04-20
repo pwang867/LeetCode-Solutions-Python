@@ -1,25 +1,26 @@
-# method 2: use binary search twice to search, time O(log(n))
+# method 3: use binary search twice to search, time O(log(n))
 # time O(log(n)) space O(1)
-class Solution(object):
+
+class Solution2(object):
     def searchRange(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
         """
-        left = self.findLast(nums, target-1)
+        left = self.findLast(nums, target - 1)
         right = self.findLast(nums, target)
-        if left+1 > right:
+        if left + 1 > right:
             return [-1, -1]
-        return [left+1, right]
-    
+        return [left + 1, right]
+
     def findLast(self, arr, target):
         # find the index of the last element <= target
         if not arr:
             return -1
-        left, right = 0, len(arr)-1
+        left, right = 0, len(arr) - 1
         while left + 1 < right:
-            mid = left + (right-left)//2
+            mid = left + (right - left) // 2
             if arr[mid] <= target:
                 left = mid
             else:
@@ -30,7 +31,26 @@ class Solution(object):
             return left
         else:
             return -1
-        
+
+
+# method 2, use bisect package
+
+import bisect
+
+
+class Solution3(object):
+    def searchRange(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        left = bisect.bisect_left(nums, target)
+        if left >= len(nums) or nums[left] != target:
+            return [-1, -1]
+        right = bisect.bisect_right(nums, target)
+        return [left, right - 1]
+
 
 # method 1: use binary search only once to 
 # find a number equal to target, then 

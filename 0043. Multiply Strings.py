@@ -2,29 +2,33 @@
 # multiply digit by digit and store it into corresponding location in res 
 # time O(m*n)
 
+
 class Solution(object):
     def multiply(self, num1, num2):
-        
+        """
+        :type num1: str
+        :type num2: str
+        :rtype: str
+        """
         m, n = len(num1), len(num2)
-        res = [0]*(m+n+1)
-        for i in range(-1, -m-1, -1):
-            for j in range(-1, -n-1, -1):
+        res = [0] * (m + n + 1)
+        for i in range(-1, -n - 1, -1):  # num2
+            for j in range(-1, -m - 1, -1):  # num1
                 k = i + j + 1
-                res[k] += int(num1[i])*int(num2[j])
-                # res[k-1] += res[k]//10
-                # res[k] %= 10
-        
-        for k in range(m+n, 0, -1):  # deal with carry
-            res[k-1] += res[k]/10
-            res[k] %= 10
-        
-        # remove leading zeros
-        k = 0
-        while k < len(res)-1 and res[k] == 0:  # mistake: k < len(res), edge case: [0]
-            k += 1
-        
-        return "".join([str(x) for i, x in enumerate(res) if i >= k])
-                
+                res[k] += int(num2[i]) * int(num1[j])
+                res[k - 1] += res[k] // 10
+                res[k] %= 10
+        for i in range(len(res) - 1, 0, -1):
+            res[i - 1] += res[i] // 10
+            res[i] %= 10
+        start = 0
+        while start < len(res):
+            if res[start] == 0:
+                start += 1
+            else:
+                break
+        return "".join(map(str, res[start:])) or '0'
+
 
 # method 1: divide the problems into number string times a single digit
 # and then add all those strings together

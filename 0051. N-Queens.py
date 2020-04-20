@@ -1,3 +1,37 @@
+# DFS
+
+class Solution(object):
+    def solveNQueens(self, n):
+        """
+        :type n: int
+        :rtype: List[List[str]]
+        """
+        board = [["."] * n for _ in range(n)]
+        res = []
+        cols = set()
+        diag = set()
+        adiag = set()
+        self.dfs(board, 0, cols, diag, adiag, res)
+        return res
+
+    def dfs(self, board, i, cols, diag, adiag, res):
+        if i == len(board):
+            res.append(map("".join, board))
+            return
+        for j in range(len(board[0])):
+            if j in cols or (i + j) in diag or (i - j) in adiag:
+                continue
+            cols.add(j)
+            diag.add(i + j)
+            adiag.add(i - j)
+            board[i][j] = "Q"
+            self.dfs(board, i + 1, cols, diag, adiag, res)
+            board[i][j] = "."
+            cols.remove(j)
+            diag.remove(i + j)
+            adiag.remove(i - j)
+
+
 # DFS, don't need memorization
 
 class Solution(object):

@@ -1,4 +1,5 @@
-# time/space O(n!*n)
+# time/space O(n!*n), optimal, but not good for follow-up (47 permutations II)
+
 class Solution2(object):
     def permute(self, nums):
         """

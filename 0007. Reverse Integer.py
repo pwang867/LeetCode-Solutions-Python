@@ -9,37 +9,22 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
-        
-        _max = 2**31 - 1  # max of 32-bit signed integer, 2147483647
-        _min = -2**31
-        if x > _max or x < _min:
-            return 0
-        
-        # convert x to positive
-        if x > 0:
-            sign = 1
-        else:
+        sign = 1
+        if x < 0:
             sign = -1
             x = -x
-        
+        LIMIT = (2 ** 31 - 1) // 10
         res = 0
-        while x > 0 and res < _max//10:  # check overflow !
-            res = res*10 + (x%10)
-            x = x//10
-        
-        if 0 == x:
-            return res*sign
-        
-        # check overflow
-        if res == _max//10:  
-            # unnecessary: and ((sign > 0 and x <= 7) or (sign < 0 and x <= 8))
-            # because the first digit of x must <= 2
-            return (res*10 + x)*sign
-        else:
-            return 0
-        
-        
-        
+        while x > 0:
+            if res > LIMIT:   # check overflow
+                return 0
+            if res == LIMIT:
+                if (sign == 1 and x > 7) or (sign == -1 and x > 8):
+                    return 0
+            res = res * 10 + x % 10
+            x //= 10
+        return res * sign
+
 
 """
 7. Reverse Integer

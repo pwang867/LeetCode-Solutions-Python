@@ -1,8 +1,47 @@
-# method 2, heap, time O(n*k*log(k)), space O(n*k)
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 import heapq
 
+# method 3, similar to method 2, but use a wrapper instead of using (val, node) pairs
 
-class Solution(object):
+
+class MyNode:
+    def __init__(self, list_node):
+        self.list_node = list_node
+
+    def __lt__(self, node):
+        if not self.list_node:
+            return False
+        if not node.list_node:
+            return True
+        return self.list_node.val < node.list_node.val
+
+
+class Solution1(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        h = [MyNode(node) for node in lists if node]
+        heapq.heapify(h)
+        dummy = ListNode(0)
+        cur = dummy
+        while h:
+            node = heapq.heappop(h)
+            cur.next = node.list_node
+            cur = cur.next
+            if node.list_node.next:
+                heapq.heappush(h, MyNode(node.list_node.next))
+        return dummy.next
+
+
+# method 2, heap, time O(n*k*log(k)), space O(n*k)
+class Solution2(object):
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]

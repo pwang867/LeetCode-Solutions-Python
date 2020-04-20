@@ -7,7 +7,10 @@
 # depending on the max boundary of the pool, 
 # where (m, n) is the dimension of heightMap
 
+
 import heapq
+
+
 class Solution(object):
     def trapRainWater(self, heightMap):
         if not heightMap or not heightMap[0] \
@@ -30,7 +33,7 @@ class Solution(object):
             visited[m-1][j] = True
         heapq.heapify(heap)
         
-        # process elments from shortest to highest
+        # process elements from shortest to highest
         vol = 0
         while heap:
             h, i, j = heapq.heappop(heap)
@@ -45,7 +48,8 @@ class Solution(object):
 
 
 """
-Given an m x n matrix of positive integers representing the height of each unit cell in a 2D elevation map, compute the volume of water it is able to trap after raining.
+Given an m x n matrix of positive integers representing the height of each unit cell in a 2D elevation map, 
+compute the volume of water it is able to trap after raining.
 
  
 

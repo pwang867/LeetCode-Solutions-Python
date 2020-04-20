@@ -2,73 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="385b0952-d2cb-483d-b073-54a7650fc943" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/0417. Pacific Atlantic Water Flow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0428. Serialize and Deserialize N-ary Tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0444. Sequence Reconstruction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0518. Coin Change 2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0538. Convert BST to Greater Tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0621. Task Scheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0689. Maximum Sum of 3 Non-Overlapping Subarrays.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0698. Partition to K Equal Sum Subsets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0722. Remove Comments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0767. Reorganize String.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0829. Consecutive Numbers Sum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0853. Car Fleet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/0973. K Closest Points to Origin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1239. Maximum Length of a Concatenated String with Unique Characters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1304. Find N Unique Integers Sum up to Zero.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1360. Number of Days Between Two Dates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Google Kick Start Round A_Allocation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Google Kick Start.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Google Kick Start_problem 2_plates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Google Kick Start_problem 3_training sessiosn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Google Kick Start_problem 4_bundling.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Karat for Rolox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Max Inserts to Obtain String Without 3 Consecutive 'a'.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Max Inserts to Obtain String Without 3 Consecutive a.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Max Possible Value.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Microsoft OA min delete.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Microsoft onsite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Microsoft, Numbers with Equal Digit Sum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Min Adj Swaps to Make Palindrome.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/Min Moves to Make String Without 3 Identical Consecutive Letters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/OA Google Minimum swaps need to make k girls sitting together.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OA/longest semi-alternating substring.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ariel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0181. Employees Earning More Than Their Managers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0335. Self Crossing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0380. Insert Delete GetRandom O(1).py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0546. Remove Boxes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0588. Design In-Memory File System.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0593. Valid Square.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0600. Non-negative Integers without Consecutive Ones.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0632. Smallest Range Covering Elements from K Lists.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0635. Design Log Storage System.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0664. Strange Printer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0670. Maximum Swap.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0681. Next Closest Time.y.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0684. Redundant Connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0723. Candy Crush.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0730. Count Different Palindromic Subsequences.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0736. Parse Lisp Expression.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0780. Reaching Points.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0805. Split Array With Same Average.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0818. Race Car.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0824. Goat Latin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0826. Most Profit Assigning Work.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0865. Smallest Subtree with all the Deepest Nodes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0878. Nth Magical Number.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0885. Spiral Matrix III.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0890. Find and Replace Pattern.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0903. Valid Permutations for DI Sequence.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0909. Snakes and Ladders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0913. Cat and Mouse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0951. Flip Equivalent Binary Trees.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0967. Numbers With Same Consecutive Differences.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0983. Minimum Cost For Tickets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0988. Smallest String Starting From Leaf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0991. Broken Calculator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1015. Smallest Integer Divisible by K.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1044. Longest Duplicate Substring.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1049. Last Stone Weight II.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1056. Confusing Number.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1063. Number of Valid Subarrays.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1074. Number of Submatrices That Sum to Target.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1088. Confusing Number II.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1092. Shortest Common Supersequence.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1123. Lowest Common Ancestor of Deepest Leaves.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1131. Maximum of Absolute Value Expression.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1140. Stone Game II.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1166. Design File System.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1215. Stepping Numbers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1216. Valid Palindrome III.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1219. Path with Maximum Gold.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1371. Find the Longest Substring Containing Vowels in Even Counts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1399. Count Largest Group.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1402. Reducing Dishes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1406. Stone Game III.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1407. Top Travellers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1407. Top Travellers.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1408. String Matching in an Array.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1409. Queries on a Permutation With Key.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1410. HTML Entity Parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1411. Number of Ways to Paint N × 3 Grid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1412. Find the Quiet Students in All Exams.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/899. Orderly Queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Middle of the Linked List.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mock with Caizhi--20200419--problem 1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Perform String Shifts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Valid Parenthesis String.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/longest subarray with largest gap no larger than D.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pascal triangle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LeetCode-Solutions-Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LeetCode-Solutions-Python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0041. First Missing Positive.py" beforeDir="false" afterPath="$PROJECT_DIR$/0041. First Missing Positive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0042. Trapping Rain Water.py" beforeDir="false" afterPath="$PROJECT_DIR$/0042. Trapping Rain Water.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0057. Insert Interval.py" beforeDir="false" afterPath="$PROJECT_DIR$/0057. Insert Interval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0062. Unique Paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/0062. Unique Paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0138. Copy List with Random Pointer.py" beforeDir="false" afterPath="$PROJECT_DIR$/0138. Copy List with Random Pointer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0140. Word Break II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0140. Word Break II.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0146. LRU Cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/0146. LRU Cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0200. Number of Islands.py" beforeDir="false" afterPath="$PROJECT_DIR$/0200. Number of Islands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0207. Course Schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/0207. Course Schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0210. Course Schedule II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0210. Course Schedule II.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0239. Sliding Window Maximum.py" beforeDir="false" afterPath="$PROJECT_DIR$/0239. Sliding Window Maximum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0253. Meeting Rooms II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0253. Meeting Rooms II.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0268. Missing Number.py" beforeDir="false" afterPath="$PROJECT_DIR$/0268. Missing Number.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0270. Closest Binary Search Tree Value.py" beforeDir="false" afterPath="$PROJECT_DIR$/0270. Closest Binary Search Tree Value.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0273. Integer to English Words.py" beforeDir="false" afterPath="$PROJECT_DIR$/0273. Integer to English Words.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0286. Walls and Gates.py" beforeDir="false" afterPath="$PROJECT_DIR$/0286. Walls and Gates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0296. Best Meeting Point.py" beforeDir="false" afterPath="$PROJECT_DIR$/0296. Best Meeting Point.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0329. Longest Increasing Path in a Matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/0329. Longest Increasing Path in a Matrix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0336. Palindrome Pairs.py" beforeDir="false" afterPath="$PROJECT_DIR$/0336. Palindrome Pairs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0410. Split Array Largest Sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/0410. Split Array Largest Sum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0438. Find All Anagrams in a String.py" beforeDir="false" afterPath="$PROJECT_DIR$/0438. Find All Anagrams in a String.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0499. The Maze III.py" beforeDir="false" afterPath="$PROJECT_DIR$/0499. The Maze III.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0630. Course Schedule III.py" beforeDir="false" afterPath="$PROJECT_DIR$/0630. Course Schedule III.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0646. Maximum Length of Pair Chain.py" beforeDir="false" afterPath="$PROJECT_DIR$/0646. Maximum Length of Pair Chain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0656. Coin Path.py" beforeDir="false" afterPath="$PROJECT_DIR$/0656. Coin Path.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0680. Valid Palindrome II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0680. Valid Palindrome II.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0765. Couples Holding Hands.py" beforeDir="false" afterPath="$PROJECT_DIR$/0765. Couples Holding Hands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0793. Preimage Size of Factorial Zeroes Function.py" beforeDir="false" afterPath="$PROJECT_DIR$/0793. Preimage Size of Factorial Zeroes Function.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1192. Critical Connections in a Network.py" beforeDir="false" afterPath="$PROJECT_DIR$/1192. Critical Connections in a Network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1229. Meeting Scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/1229. Meeting Scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1231. Divide Chocolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/1231. Divide Chocolate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1326. Minimum Number of Taps to Open to Water a Garden.py" beforeDir="false" afterPath="$PROJECT_DIR$/1326. Minimum Number of Taps to Open to Water a Garden.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Summary/Summary_intervals.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Summary/Summary_intervals.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Templates.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0006. ZigZag Conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/0006. ZigZag Conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0007. Reverse Integer.py" beforeDir="false" afterPath="$PROJECT_DIR$/0007. Reverse Integer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0008. String to Integer (atoi).py" beforeDir="false" afterPath="$PROJECT_DIR$/0008. String to Integer (atoi).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0018. 4Sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/0018. 4Sum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0019. Remove Nth Node From End of List.py" beforeDir="false" afterPath="$PROJECT_DIR$/0019. Remove Nth Node From End of List.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0020. Valid Parentheses.py" beforeDir="false" afterPath="$PROJECT_DIR$/0020. Valid Parentheses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0023. Merge k Sorted Lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/0023. Merge k Sorted Lists.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0024. Swap Nodes in Pairs.py" beforeDir="false" afterPath="$PROJECT_DIR$/0024. Swap Nodes in Pairs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0029. Divide Two Integers.py" beforeDir="false" afterPath="$PROJECT_DIR$/0029. Divide Two Integers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0030. Substring with Concatenation of All Words.py" beforeDir="false" afterPath="$PROJECT_DIR$/0030. Substring with Concatenation of All Words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0032. Longest Valid Parentheses.py" beforeDir="false" afterPath="$PROJECT_DIR$/0032. Longest Valid Parentheses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0033. Search in Rotated Sorted Array.py" beforeDir="false" afterPath="$PROJECT_DIR$/0033. Search in Rotated Sorted Array.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0034. Find First and Last Position of Element in Sorted Array.py" beforeDir="false" afterPath="$PROJECT_DIR$/0034. Find First and Last Position of Element in Sorted Array.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0035. Search Insert Position.py" beforeDir="false" afterPath="$PROJECT_DIR$/0035. Search Insert Position.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0036. Valid Sudoku.py" beforeDir="false" afterPath="$PROJECT_DIR$/0036. Valid Sudoku.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0037. Sudoku Solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/0037. Sudoku Solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0038. Count and Say.py" beforeDir="false" afterPath="$PROJECT_DIR$/0038. Count and Say.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0043. Multiply Strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/0043. Multiply Strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0045. Jump Game II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0045. Jump Game II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0046. Permutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/0046. Permutations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0049. Group Anagrams.py" beforeDir="false" afterPath="$PROJECT_DIR$/0049. Group Anagrams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0050. Pow(x, n).py" beforeDir="false" afterPath="$PROJECT_DIR$/0050. Pow(x, n).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0051. N-Queens.py" beforeDir="false" afterPath="$PROJECT_DIR$/0051. N-Queens.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0055. Jump Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/0055. Jump Game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0058. Length of Last Word.py" beforeDir="false" afterPath="$PROJECT_DIR$/0058. Length of Last Word.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0059. Spiral Matrix II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0059. Spiral Matrix II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0064. Minimum Path Sum.py" beforeDir="false" afterPath="$PROJECT_DIR$/0064. Minimum Path Sum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0189. Rotate Array.py" beforeDir="false" afterPath="$PROJECT_DIR$/0189. Rotate Array.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0205. Isomorphic Strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/0205. Isomorphic Strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0218. The Skyline Problem.py" beforeDir="false" afterPath="$PROJECT_DIR$/0218. The Skyline Problem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0306. Additive Number.py" beforeDir="false" afterPath="$PROJECT_DIR$/0306. Additive Number.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0307. Range Sum Query - Mutable.py" beforeDir="false" afterPath="$PROJECT_DIR$/0307. Range Sum Query - Mutable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0381. Insert Delete GetRandom O(1) - Duplicates allowed.py" beforeDir="false" afterPath="$PROJECT_DIR$/0381. Insert Delete GetRandom O(1) - Duplicates allowed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0405. Convert a Number to Hexadecimal.py" beforeDir="false" afterPath="$PROJECT_DIR$/0405. Convert a Number to Hexadecimal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0407. Trapping Rain Water II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0407. Trapping Rain Water II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0621. Task Scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/0621. Task Scheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0685. Redundant Connection II.py" beforeDir="false" afterPath="$PROJECT_DIR$/0685. Redundant Connection II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0750. Number Of Corner Rectangles.py" beforeDir="false" afterPath="$PROJECT_DIR$/0750. Number Of Corner Rectangles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0778. Swim in Rising Water.py" beforeDir="false" afterPath="$PROJECT_DIR$/0778. Swim in Rising Water.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0809. Expressive Words.py" beforeDir="false" afterPath="$PROJECT_DIR$/0809. Expressive Words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1057. Campus Bikes.py" beforeDir="false" afterPath="$PROJECT_DIR$/1057. Campus Bikes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1335. Minimum Difficulty of a Job Schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/1335. Minimum Difficulty of a Job Schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1397. Find All Good Strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/1397. Find All Good Strings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,17 +172,21 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="font&#9;ACTION&#9;EditorIncreaseFontSize" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\GitHub\LeetCode-Solutions-Python\OA" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Min Moves to Make String Without 3 Identical Consecutive Letters">
+  <component name="RunManager" selected="Python.Mock with Caizhi--20200419--problem 1">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -155,7 +206,7 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="Min Moves to Make String Without 3 Identical Consecutive Letters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="0038. Count and Say" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetCode-Solutions-Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -163,11 +214,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OA/Min Moves to Make String Without 3 Identical Consecutive Letters.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/0038. Count and Say.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,7 +227,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bowling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="1215. Stepping Numbers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LeetCode-Solutions-Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -184,11 +235,53 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OA/bowling.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1215. Stepping Numbers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Mock with Caizhi--20200419--problem 1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LeetCode-Solutions-Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Mock with Caizhi--20200419--problem 1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LeetCode-Solutions-Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -218,10 +311,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pascal triangle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LeetCode-Solutions-Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pascal triangle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Min Moves to Make String Without 3 Identical Consecutive Letters" />
-        <item itemvalue="Python.bowling" />
+        <item itemvalue="Python.Mock with Caizhi--20200419--problem 1" />
+        <item itemvalue="Python.1215. Stepping Numbers" />
+        <item itemvalue="Python.0038. Count and Say" />
+        <item itemvalue="Python.dance" />
+        <item itemvalue="Python.pascal triangle" />
       </list>
     </recent_temporary>
   </component>
@@ -254,42 +371,53 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="93" y="25" width="1092" height="727" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1582483664803" />
-    <state x="367" y="0" key="CommitChangelistDialog2" timestamp="1582483064304">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="387" y="23" key="CommitChangelistDialog2" timestamp="1586571061056">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state x="367" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582483064304" />
-    <state width="1345" height="134" key="GridCell.Tab.0.bottom" timestamp="1585118179600">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="387" y="23" key="CommitChangelistDialog2/0.23.1440.835@0.23.1440.835" timestamp="1586571061056" />
+    <state width="1419" height="107" key="GridCell.Tab.0.bottom" timestamp="1587348224811">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1345" height="134" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1585118179600" />
-    <state width="1345" height="134" key="GridCell.Tab.0.center" timestamp="1585118179599">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1419" height="107" key="GridCell.Tab.0.bottom/0.23.1440.835@0.23.1440.835" timestamp="1587348224811" />
+    <state width="1419" height="107" key="GridCell.Tab.0.center" timestamp="1587348224811">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1345" height="134" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1585118179599" />
-    <state width="1345" height="134" key="GridCell.Tab.0.left" timestamp="1585118179596">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1419" height="107" key="GridCell.Tab.0.center/0.23.1440.835@0.23.1440.835" timestamp="1587348224811" />
+    <state width="1419" height="107" key="GridCell.Tab.0.left" timestamp="1587348224811">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1345" height="134" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1585118179596" />
-    <state width="1345" height="134" key="GridCell.Tab.0.right" timestamp="1585118179600">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1419" height="107" key="GridCell.Tab.0.left/0.23.1440.835@0.23.1440.835" timestamp="1587348224811" />
+    <state width="1419" height="107" key="GridCell.Tab.0.right" timestamp="1587348224811">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state width="1345" height="134" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1585118179600" />
-    <state x="103" y="39" key="SettingsEditor" timestamp="1582486352509">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1419" height="107" key="GridCell.Tab.0.right/0.23.1440.835@0.23.1440.835" timestamp="1587348224811" />
+    <state x="109" y="65" key="SettingsEditor" timestamp="1587070248701">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state x="103" y="39" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582486352509" />
+    <state x="109" y="65" key="SettingsEditor/0.23.1440.835@0.23.1440.835" timestamp="1587070248701" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1582483236051">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.768@0.0.1366.768" timestamp="1582483236051" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1584586069351">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="0" y="23" key="com.intellij.ide.util.TipDialog" timestamp="1587342125692">
+      <screen x="0" y="23" width="1440" height="835" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1584586069351" />
+    <state x="0" y="23" key="com.intellij.ide.util.TipDialog/0.23.1440.835@0.23.1440.835" timestamp="1587342125692" />
     <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582483025707">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1582483025707" />
+    <state x="385" y="182" width="670" height="676" key="search.everywhere.popup" timestamp="1587229194278">
+      <screen x="0" y="23" width="1440" height="835" />
+    </state>
+    <state x="385" y="182" width="670" height="676" key="search.everywhere.popup/0.23.1440.835@0.23.1440.835" timestamp="1587229194278" />
   </component>
   <component name="masterDetails">
     <states>

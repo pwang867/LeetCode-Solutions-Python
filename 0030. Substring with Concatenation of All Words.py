@@ -8,7 +8,11 @@
 # and 3. Longest Substring Without Repeating Characters
 # ref: https://blog.csdn.net/linhuanmars/article
 # /details/20342851?utm_source=tuicool&utm_medium=referral
+
+
 from collections import defaultdict
+
+
 class Solution(object):
     def findSubstring(self, s, words):
         """

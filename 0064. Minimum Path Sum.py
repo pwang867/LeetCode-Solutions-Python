@@ -1,4 +1,5 @@
-# method 2, dp
+# method 2, dp, reuse grid to save space
+
 class Solution(object):
     def minPathSum(self, grid):
         """

@@ -1,6 +1,7 @@
-# time/space O(n^2)
+# time/space O(result)
 
-class Solution():
+
+class Solution2():
     def generateMatrix(self, n):
         if n == 0: return []
         if n == 1: return [[1]]
@@ -42,6 +43,35 @@ class Solution():
             if left > right:
                 break
 
+        return res
+
+
+# method 1, time/space O(result)
+
+
+class Solution1(object):
+    def generateMatrix(self, n):
+        """
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        res = [[0] * n for _ in range(n)]
+        cur = 1
+        for i in range(n // 2):
+            for j in range(i, n - 1 - i):
+                res[i][j] = cur
+                cur += 1
+            for k in range(i, n - 1 - i):
+                res[k][n - 1 - i] = cur
+                cur += 1
+            for j in range(n - 1 - i, i, -1):
+                res[n - 1 - i][j] = cur
+                cur += 1
+            for k in range(n - 1 - i, i, -1):
+                res[k][i] = cur
+                cur += 1
+        if n % 2 == 1:
+            res[n // 2][n // 2] = cur
         return res
 
 

@@ -26,6 +26,26 @@ class ListNode(object):
         self.next = None
 
 
+# method 1, same as method 2, but use a single variable
+
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        dummy = ListNode(0)
+        dummy.next = head
+        cur = dummy
+        while cur and cur.next and cur.next.next:
+            copy = cur.next.next.next
+            cur.next.next.next = cur.next
+            cur.next = cur.next.next
+            cur.next.next.next = copy
+            cur = cur.next.next
+        return dummy.next
+
+
 """
 Given a linked list, swap every two adjacent nodes and return its head.
 

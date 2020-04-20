@@ -18,7 +18,7 @@ class Solution(object):
         cur = 0  # current height
         
         for x, h, right in edges:
-            if right is not None: # left edge
+            if right is not None:     # left edge
                 heapq.heappush(heap, (h, right))  # push the right edge to the heap
                 if -h > cur:
                     cur = -h

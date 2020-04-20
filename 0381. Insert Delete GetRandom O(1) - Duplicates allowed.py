@@ -1,4 +1,7 @@
 from collections import defaultdict
+import random
+
+
 class RandomizedCollection(object):
 
     def __init__(self):

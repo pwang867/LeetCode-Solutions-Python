@@ -15,7 +15,7 @@ class Solution1(object):
         
         half = self.myPow(x, n//2)
         if n % 2 == 0:
-            return half*half
+            return half*half   # will cause overflow if we use half**2 (reason unknown)
         else:
             return half*half*x
         

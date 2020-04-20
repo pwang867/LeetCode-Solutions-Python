@@ -1,5 +1,6 @@
 # dp[i][j] means the minimum total difficulty to divide jobDifficulty[:j+1] into i groups
 # time O(d*n*n), space O(d*n)
+
 class Solution(object):
     def minDifficulty(self, jobDifficulty, d):
         """

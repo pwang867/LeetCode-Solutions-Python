@@ -10,7 +10,7 @@ class Solution(object):
             front = max(front, i + nums[i])
             if front == i:
                 return False
-            if front >= len(nums) - 1:
+            if front >= len(nums) - 1:   # or this if clause and switch position with the if clause above
                 return True
         
         return True
