@@ -13,7 +13,7 @@ class Solution(object):
         k = len(n)
         candidates = [str(10**i + d) for i in [k, k-1] for d in [1, -1]]  # deal with 100...001, 99...99
         
-        # if n= "1234", left = "12", then we only need to consider "12", "13", "14"
+        # if n= "1234", left = "12", then we only need to consider "11", "12", "13"
         prefix = int(n[:(k+1)//2])
         for left in [prefix-1, prefix, prefix+1]:
             left = str(left)
@@ -25,11 +25,12 @@ class Solution(object):
         min_diff = float('inf')
         for candidate in candidates:
             diff = abs(int(candidate)-int(n))
-            if diff != 0 and ( diff < min_diff or (diff == min_diff and int(candidate) < int(res)) ):
+            if diff != 0 and (diff < min_diff or (diff == min_diff and int(candidate) < int(res)) ):
                 min_diff = diff
                 res = candidate
         
         return res
+
 
 """
 Given an integer n, find the closest integer (not including itself), which is a palindrome.

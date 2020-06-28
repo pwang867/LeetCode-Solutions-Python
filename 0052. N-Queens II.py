@@ -25,7 +25,6 @@ class Solution2(object):
                 cols.add(j)
                 diag.remove(i-j)
                 adiag.remove(i+j)
-        
 
 
 class Solution1(object):

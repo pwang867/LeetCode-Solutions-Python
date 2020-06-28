@@ -18,7 +18,7 @@ class Solution:
         if mid - left + 1 == k:
             return
         elif mid - left + 1 > k:
-            self.quick_selection(arr, left, mid, k)
+            self.quick_selection(arr, left, mid-1, k)
         else:
             self.quick_selection(arr, mid+1, right, k-(mid-left+1))
 
@@ -28,7 +28,6 @@ class Solution:
         start, end = left, right-1
         while start <= end:
             if arr[start] <= arr[right]:
-                print(start, right,arr)
                 start += 1
             elif arr[end] > arr[right]:
                 end -= 1
@@ -36,18 +35,19 @@ class Solution:
                 arr[start], arr[end] = arr[end], arr[start]
                 start += 1
                 end -= 1
-        arr[end], arr[right] = arr[right], arr[end]
-        return end
+        arr[start], arr[right] = arr[right], arr[start]
+        return start
 
 
     def dist(self, point):
         return abs(point[0]) + abs(point[1])
 
 
-points = [[3,3],[-2,4],[5,-1]]
+points = [[4, 3], [-2, 4], [4, -1]]
 m = 1
 n = 3
-Solution().find_furthest(points, m, n)
+print(Solution().find_furthest(points, m, n))
+
 
 """
 tasks = ["A","A","A","B","B","B"], n = 2
@@ -191,5 +191,5 @@ class Solution2:
         return left_cnt, right_cnt, (len(s) - left_cnt - right_cnt) // 2
 
 
-s = "(()(()"
-print(Solution2().get_valid_brackets(s))
+# s = "(()(()"
+# print(Solution2().get_valid_brackets(s))

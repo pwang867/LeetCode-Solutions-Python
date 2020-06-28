@@ -36,10 +36,12 @@ class Solution1(object):
         """
         parent = [i for i in range(n)]
         size = [0]*n
+
         def find(u):
             if parent[u] != u:
                 parent[u] = find(parent[u])
             return parent[u]
+
         def union(u, v):
             p, q = find(u), find(v)
             if p != q:
@@ -47,6 +49,7 @@ class Solution1(object):
                     p, q = q, p
                 parent[q] = p
                 size[p] += size[q]
+
         for u, v in edges:
             union(u, v)
         map(find, range(n))

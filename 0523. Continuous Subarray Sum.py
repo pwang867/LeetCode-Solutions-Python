@@ -1,11 +1,12 @@
 # easy to make many small mistakes...
 
 
-
 # if (x-y)%k == 0, then x%k - y%k == 0
 # method 2: use cur_sum%k to change cur_sum to 0~k-1
 # edge case: k==0
 # time O(n), space O(k) when k!= 0 or O(n) when k==0
+
+
 class Solution(object):
     def checkSubarraySum(self, nums, k):
         if not nums or len(nums) < 2:
@@ -24,7 +25,10 @@ class Solution(object):
                 return True
         return False
 
+
 # method 1: dynamic programming, presum, time O(n*n), space O(n) or overwrite nums
+
+
 class Solution1(object):
     def checkSubarraySum(self, nums, k):
         """

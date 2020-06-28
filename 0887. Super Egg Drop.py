@@ -3,6 +3,8 @@
 #           + dp[i][j-1] (when egg is fine)
 
 # optimize space to O(N)
+
+
 class Solution(object):
     def superEggDrop(self, K, N):
         dp1 = [0]*(N+1)
@@ -19,6 +21,8 @@ class Solution(object):
 
 
 # space O(K*N)
+
+
 class Solution1(object):
     def superEggDrop(self, K, N):
         """
@@ -38,6 +42,8 @@ class Solution1(object):
 
 
 # dp[k][n] means the minimum trials you need to test N floors using K eggs
+
+
 class Solution3(object):
     def superEggDrop(self, K, N):
         """
@@ -62,7 +68,7 @@ class Solution3(object):
             return self.memo[(K, N)]
         
         res = float('inf')
-        left, right = 0, N+1
+        left, right = 0, N + 1
         while left + 1 < right:
             mid = left + (right-left)//2
             a = self.helper(K-1, mid-1) + 1

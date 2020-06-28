@@ -1,6 +1,7 @@
-# method 2, if ages[i] can only be interger [0,120], 
-# then we can simply build a collections.Counter(ages), and then iterate all of them
+# method 2, if ages[i] can only be inter.Counter(ages), and then iterate all of them
 # time will be O(120*120), space is O(120)
+
+
 import collections
 class Solution(object):
     def numFriendRequests(self, ages):
@@ -13,7 +14,7 @@ class Solution(object):
         cnt = 0
         for a, counta in d.items():
             for b, countb in d.items():
-                if 0.5*a+7 < b <= a:  # we can acutally get a > 14
+                if 0.5*a+7 < b <= a:  # we can actually get a > 14
                     if b == a:  # even if b==a, b > 0.5*a + 7 might still fail
                         cnt += counta*(counta-1)
                     else:
@@ -23,6 +24,8 @@ class Solution(object):
 
 # method 1, general method if age could be floating point, 
 # time n*log(n), space O(n)
+
+
 class Solution1(object):
     def numFriendRequests(self, ages):
         """

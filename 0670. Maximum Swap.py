@@ -1,9 +1,33 @@
-# time/space O(n*log(n)), n = log(num)
+#  time/space O(n), scan backwards, record the index of the pair to swap
+
+
+class Solution2(object):
+    def maximumSwap(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        s = list(str(num))
+        left, right = -1, -1    # (left, right) are the index of the pair to swap
+        max_i = len(s) - 1
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] < s[max_i]:
+                left, right = i, max_i
+            elif s[i] > s[max_i]:
+                max_i = i
+        if left == -1:
+            return num
+        else:
+            s[left], s[right] = s[right], s[left]
+            return int("".join(s))
+
+
+# time/space O(n*log(n)), n = length of num
 # compare num with sorted num (if we can do unlimited swaps)
 # find the first digit that is smaller than any digit after it, then swap
 
 
-class Solution(object):
+class Solution1(object):
     def maximumSwap(self, num):
         """
         :type num: int
@@ -36,4 +60,3 @@ Explanation: No swap.
 Note:
 The given number is in the range [0, 108]
 """
-

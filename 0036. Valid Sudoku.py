@@ -1,5 +1,6 @@
-
 # time O(n*n), space O(n)
+
+
 class Solution(object):
     def isValidSudoku(self, board):
         """

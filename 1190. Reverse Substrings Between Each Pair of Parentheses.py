@@ -1,13 +1,16 @@
 # method 3, brilliant method from lee215
 # worm hole, time/space O(n)
-# ref: https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/discuss/383670/JavaC%2B%2BPython-Why-not-O(N)
+# ref: https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/discuss/383670/
+# JavaC%2B%2BPython-Why-not-O(N)
+
+
 class Solution(object):
     def reverseParentheses(self, s):
         """
         :type s: str
         :rtype: str
         """
-        # link ( and )
+        # link '(' and ')'
         stack = []
         pairs = {}
         for i, c in enumerate(s):
@@ -31,9 +34,10 @@ class Solution(object):
         return "".join(res)
     
 
-
 # method 2, time O(n^2), space O(n), use stack
-class Solution(object):
+
+
+class Solution2(object):
     def reverseParentheses(self, s):
         """
         :type s: str
@@ -78,9 +82,7 @@ class Solution1(object):
                 start = i + 1
         stack.append((s[start:], order))
         return "".join([x[0] for x in stack])
-        
-        
-        
+
     def merge(self, stack):
         while len(stack) > 1:
             if stack[-1][1] == stack[-2][1]:
@@ -88,11 +90,12 @@ class Solution1(object):
                 stack[-1] = (stack[-1][0]+temp, stack[-1][1])
             else:
                 break
-                
 
-s = "a(bcdefghijkl(mno)p)q"
-print(Solution().reverseParentheses(s))
-print("apmnolkjihgfedcbq")
+
+if __name__ == "__main__":
+    s = "a(bcdefghijkl(mno)p)q"
+    print(Solution().reverseParentheses(s))
+    print("apmnolkjihgfedcbq")
 
 
 """

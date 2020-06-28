@@ -1,5 +1,7 @@
 # method 3: DP, time O(n^2)
 # DP is always similar to DFS with memo (method 1)
+
+
 class Solution(object):
     def wordBreak(self, s, wordDict):
         dp = [0]*(len(s)+1)  # with padding
@@ -10,10 +12,14 @@ class Solution(object):
                     dp[i] = True
                     break
         return dp[-1]
-    
+
 
 # method 2: BFS
+
+
 from collections import deque
+
+
 class Solution2(object):
     def wordBreak(self, s, wordDict):
         queue = deque([0])
@@ -34,7 +40,9 @@ class Solution2(object):
 
 
 
-# method 1: DFS with memo m*len(wordDict)*len(word)
+# method 1: DFS with memo len(s)*len(wordDict)*len(word) ???
+
+
 class Solution1(object):
     def wordBreak(self, s, wordDict):
         """

@@ -1,3 +1,6 @@
+# Amazon OA
+
+
 from collections import defaultdict
 
 
@@ -78,7 +81,5 @@ There are no repeated connections.
 
 if __name__ == "__main__":
     n = 6
-    connections = [[1,2],[1,3],[3,4],[1,4],[4,5]]
+    connections = [[1, 2], [1, 3], [3, 4], [1, 4], [4, 5]]
     print(SolutionX().criticalRouters(n, connections))
-    
-    

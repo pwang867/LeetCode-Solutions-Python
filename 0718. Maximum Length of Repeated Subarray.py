@@ -1,6 +1,8 @@
 # dp, dp[i][j] means the length of longest common subarray ending with A[i] and B[j]
 # it is wrong to make dp[i][j] as the global longest subarray,
 # it has to be a local longest subarray, otherwise the dp equation will fail
+
+
 class Solution(object):
     def findLength(self, A, B):
         """
@@ -19,6 +21,7 @@ class Solution(object):
                     maxLen = max(maxLen, dp[i][j])
         
         return maxLen
+
 
 """
 Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.

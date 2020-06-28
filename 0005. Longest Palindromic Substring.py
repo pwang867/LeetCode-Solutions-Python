@@ -1,5 +1,7 @@
 # method 4: time/sapce O(n), Manacher's method, use symmetry of a Palindrome
 # utilize the information of previous checked Palindromes
+
+
 class Solution(object):
     def longestPalindrome(self, s):
         """

@@ -7,6 +7,8 @@
 
 # method 2: carry (p, q, common ancestor) during backtracking
 # one pass time O(n), space recursion depth O(depth)
+
+
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
         """
@@ -28,6 +30,8 @@ class Solution(object):
 
 # method 1: find path from root to p and q, then compare the path
 # time O(n), space O(depth)
+
+
 class Solution1(object):
     def lowestCommonAncestor(self, root, p, q):
         """
@@ -47,7 +51,7 @@ class Solution1(object):
         if len(self.ans) == 2:
             left, right = self.ans
         else:
-            print "one treenode is not found"
+            print("one treenode is not found")
         n = min(len(left), len(right))
         common = None
         for i in range(n):
@@ -73,18 +77,17 @@ class Solution1(object):
             path.append(root)
             self.findPath(root.right, p, q, path)
             path.pop()
-            
+
 
 
 """
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 
-According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+According to the definition of LCA on Wikipedia: "The lowest common ancestor is defined between two nodes p and q 
+as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
 
 Given the following binary tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
 
-
- 
 
 Example 1:
 
@@ -96,7 +99,7 @@ Example 2:
 Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 Output: 5
 Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
- 
+
 
 Note:
 

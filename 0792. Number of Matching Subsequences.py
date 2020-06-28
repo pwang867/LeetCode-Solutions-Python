@@ -1,5 +1,9 @@
 # time m*n/26 in average
+
+
 from collections import defaultdict
+
+
 class Solution(object):
     def numMatchingSubseq(self, S, words):
         """
@@ -30,6 +34,8 @@ class Solution(object):
 
 
 # brute force, O(m*n), m = len(words), n = len(S), time limit exceeded
+
+
 class Solution1(object):
     def numMatchingSubseq(self, S, words):
         """

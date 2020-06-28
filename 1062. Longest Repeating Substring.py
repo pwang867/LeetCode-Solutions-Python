@@ -1,4 +1,6 @@
 # binary search, and rolling hash, O(N*log(N))
+
+
 class Solution(object):
     def longestRepeatingSubstring(self, S):
         left, right = 0, len(S)

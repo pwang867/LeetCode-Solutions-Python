@@ -12,6 +12,8 @@ Created on Fri Oct 18 23:25:27 2019
 #         self.next = None
 
 # O(n*log(n))
+
+
 class Solution(object):
     def sortList(self, head):
         """

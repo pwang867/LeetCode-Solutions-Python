@@ -1,4 +1,6 @@
 # time O(n*m), n = len(strs), m= len(strs[i])
+
+
 class Solution(object):
     def longestCommonPrefix(self, strs):
         """
@@ -14,7 +16,7 @@ class Solution(object):
                 if i > len(word) - 1 or c != word[i]:   # easy to forget i > len(word) - 1
                     return strs[0][:i]   
         
-        return strs[0] # don't have to use an extra variable to save res
+        return strs[0]  # don't have to use an extra variable to save res
         
 
 """

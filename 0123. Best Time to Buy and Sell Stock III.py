@@ -1,14 +1,24 @@
 # at most two transactions
 
 
-# solution 2: use the same method as #188. Best Time to Buy and Sell Stock IV
+"""
+# use the same method as #188. Best Time to Buy and Sell Stock IV
+
+# method 3: a generalization method to k transactions, complexity O(n*k)
+
+loc[i][j] = max(diff + glo[i-1][j-1], loc[i-1][j]+diff)
+glo[i][j] = max(glo[i-1][j], loc[i][j])
+
+"""
+
+
 class Solution(object):
     def maxProfit(self, prices):
         """
         :type prices: List[int]
         :rtype: int
         """
-        # method 3: a generazitation method to k transactions, complexity O(n*k)
+
         k = 2
         loc = [0]*(k+1)
         glo = [0]*(k+1)
@@ -16,7 +26,7 @@ class Solution(object):
         for i in range(1, len(prices)):
             diff = prices[i] - prices[i-1]
             for j in range(k, 0, -1):
-                loc[j] = max(glo[j-1], glo[j-1]+diff, loc[j]+diff)
+                loc[j] = max(glo[j-1]+diff, loc[j]+diff)
                 glo[j] = max(loc[j], glo[j])
         
         return glo[-1]
@@ -57,6 +67,8 @@ class Solution2(object):
 
 # method 1: divide and conquer O(n^2)
 # divide the array into two pieces and calculate profit for each slice
+
+
 class Solution1(object):
     def maxProfit(self, prices):
         """

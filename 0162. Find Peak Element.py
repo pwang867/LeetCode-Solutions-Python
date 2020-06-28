@@ -1,4 +1,6 @@
 # method 2: binary search, O(log(n))
+
+
 class Solution(object):
     def findPeakElement(self, nums):
         """

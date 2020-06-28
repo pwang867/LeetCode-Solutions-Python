@@ -1,7 +1,5 @@
-# dp[i][j] means the total number of ways to get i amount of money
-# while the max coin is no more than coins[j] (after sorted)
-
-# time/space O(amount*len(coins)), space can be optimized to amount
+# time O(amount*len(coins)), space O(amount)
+# method 2, optimized from method 1
 
 
 class Solution(object):
@@ -11,7 +9,30 @@ class Solution(object):
         :type coins: List[int]
         :rtype: int
         """
-        if amount == 0:
+        coins.sort()
+        dp = [0] * (1 + amount)
+        dp[0] = 1
+        for i in range(1, len(coins) + 1):
+            for j in range(1, amount + 1):
+                if j - coins[i - 1] >= 0:
+                    dp[j] += dp[j - coins[i - 1]]
+        return dp[-1]
+
+
+# dp[i][j] means the total number of ways to get i amount of money
+# while the max coin is no more than coins[j] (after sorted)
+
+# time/space O(amount*len(coins)), space can be optimized to amount
+
+
+class Solution1(object):
+    def change(self, amount, coins):
+        """
+        :type amount: int
+        :type coins: List[int]
+        :rtype: int
+        """
+        if amount == 0:    # unnecessary work, corner cases can be handled by dp
             return 1
         if not coins:
             return 0

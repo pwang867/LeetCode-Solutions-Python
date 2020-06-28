@@ -1,3 +1,6 @@
+# Google Code Jam, 2020
+
+
 def get_interest_of_competition(matrix):
     score = 0
     while True:

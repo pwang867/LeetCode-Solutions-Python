@@ -1,4 +1,6 @@
 # method2, do not use extra space, time O(m*log(m)+n*log(n)), space O(1)
+
+
 class Solution(object):
     def intersection(self, nums1, nums2):
         nums1.sort()
@@ -25,6 +27,8 @@ class Solution(object):
             
 
 # method 1, use set, time O(m+n), space O(m+n)
+
+
 class Solution1(object):
     def intersection(self, nums1, nums2):
         """
@@ -36,7 +40,7 @@ class Solution1(object):
         set1 = set(nums1)
         set2 = set(nums2)
         
-        return list(set1&set2)
+        return list(set1 & set2)
 
         
 """

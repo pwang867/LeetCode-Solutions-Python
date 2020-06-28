@@ -1,30 +1,25 @@
 # method 2, a single pass, save index to remove
+# one pass, time O(n), space O(result)
+
+
 class Solution(object):
     def minRemoveToMakeValid(self, s):
         """
         :type s: str
         :rtype: str
         """
-        if not s:
-            return ""
-        stack = []
-        right_to_remove = []
-        cnt = 0
+        left_idx = []
+        right_idx = []
         for i, c in enumerate(s):
             if c == "(":
-                stack.append(i)
-                cnt += 1
+                left_idx.append(i)
             elif c == ")":
-                if cnt == 0:
-                    right_to_remove.append(i)
+                if not left_idx:
+                    right_idx.append(i)
                 else:
-                    stack.pop()
-                    cnt -= 1
-        to_remove = set( right_to_remove + stack)
-        res = []
-        for i, c in enumerate(s):
-            if i not in to_remove:
-                res.append(c)
+                    left_idx.pop()
+        del_idx = set(left_idx) | set(right_idx)
+        res = [c for i, c in enumerate(s) if i not in del_idx]
         return "".join(res)
 
 
@@ -66,7 +61,8 @@ class Solution1(object):
 """
 Given a string s of '(' , ')' and lowercase English characters. 
 
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) 
+so that the resulting parentheses string is valid and return any valid string.
 
 Formally, a parentheses string is valid if and only if:
 

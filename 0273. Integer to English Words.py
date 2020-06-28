@@ -1,6 +1,11 @@
 # Watch out zeros, such as 0 and 1,000,100
+# edge cases: 0, 20, 100
+# Ninety, Nineteen, Fourteen, Forty
+
 
 from collections import deque
+
+
 class Solution(object):
     def numberToWords(self, num):
         """
@@ -16,11 +21,11 @@ class Solution(object):
         order = 0
         while num > 0:
             temp = self.intToWord(num%1000)
+            num = num // 1000
             if temp:
                 if order > 0:
                     res.appendleft(level[order])
                 res.appendleft(temp)
-            num = num//1000
             order += 1
         
         return " ".join(res)
@@ -34,15 +39,15 @@ class Solution(object):
                    "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", 
                    "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
         tens = ["Twenty", "Thirty", "Forty", "Fifty", 
-                "Sixty", "Seventy", "Eighty", "Ninety"]   # easy to spell error: Ninety, Nineteen
+                "Sixty", "Seventy", "Eighty", "Ninety"]   # easy to spell error: Ninety, Nineteen, Fourteen, Forty
         if num >= 100:
             res.append(special[num//100])
             res.append("Hundred")
-            num = num%100
+            num = num % 100
         if num >= 20:
             res.append(tens[num//10-2])
-            num = num%10
-        if num > 0:   # avoid num == 0, edge case 120 == "One Hundred Twenty"
+            num = num % 10
+        if num > 0:   # avoid num == 0, edge case 20 == "Twenty"
             res.append(special[num])
         
         return " ".join(res)

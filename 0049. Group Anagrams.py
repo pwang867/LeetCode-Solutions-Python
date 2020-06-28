@@ -2,7 +2,10 @@
 # sort each word and then group them into a dictionary
 # time O(n*m*log(m)), n=len(strs), m=len(strs[0])
 
+
 from collections import defaultdict
+
+
 class Solution(object):
     def groupAnagrams(self, strs):
         """
@@ -20,9 +23,7 @@ class Solution(object):
         return _dict.values()
 
 
-
 # method 1, counting sort
-
 
 import collections
 

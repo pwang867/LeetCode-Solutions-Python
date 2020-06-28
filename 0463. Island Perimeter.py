@@ -2,6 +2,8 @@
 
 
 # method 4, same as method 3, but use iteration for DFS
+
+
 class Solution4(object):
     def islandPerimeter(self, grid):
         """
@@ -34,7 +36,9 @@ class Solution4(object):
 # method 3: recursively search starting from a single "1" point
 # faster than method 2, because it does not have to check the whole grid
 # however, it has large dfs depth
-# time O(m*n)
+# time O(m*n), space O(m*n)
+
+
 class Solution3(object):
     def islandPerimeter(self, grid):
         peri = [0]
@@ -52,13 +56,15 @@ class Solution3(object):
         for _dir in dirs:
             x, y = _dir[0] + i, _dir[1] + j
             if x < 0 or y < 0 or x >= len(grid) \
-                or y >= len(grid[0]) or grid[x][y] == 0:
+            or y >= len(grid[0]) or grid[x][y] == 0:
                 peri[0] += 1
             elif grid[x][y] == 1:
                 self.islandHelper(grid, x, y, peri)
-                
 
-# method 2: brute force, do not use padding
+
+# method 2: brute force, do not use padding, time O(m*n), space O(1), optimal
+
+
 class Solution2(object):
     def islandPerimeter(self, grid):
         if not grid or not grid[0]:
@@ -78,7 +84,9 @@ class Solution2(object):
         return peri
 
 
-# method 1: brute force, use padding
+# method 1: brute force, use padding, time O(m*n), space O(m*n)
+
+
 class Solution1(object):
     def islandPerimeter(self, grid):
         """
@@ -103,9 +111,12 @@ class Solution1(object):
 """
 You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
 
-Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).
+Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, 
+and there is exactly one island (i.e., one or more connected land cells).
 
-The island doesn't have "lakes" (water inside that isn't connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the island.
+The island doesn't have "lakes" (water inside that isn't connected to the water around the island). 
+One cell is a square with side length 1. The grid is rectangular, width and height don't exceed 100. 
+Determine the perimeter of the island.
 
  
 

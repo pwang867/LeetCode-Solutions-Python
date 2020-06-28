@@ -2,6 +2,8 @@
 # because most of the pairs are actually not used
 # time O(M*N + N*M*(logN+logM)), space O(M*N)
 # worst case: bikes and workers are both a single line and perpendicular
+
+
 import heapq
 
 

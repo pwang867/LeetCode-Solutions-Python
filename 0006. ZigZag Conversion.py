@@ -1,4 +1,6 @@
 # space/time O(n), be careful with index
+
+
 class Solution(object):
     def convert(self, s, numRows):
         """
@@ -12,7 +14,7 @@ class Solution(object):
         period = 2*numRows - 2   # mistake: 2*numRows - 2
         res = []
         n = len(s)
-        for i in range(numRows): # for each row
+        for i in range(numRows):  # for each row
             for j in range(i, n, period):  # j is index in the string s
                 res.append(s[j])
                 if i != 0 and i != numRows-1 and j + period - 2*i < n:  

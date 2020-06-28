@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution(object):
     def reverseBetween(self, head, m, n):
         """
@@ -15,7 +16,7 @@ class Solution(object):
         if not head or not head.next:
             return head
         
-        # to solve m==1 issue
+        # to solve m == 1 issue
         dummy = ListNode(0)
         dummy.next = head
         

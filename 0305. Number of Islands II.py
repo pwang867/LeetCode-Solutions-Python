@@ -9,10 +9,12 @@ class Solution(object):
         parent = {}
         size = {}
         num_islands = 0
+
         def find(u):
             if parent[u] != u:
                 parent[u] = find(parent[u])
             return parent[u]
+
         def union(u, v):
             p, q = find(u), find(v)
             if p != q:
@@ -23,6 +25,7 @@ class Solution(object):
                 return True
             else:
                 return False
+
         res = []
         for pos in positions:
             pos = tuple(pos)
@@ -30,7 +33,7 @@ class Solution(object):
                 parent[pos] = pos
                 size[pos] = 1
                 num_islands += 1
-                for dx, dy in [(0,1),(0,-1),(-1,0),(1,0)]:
+                for dx, dy in [(0,1), (0,-1), (-1,0), (1,0)]:
                     x, y = pos[0] + dx, pos[1] + dy
                     nei = (x, y)
                     if nei in parent and union(pos, nei):
@@ -41,7 +44,11 @@ class Solution(object):
 
 
 """
-A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand 
+operation which turns the water at position (row, col) into a land. Given a list of positions to operate, 
+count the number of islands after each addLand operation. An island is surrounded by water and is 
+ormed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the 
+grid are all surrounded by water.
 
 Example:
 
@@ -74,8 +81,9 @@ Operation #4: addLand(2, 1) turns the water at grid[2][1] into a land.
 1 1 0
 0 0 1   Number of islands = 3
 0 1 0
+
+
 Follow up:
 
 Can you do it in time complexity O(k log mn), where k is the length of the positions?
 """
-

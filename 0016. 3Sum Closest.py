@@ -1,4 +1,6 @@
 # edge case: [-10,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3], target=8
+
+
 class Solution1(object):
     def threeSumClosest(self, nums, target):
         """
@@ -23,7 +25,7 @@ class Solution1(object):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
             # early termination
-            if nums[i] > target/3.0: # mistake, directly return: return res 
+            if nums[i] > target/3.0:  # mistake, directly return: return res
                 if nums[i]+nums[i+1]+nums[i+2] - target < diff:
                     return nums[i]+nums[i+1]+nums[i+2]    
             
@@ -34,8 +36,8 @@ class Solution1(object):
                 if abs(_sum - target) < diff:
                     diff = abs(_sum - target)
                     res = _sum
-                    
-                # # skipping duplicates is tricky here, though you don't have to
+
+                # skipping duplicates is tricky here, though you don't have to
                 #  edge case: [-1,0,1,1,55], target=3
                 while left + 2 < right and nums[left] == nums[left + 2]:  # +2
                     left += 1  # +1

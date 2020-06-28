@@ -2,6 +2,7 @@
 # pop the stack once we see a paired right bracket
 # time O(n), space O(n)
 
+
 class Solution(object):
     def isValid(self, s):
         """

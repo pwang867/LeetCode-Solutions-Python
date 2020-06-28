@@ -1,7 +1,11 @@
 # method 2, same preprocess as method 1, but the rectangle searching is more brute force
 # no need to sort, by using set
 # time O(n^2), space O(n)
+
+
 from collections import defaultdict
+
+
 class Solution(object):
     def minAreaRect(self, points):
         """
@@ -29,7 +33,11 @@ class Solution(object):
 # then scan line by line, save {(y1, y2):x} to another dictionary
 
 # time O(n^2), space O(n)
+
+
 from collections import defaultdict
+
+
 class Solution1(object):
     def minAreaRect(self, points):
         """
@@ -54,8 +62,10 @@ class Solution1(object):
                     edges[edge] = row
         return area if area != float('inf') else 0  # mistake: return area if area == float('inf') else 0
 
+
 """
-Given a set of points in the xy-plane, determine the minimum area of a rectangle formed from these points, with sides parallel to the x and y axes.
+Given a set of points in the xy-plane, determine the minimum area of a rectangle formed from these points, 
+with sides parallel to the x and y axes.
 
 If there isn't any rectangle, return 0.
 

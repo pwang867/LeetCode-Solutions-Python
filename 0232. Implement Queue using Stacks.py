@@ -1,4 +1,4 @@
-class MyQueue(object):
+0896class MyQueue(object):
 
     def __init__(self):
         """

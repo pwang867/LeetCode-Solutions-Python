@@ -1,13 +1,55 @@
-# method 2, quick selection
+# method 2, quick selection, time O(n)
 
 
+class Solution(object):
+    def kClosest(self, points, K):
+        if not points or K >= len(points):
+            return points
+        if K <= 0:
+            return []
+        left, right = 0, len(points) - 1
+        while left < right:  # use a while loop instead of recursion
+            mid = self.partition(points, left, right)
+            if mid == K:
+                break
+            elif mid > K:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return points[:K]
+
+    def partition(self, points, left, right):
+        if left > right:
+            raise ValueError("required: left <= right")
+        i, j = left, right - 1
+        pivot = self.dist(points[right])
+        while i <= j:
+            if self.dist(points[i]) <= pivot:
+                i += 1
+            elif self.dist(points[j]) > pivot:
+                j -= 1
+            else:
+                points[i], points[j] = points[j], points[i]
+                i += 1
+                j -= 1
+        points[i], points[right] = points[right], points[i]
+        return i
+
+    @staticmethod
+    def dist(point):
+        return point[0] ** 2 + point[1] ** 2
+
+
+print(Solution.dist([1,1]))
 
 
 # method 1, k*log(n)
 
 
 import heapq
-class Solution(object):
+
+
+class Solution1(object):
     def kClosest(self, points, K):
         """
         :type points: List[List[int]]

@@ -6,7 +6,16 @@
 # dp[i][j] = (s[i-1]==p[j-1] or p[j-1]==".") and dp[i-1][j-1]
 # 2. p[i-1] is "*", then matches with nothing or several s[i-1]: 
 # dp[i][j] = dp[i][j-2] or (dp[i-1][j] and (s[i-1]==p[j-2] or p[j-2]=="."))
+
+
+   #  a  b  *  e   (pattern)
+#  T  F  F  F
+c  F  F  F  F
+d  F  F  F  F
+e  F
 """
+
+
 class Solution(object):
     def isMatch(self, s, p):
         """
@@ -26,14 +35,13 @@ class Solution(object):
         for i in range(1, m+1):
             for j in range(1, n+1):
                 if p[j-1] != "*":
-                    dp[i][j] = (s[i-1]==p[j-1] or p[j-1]==".") and dp[i-1][j-1]
+                    dp[i][j] = (s[i-1] == p[j-1] or p[j-1] == ".") and dp[i-1][j-1]
                 else:
                     dp[i][j] = dp[i][j-2] or \
-                            ((s[i-1]==p[j-2] or p[j-2]==".") and dp[i-1][j])
+                            ((s[i-1] == p[j-2] or p[j-2] == ".") and dp[i-1][j])
         
         return dp[m][n]
     
-
 
 # recursion with memo, time O(m*n)
 # p only has three conditions: 1. a letter, 2. ".", 3. a letter for "." combined with "*"
@@ -68,13 +76,13 @@ class Solution2(object):
         # to make sure p[j+1] is valid
         if j == len(p)-1:
             self.memo[(i,j)] = (i == len(s)-1 and (s[i]==p[j] or p[j]=="."))
-            return self.memo[(i,j)]
+            return self.memo[(i, j)]
         
         # general case
         if p[j+1] != "*":  # mistake: p[1] == "*"
             self.memo[(i,j)] = (s[i]==p[j] or p[j]==".") \
                     and self.isMatchHelper(s, p, i+1, j+1)
-            return self.memo[(i,j)]
+            return self.memo[(i, j)]
         else:
             if self.isMatchHelper(s, p, i, j+2):
                 return True

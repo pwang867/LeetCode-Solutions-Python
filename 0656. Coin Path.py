@@ -1,3 +1,4 @@
+# coding=utf-8
 # method 2, backward dynamical programing, time O(n*B), space O(n)
 # to reduce space, we need another array next[], where next[i] means the next position after i
 # we can travel backwards to calculate cost[n-1] to cost[0]
@@ -5,10 +6,37 @@
 # we can use cost[j] to update cost[i], j needs to go from i+1 to i+B
 
 
-
-
-
-
+class Solution(object):
+    def cheapestJump(self, A, B):
+        """
+        :type A: List[int]
+        :type B: int
+        :rtype: List[int]
+        """
+        if not A or A[-1] == -1:
+            return []
+        dp = [float('inf')] * len(A)  # dp[i] is the minimum cost
+        child = [-1] * len(A)   # next array for next position to jump
+        dp[-1] = 0
+        for i in range(len(A) - 1, -1, -1):
+            if A[i] == -1:
+                continue
+            for j in range(1, B + 1):
+                if i + j >= len(dp):
+                    break
+                if A[i] + dp[i + j] < dp[i]:
+                    dp[i] = A[i] + dp[i + j]
+                    child[i] = i + j
+        res = []
+        i = 0
+        while i < len(A):
+            res.append(i + 1)
+            if i == len(A) - 1:
+                break
+            i = child[i]
+            if i == -1:
+                return []
+        return res
 
 
 # if arr1 < arr2, then this might not be true: arr1 + [n] < arr2 + [n]
@@ -52,11 +80,16 @@ class Solution1(object):
         return paths[-1]
 
 
-
 """
-Given an array A (index starts at 1) consisting of N integers: A1, A2, ..., AN and an integer B. The integer B denotes that from any place (suppose the index is i) in the array A, you can jump to any one of the place in the array A indexed i+1, i+2, …, i+B if this place can be jumped to. Also, if you step on the index i, you have to pay Ai coins. If Ai is -1, it means you can’t jump to the place indexed i in the array.
+Given an array A (index starts at 1) consisting of N integers: A1, A2, ..., AN and an integer B. 
+The integer B denotes that from any place (suppose the index is i) in the array A, 
+you can jump to any one of the place in the array A indexed i+1, i+2, ..., i+B if this place can be jumped to. 
+Also, if you step on the index i, you have to pay Ai coins. If Ai is -1, it means you can’t jump to the place 
+indexed i in the array.
 
-Now, you start from the place indexed 1 in the array A, and your aim is to reach the place indexed N using the minimum coins. You need to return the path of indexes (starting from 1 to N) in the array you should take to get to the place indexed N using minimum coins.
+Now, you start from the place indexed 1 in the array A, and your aim is to reach the place indexed N using 
+the minimum coins. You need to return the path of indexes (starting from 1 to N) in the array you should take 
+to get to the place indexed N using minimum coins.
 
 If there are multiple paths with the same cost, return the lexicographically smallest such path.
 
@@ -76,7 +109,8 @@ Output: []
 
 Note:
 
-Path Pa1, Pa2, ..., Pan is lexicographically smaller than Pb1, Pb2, ..., Pbm, if and only if at the first i where Pai and Pbi differ, Pai < Pbi; when no such i exists, then n < m.
+Path Pa1, Pa2, ..., Pan is lexicographically smaller than Pb1, Pb2, ..., Pbm, if and only if at the first i 
+where Pai and Pbi differ, Pai < Pbi; when no such i exists, then n < m.
 A1 >= 0. A2, ..., AN (if exist) will in the range of [-1, 100].
 Length of A is in the range of [1, 1000].
 B is in the range of [1, 100].

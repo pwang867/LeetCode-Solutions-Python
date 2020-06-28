@@ -7,6 +7,8 @@
 # it will stay there and wait for another pointer right (or left) because the height at 
 # right's current position j must be smaller then ii, 
 # otherwise the largest rectangular will be formed by [ii, j]
+
+
 class Solution(object):
     def maxArea(self, height):
         """
@@ -38,11 +40,11 @@ such that the container contains the most water.
 Note: You may not slant the container and n is at least 2.
 
 
-The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, 
+the max area of water (blue section) the container can contain is 49.
 
 Example:
 
 Input: [1,8,6,2,5,4,8,3,7]
 Output: 49
 """
-

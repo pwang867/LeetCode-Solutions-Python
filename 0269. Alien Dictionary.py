@@ -1,62 +1,68 @@
 # topological sort, but need to find the edges by ourselves
 # time O(E+V)
 
-# edge case: 1. words only has one word, words=["abc"], 
-# 2. don't forget the letters not compared, words=["abc", "abed"] (don't forget the 'd')
-from collections import defaultdict, deque
+# edge case:
+# 1. words only has one word, words=["abc"],
+# 2. don't forget the letters not compared, words=["abc", "abed"] (don't forget the 'd'):
+# edge case: ["abc", "ab"]
+
+
+import collections
+
+
 class Solution(object):
     def alienOrder(self, words):
         """
         :type words: List[str]
         :rtype: str
         """
-        if not words: return ""
-        if len(words) == 1: return words[0]    # edge case
-        edges = self.getEdges(words)
-        in_degrees = self.getInDegrees(edges)
-        # standard topological sort
-        queue = deque(u for u, v in in_degrees.items() if v==0)
+        if not words:
+            return []
+        if len(words) == 1:
+            return words[0]
+
+        # find edges and build graph
+        graph = collections.defaultdict(list)  # graph might not have all nodes
+        for i in range(len(words) - 1):
+            for j in range(i + 1, len(words)):
+                word1, word2 = words[i], words[j]
+                n = min(len(word1), len(word2))
+                for k in range(n):
+                    if word1[k] != word2[k]:
+                        graph[word1[k]].append(word2[k])
+                        break
+                else:
+                    if len(word1) > len(word2):  # edge case: ["abc", "ab"]
+                        return ''
+
+        # topological sort
+        indegrees = collections.defaultdict(int)  # have all nodes in edges
+        for u, neis in graph.items():
+            if u not in indegrees:
+                indegrees[u] = 0
+            for nei in neis:
+                indegrees[nei] += 1
+
+        queue = collections.deque([u for u, deg in indegrees.items() if deg == 0])
         res = []
         while queue:
             u = queue.popleft()
             res.append(u)
-            for v in edges[u]:
-                if v == u:
-                    continue
-                in_degrees[v] -= 1
-                if in_degrees[v] == 0:
+            for v in graph[u]:
+                indegrees[v] -= 1
+                if indegrees[v] == 0:
                     queue.append(v)
-        if len(res) != len(in_degrees):
+        if len(res) != len(indegrees):  # cycle found
             return ""
-        else:
-            return "".join(res)
-    
-    def getEdges(self, words):
-        edges = defaultdict(set)
-        for i in range(len(words)-1):
-            word1 = words[i]  # edge case: word1 = "abc", word2 = "abcde
-            word2 = words[i+1]
-            for j in range(len(word1)):
-                edges[word1[j]].add(word2[j])
-                if word1[j] != word2[j]:  # mistake: if word1[j] < word2[j]:
-                    break   # easy to forget
-            for c in word1[j+1:]:    # don't forget to include the letters not compared yet
-                if c not in edges:
-                    edges[c].add(c)
-            for c in word2[j+1:]:
-                if c not in edges:
-                    edges[c].add(c)
-        return edges
-    
-    def getInDegrees(self, edges):
-        in_degrees = defaultdict(int)
-        for u in edges:
-            in_degrees[u] += 0   # to make sure in_degrees has all the nodes as the key
-            for v in edges[u]:
-                if v == u:
-                    continue
-                in_degrees[v] += 1
-        return in_degrees
+
+        # some chars are not contributing to edges, such as ['xy', 'ab']
+        chars = set()
+        for word in words:
+            chars |= set(word)
+        for c in chars:
+            if c not in indegrees:
+                res.append(c)
+        return "".join(res)
 
 
 """

@@ -6,6 +6,8 @@
 #         self.right = None
 
 # method 3: iteration, level-wise traversal
+
+
 class Solution3(object):
     def rangeSumBST(self, root, L, R):
         if not root:
@@ -59,7 +61,8 @@ class Solution1(object):
     
 
 """
-Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
+Given the root node of a binary search tree, return the sum of values of all nodes with value between 
+L and R (inclusive).
 
 The binary search tree is guaranteed to have unique values.
 """

@@ -2,7 +2,7 @@
 # 1. only "+/-", digit, "." and "eE" can appear, other characters are not allowed
 # 2. "+-" can only appear in the beginning, and can be processed first
 # 3. we can only have one "+/-" before and after "e", "E"
-# 4. "." can only appear at most once only before "e" or "E"
+# 4. "." can only appear at most once before "e" or "E"
 # 5. "." must have a number either before or after it
 # 6. we must have at least one digit before and after "e", e-9 is false, 9.2e is false
 

@@ -1,3 +1,6 @@
+# time O(n), in place
+
+
 class Solution(object):
     def moveZeroes(self, nums):
         """
@@ -8,7 +11,10 @@ class Solution(object):
         for i, num in enumerate(nums):
             if num != 0:
                 nums[end], nums[i] = nums[i], nums[end]
+                # nums[end] = nums[i]   # those two lines are wrong solution, edge case: [1]
+                # nums[i] = 0
                 end += 1
+
 
 """
 Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.

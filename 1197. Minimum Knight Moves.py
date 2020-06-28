@@ -1,6 +1,8 @@
 # due to symmetry, we will only allow the knight to move in the first quarant 
 # to greatly reduce time
 # time complexity O(x*y)
+
+
 from collections import deque
 class Solution(object):
     def minKnightMoves(self, x, y):
@@ -11,7 +13,7 @@ class Solution(object):
         """
         x, y = abs(x), abs(y)   # use symmetry
         
-        queue = deque([(0,0)])
+        queue = deque([(0, 0)])
         depth = 0
         visited = {(0, 0)}
         while queue:
@@ -26,12 +28,13 @@ class Solution(object):
                         visited.add((p, q))
                         queue.append((p, q))
             depth += 1
-        
+
         
 """
 In an infinite chess board with coordinates from -infinity to +infinity, you have a knight at square [0, 0].
 
-A knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.
+A knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal 
+direction, then one square in an orthogonal direction.
 
 
 

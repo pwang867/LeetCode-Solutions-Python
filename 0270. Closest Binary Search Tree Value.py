@@ -1,12 +1,6 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# time O(depth), space O(1)
 
 
-# O(n)
 class Solution(object):
     def closestValue(self, root, target):
         """
@@ -15,21 +9,24 @@ class Solution(object):
         :rtype: int
         """
         if not root:
-            return -1
-        ans = float("inf")
-        diff = float("inf")
-        curr = root
-        while curr:
-            if abs(target - curr.val)< diff:
-                diff = abs(target - curr.val)
-                ans = curr.val
-            if diff == 0:  # do not return target, return an integer, or do int(target)
-                return curr.val
-            elif target < curr.val:
-                curr = curr.left
+            return None
+        res = root.val
+        while root:
+            if abs(res - target) > abs(root.val - target):
+                res = root.val
+            if target >= root.val:
+                root = root.right
             else:
-                curr = curr.right
-        return ans
+                root = root.left
+        return res
+
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
 
 """

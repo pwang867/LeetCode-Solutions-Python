@@ -1,4 +1,6 @@
 # method 2, sliding window using two pointers, time O(n), space O(1)
+
+
 class Solution(object):
     def longestOnes(self, A, K):
         """

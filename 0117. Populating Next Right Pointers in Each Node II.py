@@ -1,4 +1,6 @@
 # iteration, time O(n), space O(1)
+
+
 class Solution(object):
     def connect(self, root):
         """
@@ -6,9 +8,9 @@ class Solution(object):
         :rtype: Node
         """
         copy = root
-        
+
+        dummy = Node(0, None, None)
         while root:
-            dummy = Node(0, None, None)
             cur = dummy
             while root:
                 if root.left:

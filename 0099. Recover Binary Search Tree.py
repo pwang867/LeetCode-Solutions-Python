@@ -1,17 +1,19 @@
 # method 2, Morris traversal, constant space
+
+
+# method 4: Morris iteration
 class Solution(object):
     def recoverTree(self, root):
         bad_node1, bad_node2 = None, None
         last = None
         cur = root
         while cur:
+            print(cur.val)
             if not cur.left:
                 if last and last.val > cur.val:
                     bad_node2 = cur
                     if not bad_node1:
                         bad_node1 = last
-                    else:
-                        break  # both bad node found
                 last = cur
                 cur = cur.right
             else:
@@ -26,19 +28,18 @@ class Solution(object):
                         bad_node2 = cur
                         if not bad_node1:
                             bad_node1 = last
-                        else:
-                            break
                     last = cur
                     pre.right = None
                     cur = cur.right
         bad_node1.val, bad_node2.val = bad_node2.val, bad_node1.val
-        print(bad_node1.val, bad_node2.val)
-
+        print(bad_node2.val, bad_node1.val)
 
 
 # method 1: change binary tree to a in-order list
 # time O(n), space O(n)
 # sort the values and then assign to the tree in order
+
+
 class Solution1(object):
     def recoverTree(self, root):
         """
@@ -108,6 +109,9 @@ Follow up:
 A solution using O(n) space is pretty straight forward.
 Could you devise a constant space solution?
 """
+
+
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x

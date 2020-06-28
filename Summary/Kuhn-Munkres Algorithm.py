@@ -1,5 +1,7 @@
 # Kuhn-Munkres Algorithm for Optimal Matching of Weighted Bipartite Graph
 # time O(n^4), can be optimized to O(n^3)
+
+
 class Solution(object):
     # m = len(workers), n = len(bikes)
     def __init__(self):
@@ -7,7 +9,7 @@ class Solution(object):
         self.costW = []  # m
         self.costB = []  # n
         self.match = []  # n, i=match[j] means j-th bike is assigned to i-th worker
-        
+
     def initDist(self, workers, bikes):
         self.dist = [[abs(worker[0]-bike[0]) + abs(worker[1]-bike[1]) 
                         for bike in bikes] for worker in workers]
@@ -65,7 +67,8 @@ class Solution(object):
                 ans += self.dist[self.match[j]][j]
         return ans
 
-workers = [[0,0],[1,1],[2,0], [10,0],[11,1],[12,0]]
-bikes = [[12,0],[2,2],[2,1], [10,0],[11,1],[1,0]]
-print(Solution().assignBikes(workers, bikes))
 
+if __name__ == "__main__":
+    workers = [[0,0],[1,1],[2,0], [10,0],[11,1],[12,0]]
+    bikes = [[12,0],[2,2],[2,1], [10,0],[11,1],[1,0]]
+    print(Solution().assignBikes(workers, bikes))

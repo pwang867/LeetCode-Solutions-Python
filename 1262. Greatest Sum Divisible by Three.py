@@ -24,6 +24,8 @@ class Solution1(object):
 
 
 # method 2: math, count number of mod 0, 1, 2, time/space O(n)
+
+
 import heapq
 class Solution(object):
     def maxSumDivThree(self, nums):

@@ -4,7 +4,11 @@
 # are all put before lengths smaller than 3
 
 # dp[num] only depends on dp[num-1]
+
+
 from collections import defaultdict, deque
+
+
 class Solution(object):
     def isPossible(self, nums):
         """
@@ -41,7 +45,8 @@ class Solution(object):
 
 
 """
-Given an array nums sorted in ascending order, return true if and only if you can split it into 1 or more subsequences such that each subsequence consists of consecutive integers and has length at least 3.
+Given an array nums sorted in ascending order, return true if and only if you can split it 
+into 1 or more subsequences such that each subsequence consists of consecutive integers and has length at least 3.
 
  
 

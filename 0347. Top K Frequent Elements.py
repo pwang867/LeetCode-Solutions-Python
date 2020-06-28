@@ -2,6 +2,8 @@
 
 # method 4: bucket, space O(n), time O(n)
 import collections
+
+
 class Solution(object):
     def topKFrequent(self, nums, k):
         """
@@ -22,9 +24,12 @@ class Solution(object):
                 if len(res) == k:
                     return res
 
+
 # method 1, 2, 3, heap, time O(n+k*log(n)), space O(n)
 import collections
 import heapq
+
+
 class Solution3(object):
      def topKFrequent(self, nums, k):
          """

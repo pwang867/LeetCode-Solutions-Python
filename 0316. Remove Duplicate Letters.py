@@ -1,5 +1,6 @@
 # method 2, using stack, time O(n), space O(n)
 # greedy
+
 from collections import Counter
 class Solution(object):
     def removeDuplicateLetters(self, s):
@@ -47,7 +48,8 @@ class Solution1(object):
         return s[p] + self.removeDuplicateLetters(s[p+1:].replace(s[p], ""))
     
 """
-Given a string which contains only lowercase letters, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
+Given a string which contains only lowercase letters, remove duplicate letters so that every letter appears once 
+and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
 
 Example 1:
 

@@ -1,6 +1,8 @@
 # method 2
 # time O(n), space O(1)
 # use two flags, code is cleaner than method 1
+
+
 class Solution(object):
     def isMonotonic(self, A):
         """
@@ -18,8 +20,11 @@ class Solution(object):
                 return False
         return True
 
+
 # method 1
 # use a single flag
+
+
 class Solution1(object):
     def isMonotonic(self, A):
         """
@@ -42,14 +47,16 @@ class Solution1(object):
             if (A[j+1]-A[j])*increasing < 0:
                 return False
         return True
+
+
 """
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 
-An array A is monotone increasing if for all i <= j, A[i] <= A[j].  An array A is monotone decreasing if for all i <= j, A[i] >= A[j].
+An array A is monotone increasing if for all i <= j, A[i] <= A[j].  
+An array A is monotone decreasing if for all i <= j, A[i] >= A[j].
 
 Return true if and only if the given array A is monotonic.
 
- 
 
 Example 1:
 

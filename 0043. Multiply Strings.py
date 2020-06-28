@@ -2,6 +2,8 @@
 # multiply digit by digit and store it into corresponding location in res 
 # time O(m*n)
 
+# edge case: num1 = "9133", num2 = "0"
+
 
 class Solution(object):
     def multiply(self, num1, num2):
@@ -11,23 +13,17 @@ class Solution(object):
         :rtype: str
         """
         m, n = len(num1), len(num2)
-        res = [0] * (m + n + 1)
+        res = [0] * (m + n)    # the length of res will be no more than m + n
         for i in range(-1, -n - 1, -1):  # num2
             for j in range(-1, -m - 1, -1):  # num1
                 k = i + j + 1
                 res[k] += int(num2[i]) * int(num1[j])
                 res[k - 1] += res[k] // 10
                 res[k] %= 10
-        for i in range(len(res) - 1, 0, -1):
-            res[i - 1] += res[i] // 10
-            res[i] %= 10
         start = 0
-        while start < len(res):
-            if res[start] == 0:
-                start += 1
-            else:
-                break
-        return "".join(map(str, res[start:])) or '0'
+        while start < len(res) - 1 and res[start] == 0:
+            start += 1
+        return "".join(map(str, res[start:]))
 
 
 # method 1: divide the problems into number string times a single digit

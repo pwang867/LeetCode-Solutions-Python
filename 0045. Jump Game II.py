@@ -1,6 +1,7 @@
 # method 3: time O(n), space O(1) greedy, similar to BFS searching minimum depth
 # try to get the furthest front for each jump
 
+
 class Solution(object):
     def jump(self, nums):
         """
@@ -12,7 +13,7 @@ class Solution(object):
             return 0
         
         jump = 1
-        pre = 1  # the farest index of jump-1 jumps plus 1
+        pre = 1  # the furthest index of jump-1 jumps plus 1
         front = cur = nums[0]  # the furthest index after jump jumps
         
         while cur < n - 1:
@@ -27,6 +28,7 @@ class Solution(object):
         
 # method 2: dp, record the smallest jumps to reach each number
 # O(sum(nums)), time limit exceeded
+
 
 class Solution2(object):
     def jump(self, nums):

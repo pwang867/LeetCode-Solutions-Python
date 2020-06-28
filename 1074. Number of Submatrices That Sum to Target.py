@@ -10,7 +10,7 @@ class Solution(object):
             return 0
         m, n = len(matrix), len(matrix[0])
         cnt = 0
-        for i in range(m):  # top edge of submatrices
+        for i in range(m):  # top edge of submatrix
             row = [0] * n
             for j in range(i, m):  # bottom edge
                 for k in range(n):

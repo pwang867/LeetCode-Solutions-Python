@@ -1,4 +1,7 @@
 # time/space O(n)
+# edge cases: 'a', aa', 'aaa', 'aba'
+
+
 class Solution(object):
     def breakPalindrome(self, palindrome):
         """

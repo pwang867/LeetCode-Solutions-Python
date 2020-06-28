@@ -29,6 +29,8 @@ The maximum number of levels is 10 . So the maximum number of calls to hasShips 
 
 
 # binary search
+
+
 class Solution(object):
     def countShips(self, sea, topRight, bottomLeft):
         """

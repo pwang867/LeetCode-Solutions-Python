@@ -12,7 +12,7 @@ class Solution(object):
         left, right = 0, len(nums) - 1
         while left + 1 < right:
             mid = left + (right - left) // 2
-            if nums[mid] >= nums[left]:
+            if nums[mid] >= nums[0]:   # also OK: nums[mid] >= nums[left]
                 if nums[left] <= target <= nums[mid]:
                     right = mid
                 else:
@@ -30,7 +30,10 @@ class Solution(object):
             return -1
 
 
-class Solution(object):
+# method 1
+
+
+class Solution1(object):
     def search(self, nums, target):
         """
         :type nums: List[int]

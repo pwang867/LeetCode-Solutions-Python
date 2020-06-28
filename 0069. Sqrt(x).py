@@ -3,6 +3,8 @@
 
 
 # method 2: binary search O(log(n))
+
+
 class Solution(object):
     def mySqrt(self, x):
         """
@@ -32,6 +34,8 @@ class Solution(object):
 # method1, Newton's method, O(log(n)), X(n+1) = Xn - f(Xn)/f'(Xn)
 # x = sqrt(n), f(x) = x^2 - n
 # f(x) is not sqrt(x) !!!
+
+
 class Solution1(object):
     def mySqrt(self, x):
         """
@@ -50,13 +54,13 @@ class Solution1(object):
         return i
     
 
-
 """
 Implement int sqrt(int x).
 
 Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
 
-Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+Since the return type is an integer, the decimal digits are truncated and only the integer 
+part of the result is returned.
 
 Example 1:
 

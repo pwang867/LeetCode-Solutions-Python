@@ -5,7 +5,10 @@
 #         self.left = None
 #         self.right = None
 
-# simply use yield
+
+# method 2, simply use yield, inorder traversal
+
+
 class BSTIterator(object):
 
     def __init__(self, root):
@@ -39,8 +42,10 @@ class BSTIterator(object):
         return self.val != None
 
 
-# method 1: move step by step
-class BSTIterator(object):
+# method 1: use stack, move step by step
+
+
+class BSTIterator1(object):
 
     def __init__(self, root):
         """

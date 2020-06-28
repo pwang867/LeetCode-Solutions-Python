@@ -1,4 +1,5 @@
 # time O(k*n*m), k=len(S), n=len(words), m=len(words[i])
+# edge case: S = "lll", word = "llll"
 
 
 class Solution(object):

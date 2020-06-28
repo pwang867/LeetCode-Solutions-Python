@@ -7,6 +7,9 @@
 
 
 # method 3, Morris traversal, time O(n), space O(1)
+# [-2,null,-3], target = -5
+
+
 class Solution(object):
     def hasPathSum(self, root, sum):
         """
@@ -58,7 +61,10 @@ class Solution2(object):
             return self.hasPathSum(root.left, sum - root.val) \
                    or self.hasPathSum(root.right, sum - root.val)
 
+
 # iteration, DFS, pre-order, using stack, time O(n), space O(n)
+
+
 class Solution1(object):
     def hasPathSum(self, root, sum):
         if not root:

@@ -1,4 +1,6 @@
 # method 4, BIT, O(n*log(n))
+
+
 class BIT:
     def __init__(self, n):
         self.counts = [0]*(n+1)
@@ -79,7 +81,11 @@ class Solution3(object):
 
 # method 2: use bisect
 # worst case time O(n^2)
+
+
 import bisect
+
+
 class Solution1(object):
     def countSmaller(self, nums):
         """
@@ -102,6 +108,7 @@ class Solution1(object):
 
 # solution 1: brute force, time O(n^2), space O(n)
 # Time Limit Exceeded
+
 class Solution2(object):
     def countSmaller(self, nums):
         """
@@ -119,7 +126,8 @@ class Solution2(object):
 
 
 """
-You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
+You are given an integer array nums and you have to return a new counts array. 
+The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
 
 Example:
 

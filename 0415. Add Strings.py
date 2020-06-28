@@ -1,6 +1,9 @@
 # time/space O(n)
+# same as problem #67
 
 import collections
+
+
 class Solution(object):
     def addStrings(self, num1, num2):
         """
@@ -26,7 +29,8 @@ class Solution(object):
             j -= 1
         
         return ''.join(res)
-    
+
+
 """
 Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 

@@ -1,6 +1,7 @@
 # edge case 1: [1], [[1],[2,3],[3,2]]
 # edge case 2: [1], [[1], [1], [1]]
 
+
 from collections import defaultdict, deque
 class Solution(object):
     def sequenceReconstruction(self, org, seqs):
@@ -36,6 +37,7 @@ class Solution(object):
                     queue.append(v)
         # easy to miss: len(res) == len(indegrees)
         return len(res) == len(indegrees) and res == org   
+
 
 
 """

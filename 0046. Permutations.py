@@ -1,5 +1,6 @@
 # time/space O(n!*n), optimal, but not good for follow-up (47 permutations II)
 
+
 class Solution2(object):
     def permute(self, nums):
         """
@@ -20,8 +21,6 @@ class Solution2(object):
             self.dfs(nums, start+1, res)
             nums[start], nums[i] = nums[i], nums[start]
         
-
-
 
 # backtracking, o(n!*(n+2.71828))
 class Solution1(object):

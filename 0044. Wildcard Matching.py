@@ -1,4 +1,6 @@
 # method 2, recursion with memo, time O(m*n)
+
+
 class Solution(object):
     def isMatch(self, s, p):
         self.memo = set()
@@ -32,6 +34,7 @@ class Solution(object):
 # dp[i][j] = (s[i-1]==p[j-1] or p[j-1]=="?") and dp[i-1][j-1]
 # dp[i][j] = dp[i][j-1] or (i>0 and dp[i-1][j])
 
+
 class Solution1(object):
     def isMatch(self, s, p):
         """
@@ -53,7 +56,8 @@ class Solution1(object):
                     dp[i][j] = dp[i][j-1] or (i>0 and dp[i-1][j])
         
         return dp[m][n]
-    
+
+
 """
 Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
 

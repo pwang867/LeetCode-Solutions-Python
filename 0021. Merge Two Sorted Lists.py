@@ -1,6 +1,7 @@
 # use two pointers l1 and l2
 # time O(m+n), space O(1), m=len(l1), n=len(l2)
 
+
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
         """
@@ -37,7 +38,8 @@ class ListNode(object):
 
 
 """
-Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+Merge two sorted linked lists and return it as a new list. The new list should be made by 
+splicing together the nodes of the first two lists.
 
 Example:
 

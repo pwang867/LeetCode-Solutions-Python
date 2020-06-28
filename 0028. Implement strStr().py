@@ -3,7 +3,7 @@
 
 class Solution(object):
     def strStr(self, haystack, needle):
-        if not needle:
+        if not needle:    # don't forget
             return 0
         
         table = self.getTable(needle)   # create KMP lookup table

@@ -1,4 +1,6 @@
 # method 1: binary search, recursion
+
+
 class Solution1(object):
     def myPow(self, x, n):
         """
@@ -18,7 +20,8 @@ class Solution1(object):
             return half*half   # will cause overflow if we use half**2 (reason unknown)
         else:
             return half*half*x
-        
+
+
 # method 2: binary search, iteration
 # x**(2*n+1) = x*(x**2)**2
 class Solution(object):

@@ -28,7 +28,6 @@ class Solution(object):
             if cnt == 0:
                 res.append(left+1)
         return res
-    
 
 
 """

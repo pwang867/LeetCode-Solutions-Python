@@ -1,4 +1,6 @@
-# BFS
+# BFS, time/space O(res)
+
+
 class Solution2(object):
     def letterCombinations(self, digits):
         """

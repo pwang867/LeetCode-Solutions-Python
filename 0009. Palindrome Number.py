@@ -1,15 +1,16 @@
 # watch out two corner case: 
 # 1. negative numbers, 2. 1232100 (numbers ending with 0)
+
+
 class Solution():
     def isPalindrome(self, x):
-        if x < 0 or (x >= 10 and x%10 == 0):   # edge case: 123210
+        if x < 0 or (x >= 10 and x % 10 == 0):   # edge case: 123210
             return False
         rev = 0
-        while(x > rev): # only check half way through
-            rev = rev*10 + x%10
+        while (x > rev): # only check half way through
+            rev = rev * 10 + x % 10
             x = x//10
-        return x==rev or x==rev//10 # consider integers with both odd and even number of digits
-
+        return x == rev or x == rev//10 # consider integers with both odd and even number of digits
 
 
 """

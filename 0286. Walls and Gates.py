@@ -18,12 +18,13 @@ class Solution(object):
                     queue.append((i, j))
         while queue:
             i, j = queue.popleft()
-            for v in ((0,1), (0,-1), (-1,0), (1,0)):
+            for v in ((0, 1), (0, -1), (-1, 0), (1, 0)):
                 p, q = i+v[0], j+v[1]
                 if p >= 0 and p < len(rooms) and q >= 0 and q < len(rooms[0])\
                 and rooms[p][q] != -1 and rooms[p][q] > rooms[i][j]+1:
                     rooms[p][q] = rooms[i][j] + 1
-                    queue.append((p,q))
+                    queue.append((p, q))
+
 
 """
 You are given a m x n 2D grid initialized with these three possible values.

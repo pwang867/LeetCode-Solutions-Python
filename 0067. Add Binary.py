@@ -1,4 +1,3 @@
-import collections
 class Solution(object):
     def addBinary(self, a, b):
         """
@@ -6,23 +5,19 @@ class Solution(object):
         :type b: str
         :rtype: str
         """
-        i, j = len(a)-1, len(b)-1
+        res = []
         carry = 0
-        res = collections.deque()
-        while i >= 0 or j >= 0 or carry == 1:
-            total = carry
-            if i >= 0 and a[i] == "1":
-                total += 1
-            if j >= 0 and b[j] == "1":
-                total += 1
-            
-            res.appendleft(str(total%2))
-            
-            carry = total // 2
-            i -= 1
-            j -= 1
-        
-        return "".join(res)
+        i = 1  # backward index
+        while i <= len(a) or i <= len(b) or carry:   # mistake: i < len(a)
+            if i <= len(a):
+                carry += int(a[-i])
+            if i <= len(b):
+                carry += int(b[-i])
+            res.append(str(carry & 1))   # mistake: forget str()
+            carry >>= 1
+            i += 1
+
+        return "".join(res[::-1])
 
 
 """

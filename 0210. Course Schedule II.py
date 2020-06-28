@@ -71,6 +71,7 @@ taken after you finished course 0. So one correct course order is [0,1,2,3].
 Another correct ordering is [0,2,1,3] .
 Note:
 
-The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented.
+The input prerequisites is a graph represented by a list of edges, not adjacency matrices. 
+Read more about how a graph is represented.
 You may assume that there are no duplicate edges in the input prerequisites.
 """

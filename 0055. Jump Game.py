@@ -1,4 +1,6 @@
 # a BFS idea
+
+
 class Solution(object):
     def canJump(self, nums):
         """

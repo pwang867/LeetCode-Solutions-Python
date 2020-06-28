@@ -1,6 +1,8 @@
 # at most one transaction
 
 # time O(n), space O(1)
+
+
 class Solution(object):
     def maxProfit(self, prices):
         """

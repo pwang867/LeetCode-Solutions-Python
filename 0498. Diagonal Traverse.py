@@ -1,5 +1,7 @@
 # time O(m*n)
 # simple linear scan
+
+
 class Solution(object):
     def findDiagonalOrder(self, matrix):
         """
@@ -12,17 +14,18 @@ class Solution(object):
         res = []
         for step in range(m+n-1):
             if step%2 == 0:
-                start, end, gap = min(step, m-1), max(step-n+1, 0)-1, -1
+                start, end, gap = min(step, m-1), max(step-n+1, 0), -1   # from: 0 <= i <= m-1, 0 <= j = step - i <= n-1
             else:
-                start, end, gap = max(step-n+1, 0), min(step, m-1)+1, 1
-            for i in range(start, end, gap):
+                start, end, gap = max(step-n+1, 0), min(step, m-1), 1
+            for i in range(start, end + gap, gap):
                 j = step - i
                 res.append(matrix[i][j])
         return res
 
 
 """
-Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
+Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal 
+order as shown in the below image.
 
  
 

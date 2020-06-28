@@ -1,4 +1,6 @@
+# coding=utf-8
 # use the problem using Trie and DFS backtracking
+
 
 from collections import defaultdict
 class Solution(object):
@@ -29,11 +31,13 @@ class Solution(object):
             self.dfs(trie, path)
             path.pop()
 
+
 class TrieNode:
     def __init__(self):
         self.children = defaultdict(TrieNode)
         self.words = []
         self.is_word = False
+
 
 class Trie:
     def __init__(self):
@@ -59,9 +63,11 @@ class Trie:
 """
 Given a set of words (without duplicates), find all word squares you can build from them.
 
-A sequence of words forms a valid word square if the kth row and column read the exact same string, where 0 ≤ k < max(numRows, numColumns).
+A sequence of words forms a valid word square if the kth row and column read the exact same string, 
+where 0 ≤ k < max(numRows, numColumns).
 
-For example, the word sequence ["ball","area","lead","lady"] forms a word square because each word reads the same both horizontally and vertically.
+For example, the word sequence ["ball","area","lead","lady"] forms a word square because each word reads 
+the same both horizontally and vertically.
 
 b a l l
 a r e a
@@ -92,7 +98,8 @@ Output:
 ]
 
 Explanation:
-The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
+The output consists of two word squares. The order of output does not matter (just the order of words in each word 
+square matters).
 Example 2:
 
 Input:
@@ -113,5 +120,6 @@ Output:
 ]
 
 Explanation:
-The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
+The output consists of two word squares. The order of output does not matter (just the order of words 
+in each word square matters).
 """

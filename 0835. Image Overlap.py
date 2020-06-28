@@ -1,7 +1,11 @@
 # method 2, time O(n^4), space is O(n^2)
 # complexity is the same as method 1, but much faster for sparse matrix
+
+
 from collections import defaultdict
-class Solution(object):
+
+
+class Solution2(object):
     def largestOverlap(self, A, B):
         """
         :type A: List[List[int]]
@@ -27,6 +31,8 @@ class Solution(object):
 
 
 # method 1, time complexity is O(n^4), space is O(n^2)
+
+
 class Solution1(object):
     def largestOverlap(self, A, B):
         """
@@ -40,7 +46,7 @@ class Solution1(object):
         max_overlap = 0
         for i in range(-(n - 1), n):
             for j in range(-(n - 1), n):
-                # (i, j) is the position of the topleft cornerof A in B, offset
+                # (i, j) is the position of the topleft corner of A in B, offset
                 overlap = 0
                 for p in range(max(-i, 0), min(n, n - i)):
                     for q in range(max(-j, 0), min(n, n - j)):
@@ -52,9 +58,12 @@ class Solution1(object):
 
 
 """
-Two images A and B are given, represented as binary, square matrices of the same size.  (A binary matrix has only 0s and 1s as values.)
+Two images A and B are given, represented as binary, square matrices of the same size.  
+(A binary matrix has only 0s and 1s as values.)
 
-We translate one image however we choose (sliding it left, right, up, or down any number of units), and place it on top of the other image.  After, the overlap of this translation is the number of positions that have a 1 in both images.
+We translate one image however we choose (sliding it left, right, up, or down any number of units), 
+and place it on top of the other image.  After, the overlap of this translation is the number of positions 
+that have a 1 in both images.
 
 (Note also that a translation does not include any kind of rotation.)
 

@@ -1,6 +1,6 @@
-
-
 # method 2: dp based on method 1, but saves memory
+
+
 class Solution(object):
     def maxProfit(self, k, prices):
         """
@@ -33,6 +33,8 @@ class Solution(object):
 
 
 # method 1, memory limit exceeded, but the dp equation is explained the best
+
+
 class Solution1(object):
     def maxProfit(self, k, prices):
         """

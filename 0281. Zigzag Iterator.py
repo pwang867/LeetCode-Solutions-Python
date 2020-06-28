@@ -1,6 +1,9 @@
-
 # use queue to help iterate, better than using list
+
+
 from collections import deque
+
+
 class ZigzagIterator(object):
 
     def __init__(self, v1, v2):
@@ -33,8 +36,9 @@ class ZigzagIterator(object):
         return len(self.arrs) > 0
 
 
-
 # use list, not time efficient
+
+
 class ZigzagIterator1(object):
 
     def __init__(self, v1, v2):
@@ -95,7 +99,8 @@ Explanation: By calling next repeatedly until hasNext returns false,
 Follow up: What if you are given k 1d vectors? How well can your code be extended to such cases?
 
 Clarification for the follow up question:
-The "Zigzag" order is not clearly defined and is ambiguous for k > 2 cases. If "Zigzag" does not look right to you, replace "Zigzag" with "Cyclic". For example:
+The "Zigzag" order is not clearly defined and is ambiguous for k > 2 cases. 
+If "Zigzag" does not look right to you, replace "Zigzag" with "Cyclic". For example:
 
 Input:
 [1,2,3]

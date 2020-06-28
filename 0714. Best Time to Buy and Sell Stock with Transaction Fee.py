@@ -8,9 +8,11 @@ class Solution(object):
         """
         if not prices or len(prices) == 1:
             return 0
+
         loc = prices[1] - prices[0] - fee
         glo0 = 0
         glo1 = max(glo0, loc)
+
         for i in range(2, len(prices)):
             diff = prices[i] - prices[i-1]
             loc = max(diff - fee + glo0, loc + diff)

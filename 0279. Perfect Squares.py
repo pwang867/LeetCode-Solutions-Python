@@ -2,13 +2,11 @@
 # every integer can be expressed by no more than 4 perfect squares
 # if and only if n%8 == 7, then n requires four perfect squares
 
-
 # BFS, according to the mathematical proof, the BFS will run 4 layers at most
 
 
-
-
 # Legendre's three-square theorem
+
 class Solution(object):
     def numSquares(self, n):
         while n%4 == 0:
@@ -37,6 +35,7 @@ class Solution3(object):
 
         return dp[n]
 
+
 # method 2: dp, time O(n^2), space O(n), TLE, beat 5%
 class Solution2(object):
     def numSquares(self, n):
@@ -60,6 +59,8 @@ class Solution2(object):
 
 
 # method 1: recursion with memo
+
+
 class Solution1(object):
     def numSquares(self, n):
         """

@@ -1,8 +1,11 @@
 # time O(V+E)
 # Eulerian graph: https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/
-# Hierholzer’s Algorithm for directed graph
+# Hierholzer's Algorithm for directed graph
+
 
 from collections import defaultdict, deque
+
+
 class Solution(object):
     def findItinerary(self, tickets):
         """
@@ -10,7 +13,7 @@ class Solution(object):
         :rtype: List[str]
         """
         # build map
-        tickets.sort()
+        tickets.sort()  # smallest lexical order
         targets = defaultdict(deque)
         for start, end in tickets:
             targets[start].append(end)
@@ -25,12 +28,15 @@ class Solution(object):
             return
         next_stops = targets[cur_stop]
         while next_stops:
-            next_stop = next_stops.popleft()
+            next_stop = next_stops.popleft()    # smallest lexical order
             self.travel(targets, route, next_stop)
         route.append(cur_stop)
 
 
-# StefanPochman's solutions: https://leetcode.com/problems/reconstruct-itinerary/discuss/78768/Short-Ruby-Python-Java-C%2B%2B
+# StefanPochman's solutions: https://leetcode.com/problems/reconstruct-itinerary/discuss/
+# 78768/Short-Ruby-Python-Java-C%2B%2B
+
+
 def findItinerary(self, tickets):
     targets = defaultdict(list)
     for a, b in sorted(tickets)[::-1]:
@@ -43,13 +49,16 @@ def findItinerary(self, tickets):
     return route[::-1]
 
 
-
 """
-Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, the itinerary must begin with JFK.
+Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], 
+reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, 
+the itinerary must begin with JFK.
 
 Note:
 
-If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
+If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order 
+when read as a single string. For example, the itinerary ["JFK", "LGA"] has a smaller 
+lexical order than ["JFK", "LGB"].
 All airports are represented by three capital letters (IATA code).
 You may assume all tickets form at least one valid itinerary.
 Example 1:
@@ -63,4 +72,3 @@ Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
 Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"].
              But it is larger in lexical order.
 """
-

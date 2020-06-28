@@ -2,6 +2,8 @@
 # index j in the other array will be determined by (m+n)//2 - i
 # the smaller half will be nums1[:i] + nums2[:j]
 # time O(log(min(m, n))
+
+
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
         """

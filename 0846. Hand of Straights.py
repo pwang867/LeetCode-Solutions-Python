@@ -1,5 +1,7 @@
 # time O(n+m*log(m)), n = len(hand), m = len(d)
 from collections import defaultdict
+
+
 class Solution(object):
     def isNStraightHand(self, hand, W):
         """
@@ -7,29 +9,17 @@ class Solution(object):
         :type W: int
         :rtype: bool
         """
-        if not hand:
-            return False
-        d = defaultdict(int)
-        for num in hand:
-            d[num] += 1
-        if len(d) < W:
-            return False
-        cards = d.keys()
-        cards.sort()
-        for i in range(len(cards)-W+1):
-            cnt = d[cards[i]]
-            if cnt == 0:   # important
+        counter = collections.Counter(hand)
+        nums = sorted(counter.keys())
+        for num in nums:
+            if counter[num] == 0:
                 continue
-            for j in range(i, i+W):
-                if j > i and cards[j] - cards[j-1] != 1:   # easy to forget
+            cnt = counter[num]
+            for i in range(W):
+                if counter.get(num + i, 0) < cnt:
                     return False
-                d[cards[j]] -= cnt   # mistake: d[cards[j]] -= cnt
-                if d[cards[j]] < 0:
-                    return False
-        for i in range(len(cards)-W+1, len(cards)):
-            if d[cards[i]] != 0:
-                return False
-                
+                else:
+                    counter[num + i] -= cnt
         return True
 
 

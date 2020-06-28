@@ -1,3 +1,6 @@
+# Google code jam, Round1
+
+
 def walk(r, k, val, target, path, visited, glo_visited):
     if (r, k) in visited:
         return False

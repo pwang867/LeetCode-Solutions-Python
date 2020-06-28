@@ -1,4 +1,6 @@
 # bit manipulation, find each bit for the result
+# lots of edge case for overflow, handle them well
+
 # edge case: divisor == 0, integer overflow
 # edge case: dividend == -1<<31 and divisor == -1
 

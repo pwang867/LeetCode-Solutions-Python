@@ -20,6 +20,7 @@ class Solution(object):
             if parent[node] != node:
                 parent[node] = find(parent[node])
             return parent[node]
+
         def union(u, v):
             p, q = find(u), find(v)
             if p != q:
@@ -32,7 +33,7 @@ class Solution(object):
         
         # do union find on final state
         parent = {(-1, -1): (-1, -1)}   # (-1, -1) is the virtual node
-        size   = {(-1, -1): 0}
+        size = {(-1, -1): 0}
         for j in range(n):
             if grid[0][j] == 1:
                 parent[(0, j)] = (-1, -1)
@@ -65,15 +66,17 @@ class Solution(object):
                     if 0 <= p < m and 0 <= q < n and grid[p][q] == 1:
                         union((i, j), (p, q))
                 cur_cnt = size[find((-1, -1))]
-                res.append(max(cur_cnt - pre_cnt -1, 0))
+                res.append(max(cur_cnt - pre_cnt - 1, 0))
         
         return res[::-1]
 
 
 """
-We have a grid of 1s and 0s; the 1s in a cell represent bricks.  A brick will not drop if and only if it is directly connected to the top of the grid, or at least one of its (4-way) adjacent bricks will not drop.
+We have a grid of 1s and 0s; the 1s in a cell represent bricks.  A brick will not drop if and only if it is 
+directly connected to the top of the grid, or at least one of its (4-way) adjacent bricks will not drop.
 
-We will do some erasures sequentially. Each time we want to do the erasure at the location (i, j), the brick (if it exists) on that location will disappear, and then some other bricks may drop because of that erasure.
+We will do some erasures sequentially. Each time we want to do the erasure at the location (i, j), 
+the brick (if it exists) on that location will disappear, and then some other bricks may drop because of that erasure.
 
 Return an array representing the number of bricks that will drop after each erasure in sequence.
 
@@ -90,7 +93,9 @@ grid = [[1,0,0,0],[1,1,0,0]]
 hits = [[1,1],[1,0]]
 Output: [0,0]
 Explanation: 
-When we erase the brick at (1, 0), the brick at (1, 1) has already disappeared due to the last move. So each erasure will cause no bricks dropping.  Note that the erased brick (1, 0) will not be counted as a dropped brick.
+When we erase the brick at (1, 0), the brick at (1, 1) has already disappeared due to the last move. 
+So each erasure will cause no bricks dropping.  Note that the erased brick (1, 0) will not be 
+counted as a dropped brick.
  
 
 Note:

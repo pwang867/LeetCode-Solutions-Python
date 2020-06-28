@@ -1,4 +1,7 @@
 '''
+Databricks phone interview
+
+
 binary tree
 extra pointer to parent
 
@@ -12,7 +15,7 @@ Morris Traversal
  / \
 3   4
 
-post order, 
+post order,
 
 three pointers:
 1. end: the end of virtual stack
@@ -30,11 +33,11 @@ initialize left_process to False
 
 # root's parent is None
 while end:
-   if left_process is False and left child exists: 
+   if left_process is False and left child exists:
         end = node.left
    else:
         # check right
-        if right is pre or None: 
+        if right is pre or None:
             process node
             pre = node
             end = end.parent
@@ -42,7 +45,6 @@ while end:
         else:
             move end to right
             left_process = False
-            
 
 '''
 

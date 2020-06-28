@@ -1,4 +1,6 @@
 # method 2: dp, simplified from method 1, with greedy
+
+
 class Solution(object):
     def minDistance(self, word1, word2):
         """

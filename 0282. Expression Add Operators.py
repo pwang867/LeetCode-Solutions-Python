@@ -1,6 +1,43 @@
+# coding=utf-8
 
-# simply use brute force DFS
+
+# method 2, same as method 1, but do not use backtrack to simplify the code
+
+
 class Solution(object):
+    def addOperators(self, num, target):
+        """
+        :type num: str
+        :type target: int
+        :rtype: List[str]
+        """
+        res = []
+        path = []
+        self.dfs(num, 0, 0, 0, target, path, res)
+        return res
+
+    def dfs(self, num, i, total, pre, target, path, res):
+        if i == len(num):
+            if total + pre == target:
+                res.append("".join(path))
+            return
+        cur = 0
+        for j in range(i, len(num)):
+            cur = cur * 10 + int(num[j])
+            if not path:
+                self.dfs(num, j+1, total + pre, cur, target, [str(cur)], res)
+            else:
+                self.dfs(num, j+1, total+pre, cur, target, path+["+", str(cur)], res)
+                self.dfs(num, j+1, total+pre, -cur, target, path+["-", str(cur)], res)
+                self.dfs(num, j+1, total, pre*cur, target, path+["*", str(cur)], res)
+            if cur == 0:
+                break
+
+
+# method 1, simply use brute force DFS, backtrack
+
+
+class Solution1(object):
     def addOperators(self, num, target):
         """
         :type num: str

@@ -8,6 +8,8 @@ class Node(object):
 
 # method 2, combine node creation and relationship copy
 # make sure that: 1. a node is only copied once, 2. a node's relationship is only processed once
+
+
 class Solution(object):
     def cloneGraph(self, node):
         """
@@ -36,6 +38,8 @@ class Solution(object):
 
 
 # method 1: separate creating node and copying relation
+
+
 class Solution1(object):
     def cloneGraph(self, node):
         """

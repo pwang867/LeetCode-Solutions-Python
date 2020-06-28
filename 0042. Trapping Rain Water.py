@@ -4,6 +4,7 @@
 # those two conditions are equivalent, and it can be proved that at any time, 
 # either height[left]==left_max or height[right] == right_max
 
+
 class Solution(object):
     def trap(self, height):
         """
@@ -91,10 +92,12 @@ class Solution3(object):
     
                 
 """
-Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+Given n non-negative integers representing an elevation map where the width of each bar is 1, 
+compute how much water it is able to trap after raining.
 
 
-The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image!
+The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 
+6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image!
 
 Example:
 

@@ -1,5 +1,7 @@
 # method 2: time O(n^2), space O(1)
 # search from behind, use the property that (smallest + middle < largest)
+
+
 class Solution(object):
     def triangleNumber(self, nums):
         """

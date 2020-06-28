@@ -3,6 +3,7 @@
 # 2**31 = 2147483648
 # corner case: -1111111114, 9463847412
 
+
 class Solution(object):
     def reverse(self, x):
         """

@@ -37,7 +37,7 @@ class FileSystem(object):
         if not path:
             return []
         else:
-            return path.split('/')
+            return path.split('/')    # watch out when path == "", "".split("/") will be [""] instead of []
 
     def mkdir(self, path):
         """

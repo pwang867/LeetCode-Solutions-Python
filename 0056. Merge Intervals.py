@@ -11,7 +11,7 @@ class Solution(object):
         res = []
         for interval in intervals:
             start, end = interval
-            if not res or start > res[-1][-1]:
+            if not res or start > res[-1][-1]:   # no intersection with last interval in result
                 res.append(interval)
             else:
                 res[-1][-1] = max(res[-1][-1], end)

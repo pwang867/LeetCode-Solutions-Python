@@ -1,6 +1,10 @@
 # reservoir sampling
 # space O(1), time O(n)
+
+
 import random
+
+
 class Solution(object):
     def __init__(self, nums):
         self.nums = nums
@@ -15,12 +19,14 @@ class Solution(object):
                     res = i
         return res
 
-print(Solution([1,2,3,3,3]).pick(3))
-
 
 # extra space O(n), time pick O(1)
+
+
 import random
 from collections import defaultdict
+
+
 class Solution1(object):
 
     def __init__(self, nums):
@@ -49,8 +55,13 @@ class Solution1(object):
 # param_1 = obj.pick(target)
 
 
+if __name__ == "__main__":
+    print(Solution([1, 2, 3, 3, 3]).pick(3))
+
+
 """
-Given an array of integers with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.
+Given an array of integers with possible duplicates, randomly output the index of a given target number. 
+You can assume that the given target number must exist in the array.
 
 Note:
 The array size can be very large. Solution that uses too much extra space will not pass the judge.

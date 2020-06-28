@@ -2,6 +2,7 @@
 # easy to make small mistakes
 # be very careful about the two edges: lower, upper
 
+
 class Solution(object):
     def findMissingRanges(self, nums, lower, upper):
         """

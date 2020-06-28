@@ -1,5 +1,7 @@
 # minimum spanning tree, time O(N + m*log(m)), space O(N)
 # use UnionFind class
+
+
 class Solution(object):
     def minimumCost(self, N, connections):
         uf = UnionFind(range(1, N + 1))

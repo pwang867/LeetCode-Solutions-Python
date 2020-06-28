@@ -1,4 +1,6 @@
 # time O(n), in place
+
+
 class Solution(object):
     def removeElement(self, nums, val):
         """
@@ -15,6 +17,7 @@ class Solution(object):
                 end += 1
                 
         return end
+
 
 """
 Given an array nums and a value val, remove all instances of that value in-place and return the new length.

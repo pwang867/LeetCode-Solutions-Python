@@ -1,5 +1,7 @@
 # basic DFS, the if conditions for recursion are important
 # time/space Catalan Number, (2n)!/n!/n!/(n+1)
+
+
 class Solution(object):
     def generateParenthesis(self, n):
         """

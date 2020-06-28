@@ -1,6 +1,7 @@
 # method 3: use binary search twice to search, time O(log(n))
 # time O(log(n)) space O(1)
 
+
 class Solution2(object):
     def searchRange(self, nums, target):
         """

@@ -10,6 +10,7 @@
 # one of root.left and root.right must be completely filled
 # time O(h^2)
 
+
 class Solution(object):
     def countNodes(self, root):
         """
@@ -20,11 +21,11 @@ class Solution(object):
             return 0
         left, right = root, root
         height = 0
-        while right: # right edge must reach the end no later than left edge
+        while right:                   # right edge must reach the end no later than left edge
             right = right.right
             left = left.left
             height += 1
-        if not left:  # the tree is completely filled
+        if not left:                   # the tree is completely filled
             return 2**height - 1
         else:
             return self.countNodes(root.left) + 1 + self.countNodes(root.right)
@@ -36,7 +37,9 @@ Given a complete binary tree, count the number of nodes.
 Note:
 
 Definition of a complete binary tree from Wikipedia:
-In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
+In a complete binary tree every level, except possibly the last, 
+is completely filled, and all nodes in the last level are as far left as possible. 
+It can have between 1 and 2h nodes inclusive at the last level h.
 
 Example:
 

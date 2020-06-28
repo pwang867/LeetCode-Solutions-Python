@@ -1,7 +1,10 @@
-# time O(m*m*n*n), space O(m*n)
-# brute force BFS
+# time O(m^2*n^2), space O(m*n)
+# brute force BFS, start from every building, and perform BFS for each of the BFS
+
 
 from collections import deque
+
+
 class Solution(object):
     def shortestDistance(self, grid):
         """
@@ -49,15 +52,15 @@ class Solution(object):
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 0:
-                    if dists[i][j] == float('inf'):  # empty land (i, j) is excluded
-                        grid[i][j] = 2
+                    if dists[i][j] == float('inf'):  # empty land (i, j) can not be reached by one house
+                        grid[i][j] = 2    # mark it as a obstacle
                     else:
                         total_dists[i][j] += dists[i][j]
 
 
-
 """
-You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
+You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. 
+You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
 
 Each 0 marks an empty land which you can pass by freely.
 Each 1 marks a building which you cannot pass through.

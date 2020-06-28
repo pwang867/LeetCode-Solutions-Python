@@ -1,3 +1,4 @@
+# coding=utf-8
 # solution2: divide and conquer
 # time complexity: O(Catalan_number(n)) where n is number of operators
 
@@ -26,7 +27,7 @@ class Solution(object):
                             ans.append(x-y)
                         else:
                             ans.append(x*y)
-        if not ans:  # edge case: when input is a single number
+        if not ans:  # edge case: when input is a single number, easy to forget
             ans = [int(input)]
         self.memo[input] = ans
         return ans
@@ -34,6 +35,7 @@ class Solution(object):
 
 # method 2, dynamic programming, time O(Catalan(n)), space: O(n^2*Catalan(n))
 # ref: https://www.cnblogs.com/grandyang/p/4682458.html
+
 
 """
 当然，这道题还可以用动态规划 Dynamic Programming 来做，但明显没有分治法来的简单，
@@ -110,15 +112,17 @@ Explanation:
 (((2*3)-4)*5) = 10
 """
 
-input = "2*3-4*5-2*3-4*5-2*3-4*5"
-print(len(Solution().diffWaysToCompute(input)))
+if __name__ == "__main__":
+    input = "2*3-4*5-2*3-4*5-2*3-4*5"
+    print(len(Solution().diffWaysToCompute(input)))
 
-arr = [0]*15  # arr is the number of different partitions
-arr[0] = 1
-arr[1] = 1
-i = 2
-while i < 15:
-    for j in range(i):
-        arr[i] += arr[j]*arr[i-1-j]
-    i += 1
-print(arr)
+    arr = [0]*15  # arr is the number of different partitions
+    arr[0] = 1
+    arr[1] = 1
+    i = 2
+    while i < 15:
+        for j in range(i):
+            arr[i] += arr[j]*arr[i-1-j]
+        i += 1
+    print(arr)
+

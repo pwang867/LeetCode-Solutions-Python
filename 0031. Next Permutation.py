@@ -2,6 +2,8 @@
 # 1. search backwards until the first i that nums[i] < nums[i+1]
 # 2. then change direction to travel right to find the last nums[j] > nums[i], binary search
 # 3. swap nums[i] and nums[j] and reverse nums[i+1:]
+
+
 class Solution(object):
     def nextPermutation(self, nums):
         """

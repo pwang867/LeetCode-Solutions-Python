@@ -1,6 +1,7 @@
 # similar to # 123. Best Time to Buy and Sell Stock III
 # iterate on the middle block
 
+
 class Solution(object):
     def maxSumOfThreeSubarrays(self, nums, k):
         """
@@ -10,6 +11,7 @@ class Solution(object):
         """
         if not nums or len(nums) < 3*k:
             return []
+
         # get presum
         total = 0
         pre_sums = []
@@ -17,6 +19,7 @@ class Solution(object):
             total += num
             pre_sums.append(total)
         n = len(nums)
+
         # find the max_sum of a single k-size subarray in nums[:i+1]
         left = [[-1, -1] for _ in range(n)]  # [[index, max_sum]]
         cur = sum(nums[:k])
@@ -27,6 +30,7 @@ class Solution(object):
                 left[i] = [i-k+1, cur]
             else:
                 left[i] = left[i-1]
+
         # find the max_sum of a single k-size subarray in nums[i:]
         right = [[-1, -1] for _ in range(n)]
         cur = sum(nums[-k:])
@@ -37,6 +41,7 @@ class Solution(object):
                 right[i] = [i, cur]
             else:
                 right[i] = right[i+1]
+
         # find the result by iterating the starting index of middle block
         max_sum = -float('inf')
         res = []
@@ -48,13 +53,13 @@ class Solution(object):
         return res
 
 
-
 """
 In a given array nums of positive integers, find three non-overlapping subarrays with maximum sum.
 
 Each subarray will be of size k, and we want to maximize the sum of all 3*k entries.
 
-Return the result as a list of indices representing the starting position of each interval (0-indexed). If there are multiple answers, return the lexicographically smallest one.
+Return the result as a list of indices representing the starting position of each interval (0-indexed). 
+If there are multiple answers, return the lexicographically smallest one.
 
 Example:
 

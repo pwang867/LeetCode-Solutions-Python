@@ -1,7 +1,6 @@
 # we can also use s.rstrip() and s.split(), but will use O(n) space
 
 
-
 # time O(len(last_word)), space O(1)
 
 

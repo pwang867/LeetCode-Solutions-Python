@@ -1,6 +1,8 @@
 # standard one pass with swap, similar to remove duplicates in sorted array
 # edge case: [1,2,...,n]
 # time O(n), space O(1)
+
+
 class Solution(object):
     def firstMissingPositive(self, nums):
         """

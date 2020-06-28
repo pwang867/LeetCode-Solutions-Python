@@ -1,5 +1,7 @@
 # preprocessing, time O(n)
 # each call of .sumRange(): O(1)
+
+
 class NumArray(object):
 
     def __init__(self, nums):
@@ -12,7 +14,6 @@ class NumArray(object):
         for num in nums:
             total += num
             self.sums.append(total)
-        
 
     def sumRange(self, i, j):
         """
@@ -26,13 +27,12 @@ class NumArray(object):
             return self.sums[j] - self.sums[i-1]  # mistake: - self.sums[i]
         
 
-
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
 # param_1 = obj.sumRange(i,j)
 
 """
-Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
+Given an integer array nums, find the sum of the elements between indices i and j (i <= j), inclusive.
 
 Example:
 Given nums = [-2, 0, 3, -5, 2, -1]

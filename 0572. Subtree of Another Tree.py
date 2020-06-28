@@ -7,6 +7,8 @@
 
 # method 2, iteration, time O(n*m), space O(n+m)
 # time complexity can be optimized to O(m+n) using KMP pattern match
+
+
 class Solution(object):
     def isSubtree(self, s, t):
         s_list = self.preorderSerialize(s)
@@ -37,6 +39,8 @@ class Solution(object):
 
 
 # method 1, recursion, time O(n*m), space O(n) stack memory
+
+
 class Solution1(object):
     def isSubtree(self, s, t):
         """
@@ -67,9 +71,10 @@ class Solution1(object):
         return self.isSame(s.left, t.left) and self.isSame(s.right, t.right)
     
 
-
 """
-Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values 
+with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. 
+The tree s could also be considered as a subtree of itself.
 
 Example 1:
 Given tree s:

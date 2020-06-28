@@ -1,4 +1,6 @@
 # time O(n), space O(1)
+
+
 class Solution(object):
     def swapPairs(self, head):
         dummy = ListNode(0)
@@ -28,7 +30,8 @@ class ListNode(object):
 
 # method 1, same as method 2, but use a single variable
 
-class Solution(object):
+
+class Solution1(object):
     def swapPairs(self, head):
         """
         :type head: ListNode

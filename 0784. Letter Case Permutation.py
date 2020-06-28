@@ -1,30 +1,31 @@
 # simple dfs, time/space O(res)
+
+
 class Solution(object):
     def letterCasePermutation(self, S):
         """
         :type S: str
         :rtype: List[str]
         """
-        if not S:
-            return [""]
+        arr = list(S.lower())
         res = []
-        self.dfs(list(S), 0, res)
+        self.dfs(arr, 0, res)
         return res
-    
-    def dfs(self, s, i, res):
-        if i == len(s):
-            res.append("".join(s))
-        else:
-            s[i] = s[i].lower()
-            self.dfs(s, i+1, res)
-            if s[i].lower() != s[i].upper():
-                s[i] = s[i].upper()
-                self.dfs(s, i+1, res)
 
+    def dfs(self, arr, start, res):
+        if start == len(arr):
+            res.append("".join(arr))
+            return
+        self.dfs(arr, start + 1, res)
+        if arr[start].isalpha():
+            arr[start] = arr[start].upper()
+            self.dfs(arr, start + 1, res)
+            arr[start] = arr[start].lower()
 
 
 """
-Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string.  Return a list of all possible strings we could create.
+Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string.  
+Return a list of all possible strings we could create.
 
 Examples:
 Input: S = "a1b2"

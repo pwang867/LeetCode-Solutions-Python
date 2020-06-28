@@ -5,6 +5,8 @@
 # space=O(n)
 # dp[i] means the smallest ending element for a LIS with length i+1
 # this method will have trouble returning the sequence
+
+
 import bisect
 class Solution(object):
     def lengthOfLIS(self, nums):
@@ -21,8 +23,11 @@ class Solution(object):
                 dp[i] = num
         return len(dp)
 
+
 # method 1: dp, time/space O(n^2), but is able to return the longest sequence
 # dp[i] means the length of LIS ending with nums[i]
+
+
 class Solution1(object):
     def lengthOfLIS(self, nums):
         """

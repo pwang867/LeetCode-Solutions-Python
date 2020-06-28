@@ -1,5 +1,78 @@
-# use stack, time/spaceO(n), space can be reduced to O(1)
+# method 2, use the same method that works for calculator I, II, and III
+# tiem/space O(n)
+
+class Solution2(object):
+    def calculate(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        queue = self.preprocess(s)
+        total, pre, num = 0, 0, 0
+        pre_op = "+"
+        while queue:
+            c = queue.popleft()
+            if c.isdigit():
+                num = num * 10 + int(c)
+            else:
+                if pre_op == "+":
+                    total += pre
+                    pre = num
+                elif pre_op == "-":
+                    total += pre
+                    pre = -num
+                elif pre_op == "*":
+                    pre *= num
+                elif pre_op == "/":
+                    pre = pre // num if pre >= 0 else -((-pre) // num)     # in python, -3//2 = -2, -(3//2) = -1
+                pre_op = c
+                num = 0
+        return total + pre
+
+    def preprocess(self, s):
+        queue = collections.deque([c for c in s if c != " "])
+        queue.append("+")
+        queue.append("0")
+        return queue
+
+
+# method 3, optimized from method 2, time O(n), space O(1)
+
+
 class Solution(object):
+    def calculate(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        total, pre, num = 0, 0, 0
+        pre_op = "+"
+        i = 0
+        while i <= len(s):   # we need i == len(s) to trigger the last step
+            if i < len(s) and s[i].isdigit():
+                num = num * 10 + int(s[i])
+            elif i == len(s) or s[i] in "+-*/":
+                if pre_op == "+":
+                    total += pre
+                    pre = num
+                elif pre_op == "-":
+                    total += pre
+                    pre = -num
+                elif pre_op == "*":
+                    pre *= num
+                elif pre_op == "/":
+                    pre = pre // num if pre >= 0 else -((-pre) // num)
+                if i < len(s):
+                    pre_op = s[i]
+                    num = 0
+            i += 1
+        return total + pre
+
+
+# method 1, use stack, time/spaceO(n), space can be reduced to O(1)
+
+
+class Solution1(object):
     def calculate(self, s):
         """
         :type s: str
@@ -40,7 +113,8 @@ class Solution(object):
 """
 Implement a basic calculator to evaluate a simple expression string.
 
-The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . The integer division should truncate toward zero.
+The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . 
+The integer division should truncate toward zero.
 
 Example 1:
 

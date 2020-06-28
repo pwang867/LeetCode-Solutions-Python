@@ -1,64 +1,63 @@
-class Solution(object):
+# time/space O(res)
+# the solution below will use a lot of early termination
+# we can guarantee the final answer will be correct, but there will still have some waste in the middle,
+# such as for case (())(, we will still have a branch deleting the first "("
+
+
+class Solution1(object):
     def removeInvalidParentheses(self, s):
         """
         :type s: str
         :rtype: List[str]
         """
-        right_remove = 0
-        left_remove = 0
+        left_del, right_del = 0, 0  # left_del means number of "(" to delete
         left_total = 0
-        right_total = 0
-        for c in s:
+        for i, c in enumerate(s):
             if c == "(":
+                left_del += 1
                 left_total += 1
-                left_remove += 1
             elif c == ")":
-                right_total += 1
-                if left_remove == 0:
-                    right_remove += 1
+                if left_del == 0:
+                    right_del += 1
                 else:
-                    left_remove -= 1
-        res = set()
-        path = []
-        self.dfs(s, 0, res, path, left_total - left_remove, 
-                 right_total - right_remove, left_remove, right_remove)
-        return list(res)
-    
-    
-    def dfs(self, s, i, res, path, leftcnt, rightcnt, left_remove, right_remove):
-        """
-        leftcnt: number of left parentheses to add
-        left_remove: number of left parentheses to remove
-        """
+                    left_del -= 1
+        # mistake (forget letters): left_add = right_add = (len(s) - left_del - right_del)//2
+        left_add = right_add = left_total - left_del  # left_add means number of "(" to add
+        res = []
+        self.dfs(s, 0, left_del, right_del, left_add, right_add, False, [], res)
+        return res
+
+    def dfs(self, s, i, left_del, right_del, left_add, right_add,
+            pre_del, path, res):
+        # pre_del means if the previous "(" is deleted. For "((())", we will only try deleting the first "("
         if i == len(s):
-            res.add("".join(path))  # need to remove duplicates
+            res.append("".join(path))
             return
-        
         if s[i] == "(":
-            if leftcnt > 0:  # do not delete
-                path.append(s[i])  
-                self.dfs(s, i+1, res, path, leftcnt-1, rightcnt, 
-                         left_remove, right_remove)
+            if left_add > 0:
+                path.append("(")
+                self.dfs(s, i + 1, left_del, right_del, left_add - 1,
+                         right_add, False, path, res)
                 path.pop()
-            if left_remove > 0:  # delete
-                self.dfs(s, i+1, res, path, leftcnt, rightcnt, 
-                         left_remove-1, right_remove)
+            if left_del > 0 and (i == 0 or s[i] != s[i - 1] or pre_del):  # avoid duplicate for cases like "(((a)"
+                self.dfs(s, i + 1, left_del - 1, right_del, left_add,
+                         right_add, True, path, res)
         elif s[i] == ")":
-            if rightcnt > leftcnt:  # not rightcnt > 0
-                path.append(s[i])
-                self.dfs(s, i+1, res, path, leftcnt, rightcnt-1,
-                        left_remove, right_remove)
+            if right_add > left_add:
+                path.append(")")
+                self.dfs(s, i + 1, left_del, right_del, left_add,
+                         right_add - 1, False, path, res)
                 path.pop()
-            if right_remove > 0:
-                self.dfs(s, i+1, res, path, leftcnt, rightcnt,
-                        left_remove, right_remove-1)
+            if right_del > 0 and (i == 0 or s[i] != s[i - 1] or pre_del):
+                self.dfs(s, i + 1, left_del, right_del - 1, left_add,
+                         right_add, True, path, res)
         else:
             path.append(s[i])
-            self.dfs(s, i+1, res, path, leftcnt, rightcnt,
-                    left_remove, right_remove)
-            path.pop()  # do not forget
-        
-                
+            self.dfs(s, i + 1, left_del, right_del, left_add,
+                     right_add, False, path, res)
+            path.pop()
+
+
 """
 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
 

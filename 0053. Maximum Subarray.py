@@ -1,6 +1,8 @@
 # method 3: divide and conquer, time O(n*log(n)), not optimal solution
 # compare left part, right part, and middle part
 # for middle max, we need to search in two directions
+
+
 class Solution(object):
     def maxSubArray(self, nums):
         return self.maxSubArrayHelper(nums, 0, len(nums)-1)
@@ -29,6 +31,8 @@ class Solution(object):
         
 
 # method 2: simplified from method 1
+
+
 class Solution2(object):
     def maxSubArray(self, nums):
         """

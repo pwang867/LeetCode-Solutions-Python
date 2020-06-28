@@ -1,7 +1,49 @@
+# method 2, same as method 1, but with better template
+
+
+import collections
+
+
+class Solution2(object):
+    def minWindow(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        if not t:
+            return ""
+        window = collections.Counter(t)
+        res = ""
+        max_len = len(s) + 1
+        cnt = len(window)
+        left = 0
+        for right, c in enumerate(s):
+            if c not in window:
+                continue
+            else:
+                window[c] -= 1
+                if window[c] == 0:
+                    cnt -= 1
+            while left <= right:
+                if s[left] not in window:
+                    left += 1
+                else:
+                    if window[s[left]] < 0:
+                        window[s[left]] += 1
+                        left += 1
+                    else:
+                        break
+            if cnt == 0 and right - left + 1 < max_len:
+                max_len = right - left + 1
+                res = s[left:right + 1]
+        return res
+
+
 # same as method 1, but the logic is more clear and easier to explain
 # time O(m+n)
 from collections import Counter
-class Solution(object):
+class Solution1(object):
     def minWindow(self, s, t):
         """
         :type s: str
@@ -96,6 +138,7 @@ class Solution1(object):
 
         # return min_width
         return substring
+
 
 """
 Given a string S and a string T, 

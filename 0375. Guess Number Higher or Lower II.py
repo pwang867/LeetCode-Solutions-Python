@@ -2,9 +2,10 @@
 
 # method 2: dp
 # time O(n^3), space O(n^2)
+
+
 class Solution(object):
     def getMoneyAmount(self, n):
-        
         dp = [[0]*(n+1) for _ in range(n+1)]
         # dp[i][i+1] must be zero, so length==1 is skipped
         for length in range(2, n+1):
@@ -17,8 +18,9 @@ class Solution(object):
         return dp[1][n]
 
 
-
 # method 1: recursion with memo, time O(n^3), space O(n^2)
+
+
 class Solution1(object):
     def getMoneyAmount(self, n):
         """
@@ -47,7 +49,8 @@ class Solution1(object):
         
         self.memo[(low, high)] = min_money
         return min_money
-    
+
+
 """
 We are playing the Guess Game. The game is as follows:
 
@@ -55,7 +58,8 @@ I pick a number from 1 to n. You have to guess which number I picked.
 
 Every time you guess wrong, I'll tell you whether the number I picked is higher or lower.
 
-However, when you guess a particular number x, and you guess wrong, you pay $x. You win the game when you guess the number I picked.
+However, when you guess a particular number x, and you guess wrong, you pay $x. 
+You win the game when you guess the number I picked.
 
 Example:
 
@@ -68,5 +72,5 @@ Third round:  You guess 9, I tell you that it's lower. You pay $9.
 Game over. 8 is the number I picked.
 
 You end up paying $5 + $7 + $9 = $21.
-Given a particular n ≥ 1, find out how much money you need to have to guarantee a win.
+Given a particular n >= 1, find out how much money you need to have to guarantee a win.
 """

@@ -1,4 +1,5 @@
 # time log(x) + log(y)
+# corner cases: 1. z == 0, 2. z > x + y
 
 class Solution(object):
     def canMeasureWater(self, x, y, z):

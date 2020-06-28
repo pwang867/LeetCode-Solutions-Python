@@ -1,10 +1,60 @@
+# both critical connections and critical routers can be solved by Tarjan's Algorithm
+
+
+
+# method 3, optimized from method 2
+
+
+class Solution(object):
+    def criticalConnections(self, n, connections):
+        """
+        :type n: int
+        :type connections: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        graph = self.build_graph(connections)
+        res = []
+        disc = [-1] * n    # will also be used as visited
+        low = [n] * n
+        parent = [-1] * n
+        self.time = 0
+        for i in range(n):   # can handle edge cases where there are multiple components in the graph
+            if disc[i] == -1:
+                self.tarjan(i, graph, disc, low, parent, res)
+        return res
+
+    def tarjan(self, u, graph, disc, low, parent, res):
+        disc[u] = self.time
+        low[u] = self.time
+        self.time += 1
+        for v in graph[u]:
+            if v == parent[u]:
+                continue
+            elif disc[v] != -1:
+                low[u] = min(low[u], low[v])
+            else:
+                parent[v] = u
+                self.tarjan(v, graph, disc, low, parent, res)
+                if low[v] > disc[u]:
+                    res.append([u, v])
+                low[u] = min(low[u], low[v])
+
+    def build_graph(self, connections):
+        # build undirected graph, graph = {parent: [children]}
+        graph = defaultdict(list)
+        for u, v in connections:
+            graph[u].append(v)
+            graph[v].append(u)
+        return graph
+
+
 # method 2: use Tarjan's Algorithm, time O(V+E), space O(V+E)
 # ref: edges in graph, https://www.geeksforgeeks.org/bridge-in-a-graph/
 # ref: strongly connected components, https://www.youtube.com/watch?v=TyWtx7q2D7Y
 
 
 from collections import defaultdict
-class Solution(object):
+class Solution1(object):
     def criticalConnections(self, n, connections):
         graph = self.buildGraph(connections)
         visited = [False]*n    # can be deleted, can use disc as visited
@@ -31,7 +81,7 @@ class Solution(object):
                     res.append([u, v])
             else:
                 if v != parent[u]:
-                    low[u] = min(low[u], disc[v])     # egge case: [[0,1], [1,2],[2,0],[2,3],[3,0]]
+                    low[u] = min(low[u], disc[v])     # edge case: [[0,1], [1,2],[2,0],[2,3],[3,0]]
                     # also OK for this problem: low[u] = min(low[u], low[v])
     
     def buildGraph(self, edges):
@@ -40,6 +90,9 @@ class Solution(object):
             graph[u].append(v)
             graph[v].append(u)
         return graph
+
+
+# critical Routers, Tarjan
 
 
 class SolutionX(object):
@@ -68,7 +121,7 @@ class SolutionX(object):
         disc[u] = self.time
         low[u] = self.time
         self.time += 1
-        children = 0   # number of child component connected to u
+        children = 0   # number of child component connected to u, like a "8" shape
         for v in graph[u]:
             if v == parent[u]:
                 continue
@@ -79,7 +132,7 @@ class SolutionX(object):
                 low[u] = min(low[u], low[v])
                 if parent[u] == -1 and children == 2:
                     res.add(u)
-                if parent[u] != -1 and low[v] >= disc[u]:
+                if parent[u] != -1 and low[v] >= disc[u]:  # wrong: low[v] > disc[u]:
                     res.add(u)
             else:
                 low[u] = min(low[u], disc[v])

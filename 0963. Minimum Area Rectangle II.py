@@ -1,6 +1,10 @@
 # use (diagonal_length**2, center_point*2) as the key
-# https://leetcode.com/problems/minimum-area-rectangle-ii/discuss/208361/JAVA-O(n2)-using-Map     
+# https://leetcode.com/problems/minimum-area-rectangle-ii/discuss/208361/JAVA-O(n2)-using-Map
+
+
 from collections import defaultdict
+
+
 class Solution(object):
     def minAreaFreeRect(self, points):
         """
@@ -42,7 +46,8 @@ class Solution(object):
 
 
 """
-Given a set of points in the xy-plane, determine the minimum area of any rectangle formed from these points, with sides not necessarily parallel to the x and y axes.
+Given a set of points in the xy-plane, determine the minimum area of any rectangle formed from these points, 
+with sides not necessarily parallel to the x and y axes.
 
 If there isn't any rectangle, return 0.
 

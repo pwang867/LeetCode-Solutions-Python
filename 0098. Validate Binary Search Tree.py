@@ -41,6 +41,8 @@ class Solution(object):
         
 # method 4: in order, iteration
 # time O(n), space O(depth)
+
+
 class Solution4(object):
     def isValidBST(self, root):
         if not root:

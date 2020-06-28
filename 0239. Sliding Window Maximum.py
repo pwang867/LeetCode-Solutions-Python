@@ -2,6 +2,7 @@
 # store value and index, or only store index to save space
 # time O(n), space O(k)
 
+
 from collections import deque
 class Solution(object):
     def maxSlidingWindow(self, nums, k):
@@ -19,7 +20,7 @@ class Solution(object):
             while queue and nums[queue[-1]] <= nums[i]:  # make queue decreasing
                 queue.pop()
             queue.append(i)
-            while queue[0] <= i-k:  # remove index not in window anymore
+            if queue[0] <= i-k:  # remove index not in window anymore
                 queue.popleft()
             if i >= k-1:
                 res.append(nums[queue[0]])

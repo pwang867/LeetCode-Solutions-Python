@@ -1,4 +1,6 @@
-# DFS, time O(2^n) or O(result), space O(2^n*n)
+# DFS, time O(n*2^n) or O(result), space O(2^n*n)
+
+
 class Solution(object):
     def subsets(self, nums):
         """
@@ -16,7 +18,6 @@ class Solution(object):
             path.append(nums[i])
             self.backtrack(nums, i + 1, path, ans)
             path.pop()
-
 
 
 """

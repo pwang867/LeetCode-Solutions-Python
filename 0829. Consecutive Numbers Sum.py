@@ -15,11 +15,11 @@ class Solution3(object):
             if (N-k*(k-1)//2) % k == 0:
                 cnt += 1
         return cnt
-    
-
 
 
 # method 2, presums, time O(N), TLE
+
+
 class Solution2(object):
     def consecutiveNumbersSum(self, N):
         """

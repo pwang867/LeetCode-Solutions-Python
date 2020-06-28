@@ -1,4 +1,6 @@
 # recursion, time O(n*len(res))
+
+
 class Solution(object):
     def findStrobogrammatic(self, n):
         """
@@ -7,7 +9,7 @@ class Solution(object):
         """
         if n == 0: return []
         path = [""]*n
-        d = {"0":"0", "1":"1", "6":"9", "9":"6", "8":"8"}
+        d = {"0": "0", "1": "1", "6": "9", "9": "6", "8": "8"}
         res = []
         self.helper(path, 0, d, n, res)
         return res

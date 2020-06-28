@@ -27,7 +27,7 @@ class Solution(object):
         for i in range(len(A)):  # corner case: A[i] == B[i] == candidate
             if A[i] == candidate:
                 cntA += 1
-            if B[i] == candidate:
+            if B[i] == candidate:    # mistake: elif B[i] == candidate:
                 cntB += 1
             if A[i] != candidate and B[i] != candidate:
                 return -1

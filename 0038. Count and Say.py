@@ -1,4 +1,6 @@
 # sliding window
+
+
 class Solution(object):
     def countAndSay(self, n, pre="1"):
         """

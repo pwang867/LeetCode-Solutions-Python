@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -12,6 +13,7 @@ class TreeNode:
             self.left.printNode()
         if self.right:
             self.right.printNode()
+
 
 def buildTreeLevelOrder(arr):
     if not arr or not arr[0]:

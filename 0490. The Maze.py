@@ -2,7 +2,11 @@
 
 # only save the stopping positions, then we don't need to 
 # keep track of the current directions
+
+
 from collections import deque
+
+
 class Solution(object):
     def hasPath(self, maze, start, destination):
         """

@@ -29,6 +29,8 @@ class Solution(object):
 # dp[i] means the number of ways to decode s[:i]
 # dp[i] = dp[i-1] + dp[i-2], be careful about the index
 # similar to Fibonacci array
+
+
 class Solution1(object):
     def numDecodings(self, s):
         """
@@ -51,7 +53,6 @@ class Solution1(object):
         return dp[-1]
 
 
-    
 """
 A message containing letters from A-Z is being encoded 
 to numbers using the following mapping:

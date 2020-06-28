@@ -4,6 +4,8 @@
 
 # https://leetcode.com/problems/meeting-rooms-ii/discuss/67860/My-Python-Solution-With-Explanation
 # method 3: sort start and end time separately
+
+
 class Solution(object):
     def minMeetingRooms(self, intervals):
         """
@@ -30,6 +32,8 @@ class Solution(object):
 
 # method 2: soret start and end time together
 # space O(n), time O(n*log(n))
+
+
 class Solution2(object):
     def minMeetingRooms(self, intervals):
         """

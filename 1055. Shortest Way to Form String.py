@@ -1,4 +1,44 @@
+class Solution(object):
+    def shortestWay(self, source, target):
+        """
+        :type source: str
+        :type target: str
+        :rtype: int
+        """
+        if not source:
+            if not target:
+                return 0
+            else:
+                return -1
+        if not target:
+            return 0
+        m, n = len(source), len(target)
+        i, j = 0, 0
+        cycle = 0
+        res = 1
+        while j < n:
+            if source[i] == target[j]:
+                i += 1
+                j += 1
+                cycle = 0
+                if i == m:
+                    i = 0
+                    if j < n:  # tricky here
+                        res += 1
+            else:
+                i += 1
+                if i == m:
+                    i = 0
+                    res += 1
+                cycle += 1
+                if cycle == m:
+                    return -1
+        return res
+
+
 # linear scan, time O(len(target)*len(source)), space O(1)
+
+
 class Solution(object):
     def shortestWay(self, source, target):
         """
@@ -31,7 +71,8 @@ class Solution(object):
 """
 From any string, we can form a subsequence of that string by deleting some number of characters (possibly no deletions).
 
-Given two strings source and target, return the minimum number of subsequences of source such that their concatenation equals target. If the task is impossible, return -1.
+Given two strings source and target, return the minimum number of subsequences of source such that their 
+concatenation equals target. If the task is impossible, return -1.
 
  
 
@@ -44,7 +85,8 @@ Example 2:
 
 Input: source = "abc", target = "acdbc"
 Output: -1
-Explanation: The target string cannot be constructed from the subsequences of source string due to the character "d" in target string.
+Explanation: The target string cannot be constructed from the subsequences of source string 
+due to the character "d" in target string.
 Example 3:
 
 Input: source = "xyz", target = "xzyxz"

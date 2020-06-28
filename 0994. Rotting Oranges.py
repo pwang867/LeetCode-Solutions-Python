@@ -1,5 +1,18 @@
+"""
+easy to miss those edge cases:
+
+[[0]]: return 0
+
+[[1]]: return -1
+
+[[2]]: return 0
+
+[[2, 1, 1], [0, 0, 0], [1, 1, 1]]: return -1
+
+
 # time/space O(m*n)
 # edge case: grid is initially all rotten or all good
+"""
 
 
 import collections
@@ -10,7 +23,7 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        if not grid or not grid[0]:
+        if not grid or not grid[0]:   # return -1 or 0 ? discuss with interviewer
             return 0
         m, n = len(grid), len(grid[0])
         queue = collections.deque()
@@ -18,7 +31,7 @@ class Solution(object):
             for j in range(n):
                 if grid[i][j] == 2:
                     queue.append((i, j))
-        day = -1
+        day = -1     # wrong initilization: day = 0
         while queue:
             for _ in range(len(queue)):
                 i, j = queue.popleft()
@@ -28,11 +41,11 @@ class Solution(object):
                         grid[p][q] = 2
                         queue.append((p, q))
             day += 1
-        for i in range(m):
+        for i in range(m):       # easy to forget double check. Edge case: [[2, 1, 1], [0, 0, 0], [1, 1, 1]]
             for j in range(n):
                 if grid[i][j] == 1:
                     return -1
-        return max(day, 0)    # easy to miss max()
+        return max(day, 0)    # easy to miss max(), when the grid is all 0
 
 
 """

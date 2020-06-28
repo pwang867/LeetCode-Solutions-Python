@@ -1,0 +1,17 @@
+"""
+53 Maximum Subarray
+121 Best Time to Buy and Sell Stock
+152 Maximum Product Subarray
+238 Product of Array Except Self
+739 Daily Temperatures
+769 Max Chunks to Make Sorted
+768 Max Chunks to Make Sorted II
+821 Shortest Distance to a Character
+845 Longest Mountain in Array
+896 Monotonic Array
+candy (hard)
+
+
+
+"""
+

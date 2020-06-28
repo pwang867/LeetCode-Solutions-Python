@@ -23,6 +23,8 @@ class Solution(object):
     
 # method 2: brute force, time O(n^2), space O(1)
 # iterate every possible two nums
+
+
 class Solution2(object):
     def twoSum(self, nums, target):
         n = len(nums)

@@ -1,3 +1,6 @@
+# stack, time/space O(n)
+
+
 class Solution(object):
     def removeDuplicates(self, s, k):
         """
